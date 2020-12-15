@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/noFileLayout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="?attr/actionBarSize">
+
+    <TextView
+        android:id="@+id/tv_nodocument_found"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="17dp"
+        android:fontFamily="@font/roboto_medium"
+        android:src="@drawable/ic_no_doc_img"
+        android:text="No Document Found"
+        android:textAlignment="center"
+        android:textColor="@color/light_grey"
+        android:textSize="17dp"  />
+
+</RelativeLayout>

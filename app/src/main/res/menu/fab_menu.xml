@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/fab_gallery"
+        android:icon="@drawable/ic_add_multi"
+        android:title="" />
+
+    <item
+        android:id="@+id/fab_camera"
+        android:icon="@drawable/ic_camera"
+        android:title="" />
+</menu>

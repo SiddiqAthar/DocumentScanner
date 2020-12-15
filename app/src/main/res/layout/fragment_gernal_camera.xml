@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clickable="true"
+    android:clipToPadding="false"
+    android:fitsSystemWindows="true"
+    android:focusable="true">
+
+
+    <androidx.camera.view.PreviewView
+        android:id="@+id/previewView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/camera_bottom_bar"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        tools:layout_editor_absoluteX="45dp" />
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/mode_selection"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/settin_btn">
+
+        <ImageView
+            android:id="@+id/scan_shape"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_camera_scan_b"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <Button
+        android:id="@+id/btn_done_mutli"
+        style="@style/CustomButton"
+        android:layout_width="88dp"
+        android:layout_height="28dp"
+        android:background="@drawable/button_seagreen"
+        android:text="@string/done"
+        android:layout_marginBottom="20dp"
+        android:visibility="gone"
+         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/camera_bottom_bar"
+        app:layout_constraintEnd_toEndOf="@+id/pdf_btn" />
+
+    <ImageButton
+        android:id="@+id/settin_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="9dp"
+        android:background="@null"
+        android:src="@drawable/setting_ic"
+        app:layout_constraintEnd_toStartOf="@+id/pdf_btn"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/pdf_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        android:background="@null"
+        android:src="@drawable/pdf_ad_ic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/close_btn"
+        android:layout_width="29dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="25dp"
+        android:background="@null"
+        android:src="@drawable/ic_close_ic"
+        app:layout_constraintBottom_toBottomOf="@+id/settin_btn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+         android:id="@+id/mode_selection"
+        android:layout_width="148dp"
+        android:layout_height="30dp"
+         android:background="@drawable/button_single_mutli"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/camera_bottom_bar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+
+        <Button
+            android:id="@+id/btn_single"
+            style="@style/BottomNavigationViewActive"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:paddingStart="20dp"
+            android:text="Single"
+            android:textAllCaps="false"
+            android:textColor="@color/sea_green"
+            app:layout_constraintEnd_toStartOf="@+id/view" />
+
+        <View
+            android:id="@+id/view"
+
+            android:layout_width="0.5dp"
+            android:layout_height="14dp"
+            android:background="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btn_multi"
+            style="@style/BottomNavigationViewActive"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:paddingEnd="20dp"
+            android:text="Mutli"
+            android:textAllCaps="false"
+            android:textColor="@color/camera_bottom_nav_color"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/view" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/camera_bottom_bar"
+        android:layout_width="match_parent"
+        android:layout_height="121dp"
+        android:background="@color/dark_grey"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <LinearLayout
+            android:id="@+id/camera_menu"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:paddingStart="25dp"
+            android:paddingEnd="25dp"
+            android:weightSum="4"
+            app:layout_constraintBottom_toTopOf="@id/btnCapture"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <Button
+                android:id="@+id/menu_Whiteboard"
+                style="@style/BottomNavigationViewActive"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/dark_grey"
+                android:text="Whiteboard"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="@color/sea_green" />
+
+            <Button
+                android:id="@+id/menu_Form"
+                style="@style/BottomNavigationViewActive"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/dark_grey"
+                android:text="Form"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="@color/camera_bottom_nav_color" />
+
+            <Button
+                android:id="@+id/menu_Document"
+                style="@style/BottomNavigationViewActive"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/dark_grey"
+                android:text="Document"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="@color/camera_bottom_nav_color" />
+
+            <Button
+                android:id="@+id/menu_BusinessCard"
+                style="@style/BottomNavigationViewActive"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/dark_grey"
+                android:text="Business Card"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="@color/camera_bottom_nav_color" />
+
+        </LinearLayout>
+
+
+        <ImageButton
+            android:id="@+id/btnCapture"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_marginBottom="18dp"
+            android:background="@drawable/ic_scan_touch"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageView
+            android:id="@+id/gallery_iv"
+            android:layout_width="24dp"
+            android:layout_height="22dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="68dp"
+            android:layout_marginEnd="63dp"
+            android:layout_marginBottom="42dp"
+            android:src="@drawable/ic_import_gallery"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btnCapture"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:fontFamily="@font/roboto_regular"
+            android:text="Import"
+            android:textColor="@color/white"
+            android:textSize="10dp"
+            app:layout_constraintEnd_toEndOf="@id/gallery_iv"
+            app:layout_constraintStart_toStartOf="@id/gallery_iv"
+            app:layout_constraintTop_toBottomOf="@id/gallery_iv" />
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="49dp"
+            android:layout_marginEnd="68dp"
+            android:layout_marginBottom="30dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/btnCapture" >
+
+            <ImageView
+                android:id="@+id/sample_iv"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:scaleType="fitXY"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="1.0" />
+
+            <TextView
+                android:id="@+id/tv_images_count"
+                android:visibility="gone"
+                 android:textSize="12dp"
+                android:textColor="@color/white"
+                android:textAlignment="center"
+                android:fontFamily="@font/roboto_regular"
+                android:textStyle="bold"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:background="@drawable/button_seagreen"
+                android:layout_width="18dp"
+                android:layout_height="18dp"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

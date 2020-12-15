@@ -1,0 +1,75 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".views.activities.MultiScanActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:elevation="3dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:titleTextAppearance="@style/Toolbar.TitleText"
+        app:titleTextColor="@color/dark_black" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/rl"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/multi_imgs_rv"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/btn_done"
+            android:layout_marginBottom="18dp"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"/>
+
+
+
+   <!--     <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_multi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/btn_done"/>-->
+
+        <com.github.ag.floatingactionmenu.OptionsFabLayout
+            android:id="@+id/fab_l"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/btn_done"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:color="@color/colorAccent"
+            app:options_color="@color/colorPrimary"
+            app:options_menu="@menu/fab_menu"
+            app:src="@drawable/ic_add_new" />
+        
+
+        <Button
+            android:id="@+id/btn_done"
+            style="@style/CustomButton"
+            android:layout_width="148dp"
+            android:layout_height="52dp"
+             android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+             android:layout_marginBottom="24dp"
+            android:background="@drawable/button_pdf_pink"
+            android:text="@string/save_file"
+            android:textSize="20dp"
+            android:textAllCaps="false"
+            android:fontFamily="@font/roboto_medium"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

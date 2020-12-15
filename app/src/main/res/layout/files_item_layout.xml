@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rootLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white">
+
+
+    <RelativeLayout
+        android:id="@+id/fileTypeRl"
+        android:layout_width="39dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/pdf_bg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/fileTypeTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="PDF"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/fileNameTv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:ellipsize="end"
+        android:maxLength="35"
+        android:paddingEnd="5dp"
+        android:text="PPdf"
+        android:textColor="@color/dark_grey"
+        android:fontFamily="@font/roboto_bold"
+        android:textSize="12dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/moreImg"
+        app:layout_constraintStart_toEndOf="@+id/fileTypeRl"
+        app:layout_constraintTop_toTopOf="@+id/fileTypeRl" />
+
+    <TextView
+        android:id="@+id/sizeTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:text="Size : 3MB"
+        android:fontFamily="@font/roboto_regular"
+        android:textColor="@color/light_grey"
+        android:textSize="11dp"
+        app:layout_constraintStart_toStartOf="@+id/fileNameTv"
+        app:layout_constraintTop_toBottomOf="@+id/fileNameTv" />
+
+    <TextView
+        android:id="@+id/dateTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:text="10-10-2020"
+        android:fontFamily="@font/roboto_medium"
+        android:textColor="@color/light_grey"
+        android:textSize="11dp"
+        app:layout_constraintEnd_toStartOf="@+id/moreImg"
+        app:layout_constraintTop_toTopOf="@+id/sizeTv" />
+
+    <ImageView
+        android:id="@+id/moreImg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:src="@drawable/ic_more"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <CheckBox
+        android:id="@+id/checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:src="@drawable/ic_more"
+        android:visibility="gone"
+        android:padding="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <View
+        android:id="@+id/empty_view"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/moreImg"
+        app:layout_constraintStart_toStartOf="@+id/fileTypeRl"
+        android:layout_marginEnd="18dp"
+        android:background="@color/gray_div2"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

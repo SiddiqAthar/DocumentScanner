@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "971530188455",
+    "firebase_url": "https://social-app-6f312.firebaseio.com",
+    "project_id": "social-app-6f312",
+    "storage_bucket": "social-app-6f312.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:971530188455:android:b5eee55ad486c07e060d82",
+        "android_client_info": {
+          "package_name": "me.sid.smartcropper"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "971530188455-3hpl031dck4dfqcih0khjf9sgb4i7ks2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "me.sid.smartcropper",
+            "certificate_hash": "2709626b974c1359291fd653fbc59230748acbc7"
+          }
+        },
+        {
+          "client_id": "971530188455-aefdlflmu9kk3a4hpnq17qbiamgriven.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD3Hifcd6AI5gYrXQIPbSKlR-xgp9iUhLo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "971530188455-aefdlflmu9kk3a4hpnq17qbiamgriven.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

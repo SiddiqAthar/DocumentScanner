@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:paddingStart="16dp"
+    android:paddingEnd="16dp"
+    tools:context=".views.activities.DocumentsActivity">
+
+
+    <TextView
+        android:id="@+id/heading_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/roboto_bold"
+        android:text="@string/your_documents"
+        android:textColor="@color/black"
+        android:textSize="24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/new_folder_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="18dp"
+        android:background="@null"
+        android:src="@drawable/ic_create_folder_ic"
+        app:layout_constraintEnd_toStartOf="@+id/settin_btn"
+        app:layout_constraintTop_toTopOf="@+id/heading_text" />
+
+    <ImageButton
+        android:id="@+id/settin_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:background="@null"
+        android:src="@drawable/setting_ic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/heading_text" />
+
+
+    <EditText
+        android:id="@+id/searchEd1"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="2dp"
+        android:autofillHints="@string/app_name"
+        android:background="@drawable/searh_edtext_bg"
+        android:elevation="5dp"
+        android:fontFamily="@font/roboto_regular"
+        android:hint="@string/search_documents"
+        android:imeOptions="actionSearch"
+        android:inputType="text"
+        android:maxLength="20"
+        android:paddingStart="35dp"
+        android:textColor="@color/sea_green"
+        android:textColorHint="@color/light_grey"
+        android:textSize="14sp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/heading_text" />
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/noFileCreatedLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/iv_nodocument_found"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_no_doc_img"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:id="@+id/tv_nodocument_found"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="17dp"
+            android:fontFamily="@font/roboto_medium"
+            android:src="@drawable/ic_no_doc_img"
+            android:text="@string/no_scan_document_found"
+            android:textAlignment="center"
+            android:textColor="@color/light_grey"
+            android:textSize="17dp"
+            app:layout_constraintTop_toBottomOf="@+id/iv_nodocument_found" />
+
+        <TextView
+            android:id="@+id/tv_nodocument_found1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:fontFamily="@font/roboto_regular"
+            android:src="@drawable/ic_no_doc_img"
+            android:text="Start new scan from camera or import from gallery"
+            android:textAlignment="center"
+            android:textColor="@color/light_grey"
+            android:textSize="15dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_nodocument_found" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/FileLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/bannderLayout"
+        app:layout_constraintTop_toBottomOf="@id/heading_text">
+
+        <me.sid.smartcropper.views.customView.toggleButton.SingleSelectToggleGroup
+            android:id="@+id/singleSelectedToggleGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tbgChildSpacing="auto">
+
+
+            <me.sid.smartcropper.views.customView.toggleButton.LabelToggle
+                android:id="@+id/tab_yourScannedDocs"
+                android:layout_width="106dp"
+                android:layout_height="wrap_content"
+                android:elevation="5dp"
+                android:text="SCANNED DOCS"
+                android:textSize="11dp" />
+
+            <me.sid.smartcropper.views.customView.toggleButton.LabelToggle
+                android:id="@+id/tab_yourScannedPDF"
+                android:layout_width="106dp"
+                android:layout_height="wrap_content"
+                android:elevation="5dp"
+                android:text="PDF READER"
+                android:textSize="11sp" />
+
+            <me.sid.smartcropper.views.customView.toggleButton.LabelToggle
+                android:id="@+id/tab_yourCreatedFolders"
+                android:layout_width="106dp"
+                android:layout_height="wrap_content"
+                android:elevation="5dp"
+                android:text="FOLDERS"
+                android:textSize="11sp" />
+
+        </me.sid.smartcropper.views.customView.toggleButton.SingleSelectToggleGroup>
+
+
+        <EditText
+            android:id="@+id/searchEd2"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="17dp"
+            android:layout_marginEnd="2dp"
+            android:autofillHints="@string/app_name"
+            android:background="@drawable/searh_edtext_bg"
+            android:elevation="5dp"
+            android:fontFamily="@font/roboto_regular"
+            android:hint="@string/search_documents"
+            android:imeOptions="actionSearch"
+            android:inputType="text"
+            android:maxLength="20"
+            android:paddingStart="35dp"
+            android:textColor="@color/sea_green"
+            android:textColorHint="@color/light_grey"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/singleSelectedToggleGroup" />
+
+        <TextView
+            android:id="@+id/countTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="0"
+            android:textColor="@color/light_grey"
+            android:textSize="12dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/empty_view"
+            app:layout_constraintStart_toStartOf="@+id/searchEd2"
+            app:layout_constraintTop_toBottomOf="@+id/searchEd2" />
+
+        <TextView
+            android:id="@+id/titleTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/files"
+            android:textColor="@color/light_grey"
+            android:textSize="12dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/empty_view"
+            app:layout_constraintStart_toEndOf="@+id/countTv"
+            app:layout_constraintTop_toBottomOf="@+id/searchEd2" />
+
+
+        <TextView
+            android:id="@+id/filterTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:drawableEnd="@drawable/ic_filter"
+            android:drawablePadding="5dp"
+            android:fontFamily="@font/roboto_regular"
+            android:paddingStart="5dp"
+            android:text="Sort By"
+            android:textColor="@color/light_grey"
+            android:textSize="12dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/searchEd2"
+            app:layout_constraintTop_toBottomOf="@+id/searchEd2" />
+
+
+        <TextView
+            android:id="@+id/empty_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="@id/filterTv"
+            app:layout_constraintStart_toStartOf="@+id/filterTv"
+            app:layout_constraintTop_toBottomOf="@+id/filterTv" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/filesRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/titleTv"
+            app:layout_constraintVertical_bias="0.0" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <include
+        android:id="@+id/noFileLayout"
+        layout="@layout/no_file_found"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- <com.google.android.material.floatingactionbutton.FloatingActionButton
+         android:id="@+id/btn_goToCamera"
+         app:layout_constraintEnd_toEndOf="parent"
+         app:layout_constraintBottom_toTopOf="@+id/bannderLayout"
+         android:layout_marginBottom="13dp"
+
+         android:src="@drawable/ic_new_scan_ic"
+         app:elevation="6dp"
+         app:fabSize="normal"
+         app:backgroundTint="@color/sea_green"
+         android:layout_width="wrap_content"
+         app:rippleColor="@color/colorPrimaryDark"
+         android:layout_height="wrap_content"/>
+
+     -->
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/btn_goToCamera"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="13dp"
+        app:layout_constraintBottom_toTopOf="@+id/bannderLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:lottie_autoPlay="true"
+        app:lottie_rawRes="@raw/camerbtn"
+         app:lottie_repeatCount="1"
+        android:elevation="2dp"
+         />
+
+    <include
+        android:id="@+id/bannderLayout"
+        layout="@layout/banner_layout"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

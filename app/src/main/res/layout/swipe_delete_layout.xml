@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.chauthai.swipereveallayout.SwipeRevealLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/swipe_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+     app:dragEdge="right"
+    app:mode="same_level">
+
+    <FrameLayout
+        android:id="@+id/delete_layout"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:background="@color/mid_grey">
+
+        <ImageView
+            android:layout_gravity="center"
+            android:layout_width="36dp"
+            android:layout_height="36sp"
+            android:background="@color/mid_grey"
+            android:gravity="center"
+            android:src="@drawable/ic_delete_ic"
+            android:textColor="@android:color/white" />
+    </FrameLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+
+        android:id="@+id/rootLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+
+        <ImageView
+            android:id="@+id/allFolderImg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginEnd="10dp"
+            android:src="@drawable/folder_ic"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/fileNameTv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+             android:layout_marginStart="10dp"
+            android:paddingEnd="5dp"
+            android:fontFamily="@font/roboto_bold"
+            android:text="Pdf directory"
+            android:textColor="#1E2939"
+            android:textSize="12dp"
+            android:textStyle="bold"
+            android:maxLength="50"
+            android:ellipsize="end"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/allFolderImg"
+            app:layout_constraintTop_toTopOf="@+id/allFolderImg" />
+
+        <TextView
+            android:id="@+id/fileSizeTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@+id/fileNameTv"
+            app:layout_constraintTop_toBottomOf="@+id/fileNameTv"
+            android:layout_marginTop="4dp"
+            android:textColor="@color/light_grey"
+            android:textSize="11dp"
+            android:fontFamily="@font/roboto_regular"
+             android:text="10MB"/>
+
+        <TextView
+            android:id="@+id/dateTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="20dp"
+            app:layout_constraintTop_toTopOf="@+id/fileSizeTv"
+            android:textColor="@color/light_grey"
+            android:fontFamily="@font/roboto_medium"
+            android:textSize="11dp"
+            android:text="10/10/2020"/>
+        <View
+            android:id="@+id/empty_view"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/dateTv"
+            app:layout_constraintStart_toStartOf="@+id/allFolderImg"
+             android:background="@color/gray_div2"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.chauthai.swipereveallayout.SwipeRevealLayout>

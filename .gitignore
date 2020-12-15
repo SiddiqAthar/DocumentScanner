@@ -1,0 +1,8 @@
+# Project exclude paths
+/.gradle/
+/app/build/
+/app/build/intermediates/javac/debug/classes/
+/smartcropperlib/.cxx/
+/smartcropperlib/.externalNativeBuild/
+/smartcropperlib/build/
+/smartcropperlib/build/intermediates/javac/debug/classes/

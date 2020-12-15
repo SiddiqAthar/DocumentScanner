@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/noFolderLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/noFolderImg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/new_folder_img" />
+
+    <TextView
+        android:id="@+id/noFolderTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/noFolderImg"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"
+        android:text="No Folder"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/createFolderTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/noFolderTv"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:gravity="center"
+        android:text="@string/create_the_folder_so_you_can_save_your_n_important_documents_in_them"
+        android:textColor="@color/dark_grey" />
+
+    <Button
+        android:id="@+id/createFolderBtn"
+        android:layout_width="150dp"
+        android:layout_height="38dp"
+        android:layout_below="@+id/createFolderTv"
+        android:layout_alignStart="@+id/createFolderTv"
+        android:layout_alignEnd="@+id/createFolderTv"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="18dp"
+        android:background="@drawable/button_seagreen"
+        android:text="Create Now"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="14sp" />
+
+</RelativeLayout>

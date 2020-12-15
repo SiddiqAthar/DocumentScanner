@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CircleCheckbox">
+        <attr name="showOuterCircle" format="boolean" />
+
+        <attr name="tickkColor" format="string" />
+        <attr name="outerCircleColor" format="string" />
+        <attr name="innerCircleColor" format="string" />
+        <attr name="textColor" format="string" />
+        <attr name="circleBorderColor" format="string" />
+
+        <attr name="outerCircleRadius" format="dimension" />
+        <attr name="innerCircleRadius" format="dimension" />
+        <attr name="textSize" format="dimension" />
+        <attr name="borderThickness" format="dimension" />
+        <attr name="tickThickness" format="dimension" />
+        <attr name="setChecked" format="boolean" />
+        <attr name="textLeftPadding" format="dimension" />
+        <attr name="text" format="string" />
+
+    </declare-styleable>
+
+
+    <declare-styleable name="CircleImageView">
+        <attr name="civ_border_width" format="dimension" />
+        <attr name="civ_border_color" format="color" />
+        <attr name="civ_border_overlay" format="boolean" />
+        <!-- {@deprecated Use civ_circlebackground_color instead.} -->
+        <attr name="civ_fill_color" format="color" />
+        <attr name="civ_circle_background_color" format="color" />
+    </declare-styleable>
+
+
+    <declare-styleable name="RoundedImageView">
+
+
+        <attr name="make_circle" format="boolean" />
+
+    </declare-styleable>
+
+    <declare-styleable name="RB">
+        <attr name="starWidth" format="dimension"/>
+        <attr name="starHeight" format="dimension"/>
+        <attr name="maxStar" format="integer"/>
+        <attr name="minStar" format="float"/>
+        <attr name="currentStar" format="float"/>
+        <attr name="padding" format="dimension"/>
+        <attr name="emptyStar" format="reference"/>
+        <attr name="fullStar" format="reference"/>
+        <attr name="halfStar" format="reference"/>
+        <attr name="canChange" format="boolean"/>
+    </declare-styleable>
+
+    <declare-styleable name="SwitchButton">
+        <attr name="sb_shadow_radius" format="reference|dimension" />
+        <attr name="sb_shadow_offset" format="reference|dimension" />
+        <attr name="sb_shadow_color" format="reference|color" />
+        <attr name="sb_uncheck_color" format="reference|color" />
+        <attr name="sb_checked_color" format="reference|color" />
+
+        <attr name="sb_border_width" format="reference|dimension" />
+        <attr name="sb_checkline_color" format="reference|color" />
+        <attr name="sb_checkline_width" format="reference|dimension" />
+        <attr name="sb_uncheckcircle_color" format="reference|color" />
+        <attr name="sb_uncheckcircle_width" format="reference|dimension" />
+        <attr name="sb_uncheckcircle_radius" format="reference|dimension" />
+
+        <attr name="sb_checked" format="reference|boolean" />
+        <attr name="sb_shadow_effect" format="reference|boolean" />
+        <attr name="sb_effect_duration" format="reference|integer" />
+        <attr name="sb_button_color" format="reference|color" />
+        <attr name="sb_show_indicator" format="reference|boolean" />
+        <attr name="sb_background" format="reference|color" />
+        <attr name="sb_enable_effect" format="reference|boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="ToggleSwitchOptions">
+        <attr name="toggleWidth" format="dimension" />
+
+        <attr name="textToggleCenter" format="string" localization="suggested" />
+        <attr name="textToggleLeft" format="string" localization="suggested" />
+        <attr name="textToggleRight" format="string" localization="suggested" />
+
+        <attr name="activeBgColor" format="color" />
+        <attr name="activeTextColor" format="color" />
+        <attr name="inactiveBgColor" format="color" />
+        <attr name="inactiveTextColor" format="color" />
+        <attr name="separatorColor" format="color" />
+
+        <attr name="cornerRadius" format="dimension" />
+
+        <attr name="android:textSize" />
+    </declare-styleable>
+
+
+    <declare-styleable name="MarkerButton">
+        <attr name="android:text" />
+        <attr name="android:textColor" />
+        <attr name="android:textSize" />
+        <attr name="tbgMarkerColor" format="color" />
+        <attr name="tbgRadioStyle" format="boolean" />
+    </declare-styleable>
+    <declare-styleable name="ToggleButtonGroup">
+        <attr name="android:checkedButton" />
+        <attr name="tbgCheckedButton" format="reference" />
+    </declare-styleable>
+    <declare-styleable name="FlowLayout">
+        <attr name="tbgFlow" format="boolean" />
+        <attr name="tbgChildSpacing" format="enum|dimension">
+            <enum name="auto" value="-65536" />
+        </attr>
+        <attr name="tbgChildSpacingForLastRow" format="enum|dimension">
+            <enum name="auto" value="-65536" />
+            <enum name="align" value="-65537" />
+        </attr>
+        <attr name="tbgRowSpacing" format="enum|dimension">
+            <enum name="auto" value="-65536" />
+        </attr>
+        <attr name="tbgRtl" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="AudioPlayerView">
+        <attr name="custom_layout" format="reference" />
+        <attr name="is_in_list" format="boolean" />
+        <attr name="APTextColor" format="color" />
+        <attr name="seekThumbColor" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="SemiCircle">
+        <attr name="slice_count" format="enum">
+        <enum name="six" value="6" />
+        <enum name="four" value="4" />
+        </attr>
+    </declare-styleable>
+</resources>

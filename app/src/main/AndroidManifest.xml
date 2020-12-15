@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="me.sid.smartcropper">
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <application
+        android:name=".App"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning">
+
+        <activity android:name=".views.activities.BaseActivity" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <activity
+            android:name=".views.activities.SplashActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".views.activities.GernalCameraActivity" />
+        <activity
+            android:name=".views.activities.ViewImageActivity" />
+        <activity
+            android:name=".views.activities.ViewTextActivity" />
+        <activity
+            android:name=".views.activities.OCRActivity" />
+        <activity
+            android:name=".views.activities.CropActivity"  />
+        <activity
+            android:name=".views.activities.MainActivity" />
+        <activity
+            android:name=".views.activities.EditActivity"  />
+        <activity
+            android:name=".views.activities.MultiScanActivity"  />
+        <activity
+            android:name=".views.activities.TrashActivity"  />
+        <activity
+            android:name=".views.activities.DocumentsActivity"
+             android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity
+            android:name=".views.activities.SettingActivity"  />
+        <activity
+            android:name=".views.activities.PDFViewerAcitivity"
+            android:label="@string/pdf_reader" />
+        <activity
+            android:name=".views.activities.AllFilesInFolderActivity"
+            android:screenOrientation="portrait" />
+    </application>
+
+</manifest>
