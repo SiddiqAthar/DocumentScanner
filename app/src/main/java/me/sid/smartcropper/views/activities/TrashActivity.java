@@ -194,19 +194,6 @@ public class TrashActivity extends BaseActivity {
             startActivity(SettingActivity.class,null);
             return true;
         }
-
-//        else if (item.getItemId() == R.id.moveToFolder) {
-//            new MoveFileDialog(PDFViewerAcitivity.this, file, new GenericCallback() {
-//                @Override
-//                public void callback(Object o) {
-//                    if ((boolean) o) {
-//                        Toast.makeText(PDFViewerAcitivity.this, "File moved", Toast.LENGTH_SHORT).show();
-//                    } else {
-//                        Toast.makeText(PDFViewerAcitivity.this, "File not moved", Toast.LENGTH_SHORT).show();
-//                    }
-//                }
-//            }).show();
-//        }
         return super.onOptionsItemSelected(item);
     }
 
@@ -223,8 +210,5 @@ public class TrashActivity extends BaseActivity {
         return true;
     }
 
-   /* @Override
-    public void callback(Object o) {
-        selectedArrayList = (ArrayList<FileInfoModel>) o;
-    }*/
+
 }

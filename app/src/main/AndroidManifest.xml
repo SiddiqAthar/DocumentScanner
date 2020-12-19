@@ -45,9 +45,7 @@
             android:name=".views.activities.OCRActivity" />
         <activity
             android:name=".views.activities.CropActivity"  />
-        <activity
-            android:name=".views.activities.MainActivity" />
-        <activity
+         <activity
             android:name=".views.activities.EditActivity"  />
         <activity
             android:name=".views.activities.MultiScanActivity"  />

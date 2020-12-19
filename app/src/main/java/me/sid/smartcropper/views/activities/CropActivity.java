@@ -26,7 +26,6 @@ import me.sid.smartcropperlib.view.CropImageView;
 
 public class CropActivity extends BaseActivity implements View.OnClickListener, IvGenericCallback {
 
-    private static final String EXTRA_CROPPED_FILE = "extra_cropped_file";
     DirectoryUtils mDirectory;
     CropImageView ivCrop;
     ImageButton back_btn, settin_btn, pdf_btn;
@@ -34,7 +33,6 @@ public class CropActivity extends BaseActivity implements View.OnClickListener, 
     Button btn_crop_cancel, btn_crop, btn_confirm;
     Bitmap selectedBitmap = null;
     private ArrayList<File> arrayListfile = null;
-    Bitmap crop;
     ProgressDialog dialog;
     int arrayCount = 0;
     int count = 0;
@@ -49,7 +47,7 @@ public class CropActivity extends BaseActivity implements View.OnClickListener, 
         dialog = new ProgressDialog(this);
         dialog.setTitle("Please wait");
         dialog.setMessage("Croping File");
-        mDirectory=new DirectoryUtils(this);
+        mDirectory = new DirectoryUtils(this);
         arrayListfile = new ArrayList<>();
         if (getIntent() != null) {
             againCrop = getIntent().getBooleanExtra("againCrop", false);//check if comes again for crop
@@ -83,7 +81,6 @@ public class CropActivity extends BaseActivity implements View.OnClickListener, 
         {
             selectedBitmap = croppedArrayBitmap.get(againCropIndex);
             new CropImagee(selectedBitmap).execute();
-//             ivCrop.setImageToCrop(selectedBitmap, this);
 
 
         } else if (arrayCount > 0) {
@@ -129,7 +126,6 @@ public class CropActivity extends BaseActivity implements View.OnClickListener, 
             @Override
             public void onClick(View view) {
                 new CropImagee(selectedBitmap).execute();
-//                  ivCrop.setImageToCrop(selectedBitmap, CropActivity.this);
             }
         });
 
@@ -140,22 +136,17 @@ public class CropActivity extends BaseActivity implements View.OnClickListener, 
     void setData(int innerCount) {
 
         if (arrayCount > 1) {
-
-//             ivCrop.setImageToCrop(ImageUtils.loadCapturedBitmap(arrayListfile.get(innerCount).getAbsolutePath()), this);
             new CropImagee(ImageUtils.loadCapturedBitmap(arrayListfile.get(innerCount).getAbsolutePath())).execute();
             count = innerCount + 1;
             if (count == arrayCount) {
                 btn_confirm.setText("Done");
             }
             tv_crop_count.setText("Page " + count + "/" + arrayCount);
-        }
-        else {
-            count = 1;//default for size is 1
-            //            ivCrop.setImageToCrop(ImageUtils.loadCapturedBitmap(arrayListfile.get(innerCount).getAbsolutePath()), this);
+        } else {
+            count = 1;
             new CropImagee(ImageUtils.loadCapturedBitmap(arrayListfile.get(innerCount).getAbsolutePath())).execute();
         }
         mDirectory.deleteFile(new File(arrayListfile.get(innerCount).getAbsolutePath()));
-//        selectedBitmap = ivCrop.getBitmap();
     }
 
     public boolean addDataToArray() {
@@ -163,8 +154,6 @@ public class CropActivity extends BaseActivity implements View.OnClickListener, 
 
             croppedArrayBitmap.add(ivCrop.crop());
             return true;
-            /*crop = ivCrop.crop();
-            croppedBitmap = crop;*/
         }
         return false;
 
@@ -188,10 +177,7 @@ public class CropActivity extends BaseActivity implements View.OnClickListener, 
     public void onClick(View view) {
 
         if (view.getId() == R.id.back_btn) {
-//            if (croppedArrayBitmap.size() < 0)
             onBackPressed();
-//            else
-//                startActivity(GernalCameraActivity.class, null);
         } else if (view.getId() == R.id.settin_btn) {
             startActivity(SettingActivity.class, null);
         }
@@ -227,9 +213,6 @@ public class CropActivity extends BaseActivity implements View.OnClickListener, 
 
         @Override
         protected Bitmap doInBackground(Bitmap... bitmaps) {
-
-
-//            ivCrop.setImageToCrop(img, CropActivity.this);
             runOnUiThread(new Runnable() {
 
                 @Override
@@ -244,7 +227,6 @@ public class CropActivity extends BaseActivity implements View.OnClickListener, 
         @Override
         protected void onPostExecute(Bitmap bitmap) {
             super.onPostExecute(bitmap);
-//            selectedBitmap=bitmap;
             dialog.dismiss();
         }
     }

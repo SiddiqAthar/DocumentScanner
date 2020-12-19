@@ -67,10 +67,6 @@ public class OCRActivity extends BaseActivity {
 
         new OCRExtractTask( this, getApplicationContext(), bitmaps ).execute();
 
-      /*  Bundle bundle = getIntent().getExtras();
-        final String filePath = bundle.getString(FILE_PATH);
-        new OCRExtractTask( this, getApplicationContext(), filePath )
-                .execute();*/
 
         btn_done.setOnClickListener(new View.OnClickListener() {
             @Override

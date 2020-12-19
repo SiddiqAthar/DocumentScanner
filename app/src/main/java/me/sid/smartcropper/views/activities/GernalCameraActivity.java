@@ -8,7 +8,6 @@ import android.graphics.BitmapFactory;
 import android.graphics.Rect;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -35,10 +34,7 @@ import com.google.common.util.concurrent.ListenableFuture;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.Locale;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
@@ -54,24 +50,18 @@ public class GernalCameraActivity extends BaseActivity implements View.OnClickLi
     private PreviewView previewView = null;
 
     private static final String EXTRA_FROM_ALBUM = "extra_from_album";
-    private static final String EXTRA_CROPPED_FILE = "extra_cropped_file";
-    private static final int REQUEST_CODE_TAKE_PHOTO = 100;
-    private static final int REQUEST_CODE_SELECT_ALBUM = 200;
+     private static final int REQUEST_CODE_SELECT_ALBUM = 200;
     boolean mFromAlbum, multiSelected;
-    File tempFile;
-    Bitmap selectedBitmap = null;
+     Bitmap selectedBitmap = null;
 
 
     CameraResultDialog.CallbacksForCNIC callbacks;
 
 
     private ArrayList<File> arrayListfile = null;
-    CameraResultDialog cameraResultDialog = null;
 
     private Executor executor = Executors.newSingleThreadExecutor();
-    private String filename = "test.png";
-    private File sd = Environment.getExternalStorageDirectory();
-    @SuppressLint("RestrictedApi")
+     @SuppressLint("RestrictedApi")
     private CameraSelector lensFacing = CameraSelector.DEFAULT_BACK_CAMERA;
     private ImageCapture imageCapture = null;
 
@@ -219,17 +209,6 @@ public class GernalCameraActivity extends BaseActivity implements View.OnClickLi
                         runOnUiThread(() ->
                                 addDataToArray(file)
                         );
-
-
-
-                   /*      new CameraResultDialog(GernalCameraActivity.this,
-                                callbacks
-                                , ""
-                                , ""
-                                , file).show();
-
-                        Toast.makeText(GernalCameraActivity.this, "Captured Success", Toast.LENGTH_SHORT).show();*/
-
                     }
 
                     @Override
@@ -253,41 +232,6 @@ public class GernalCameraActivity extends BaseActivity implements View.OnClickLi
             goToCrop();
         }
     }
-
-   /* public void timerWithoutCrop() {
-
-              new CameraResultDialog(
-                        GernalCameraActivity.this,
-                        callbacks,
-                "title",
-                        "description",
-                        file
-                ).show();
-
-    }*/
-
-    /*override fun cancelCallback() {
-        setResult(999)
-        finish()
-    }
-
-
-    override fun okCallback(imgFile: File) {
-        try {
-            val compressor = Compressor(this)
-                .setMaxHeight(600)
-                .setMaxWidth(600)
-                .setQuality(75)
-                .setCompressFormat(Bitmap.CompressFormat.WEBP)
-                .compressToFile(imgFile);
-            setResult(999, Intent().putExtra("file", compressor))
-            finish()
-        } catch (e: Exception) {
-            setResult(999, Intent().putExtra("file", imgFile))
-            finish()
-        }
-    }*/
-
 
     @SuppressLint("RestrictedApi")
     private void bindCamera(ProcessCameraProvider cameraProviderFuture) {
@@ -345,23 +289,6 @@ public class GernalCameraActivity extends BaseActivity implements View.OnClickLi
 
 
 
-/*
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-
-        if (item.getItemId() == R.id.menu_Whiteboard) {
-            Toast.makeText(this,"WhiteBoard", Toast.LENGTH_SHORT).show();
-        } else if (item.getItemId() == R.id.menu_Form) {
-            Toast.makeText(this,"Form", Toast.LENGTH_SHORT).show();
-        } else if (item.getItemId() == R.id.menu_Document) {
-            Toast.makeText(this,"Document", Toast.LENGTH_SHORT).show();
-        } else if (item.getItemId() == R.id.menu_BusinessCard) {
-            Toast.makeText(this,"BusinessCard", Toast.LENGTH_SHORT).show();
-        }
-
-        return false;
-    }
-*/
 
     private int calculateSampleSize(BitmapFactory.Options options) {
         int outHeight = options.outHeight;
@@ -499,14 +426,11 @@ public class GernalCameraActivity extends BaseActivity implements View.OnClickLi
             sample_iv.setImageDrawable(null);
             btn_single.setTextColor(this.getResources().getColor(R.color.white));
             btn_multi.setTextColor(this.getResources().getColor(R.color.sea_green));
-//            btn_done_mutli.setVisibility(View.VISIBLE);
-//            tv_images_count.setVisibility(View.VISIBLE);
-        }
+         }
     }
 
     @Override
     public void onBackPressed() {
-//        super.onBackPressed();
         if (fromMulti != 0) {
             showSaveDialog(this);
         } else {

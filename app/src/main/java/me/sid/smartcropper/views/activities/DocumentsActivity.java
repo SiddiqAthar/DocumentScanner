@@ -119,12 +119,8 @@ public class DocumentsActivity extends BaseActivity implements SingleSelectToggl
         btn_goToCamera = findViewById(R.id.btn_goToCamera);
         btn_goToCamera.loop(true);
         btn_goToCamera.playAnimation();
-
-//        btn_goToCamera.setOnClickListener(this);
-//        filesRecyclerView.addOnItemTouchListener(new RecyclerItemClickListener(getContext(), filesAdapter, filesRecyclerView, this));
-        croppedArrayBitmap.clear();
+         croppedArrayBitmap.clear();
         mutliCreatedArrayBitmap.clear();
-        croppedBitmap = null;
 
         btn_goToCamera.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -132,30 +128,6 @@ public class DocumentsActivity extends BaseActivity implements SingleSelectToggl
                 startActivity(GernalCameraActivity.class, null);
             }
         });
-
-/*
- btn_goToCamera.addAnimatorListener(new AnimatorListenerAdapter() {
-     @Override
-     public void onAnimationCancel(Animator animation) {
-         super.onAnimationCancel(animation);
-     }
-
-     @Override
-     public void onAnimationEnd(Animator animation) {
-          startActivity(GernalCameraActivity.class, null);
-      }
-
-     @Override
-     public void onAnimationStart(Animator animation) {
-         super.onAnimationStart(animation);
-     }
-
-     @Override
-     public void onAnimationPause(Animator animation) {
-         super.onAnimationPause(animation);
-     }
- });
-*/
 
     }
 
@@ -174,9 +146,6 @@ public class DocumentsActivity extends BaseActivity implements SingleSelectToggl
         if (view.getId() == R.id.filterTv) {
             showSortMenu();
         }
-        /*if (view.getId() == R.id.btn_goToCamera) {
-            startActivity(GernalCameraActivity.class, null);
-        }*/
     }
 
 
@@ -189,13 +158,11 @@ public class DocumentsActivity extends BaseActivity implements SingleSelectToggl
                 mDirectoryUtils.clearFilterArray();
                 clearText();
                 getFiles();
-//                new GetFiles().execute(Constants.jpgExtension + "," + Constants.jpgExtension);
-            } else if (mChecked == R.id.tab_yourScannedPDF) {
+             } else if (mChecked == R.id.tab_yourScannedPDF) {
                 mDirectoryUtils.clearSelectedArray();
                 clearText();
                 new GetFilesUtility(this, this).execute(Constants.pdfExtension + "," + Constants.pdfExtension);
-//                new GetFiles().execute(Constants.pdfExtension + "," + Constants.pdfExtension);
-            } else if (mChecked == R.id.tab_yourCreatedFolders) {
+             } else if (mChecked == R.id.tab_yourCreatedFolders) {
                 adapter = new AllFolderAdapter(foldersArray, this);
                 adapter.setCallback(this);
                 filesRecyclerView.setAdapter(adapter);
@@ -270,8 +237,6 @@ public class DocumentsActivity extends BaseActivity implements SingleSelectToggl
     }
 
     private void filterForFolder(String text) {
-        //new array list that will hold the filtered data
-
 
         ArrayList<File> filterdNames = new ArrayList<>();
 

@@ -80,7 +80,7 @@ public class MultiScanActivity extends BaseActivity implements OnPDFCreatedInter
         dialog = new ProgressDialog(MultiScanActivity.this);
         dialog.setTitle("Please wait");
         dialog.setMessage("Creating pdf file");
-
+        dialog.setCancelable(false);
 
         mPdfOptions = new ImageToPDFOptions();
         imagesUri = new ArrayList<>();
@@ -92,10 +92,8 @@ public class MultiScanActivity extends BaseActivity implements OnPDFCreatedInter
         RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(this, 2);
         multi_imgs_rv.setLayoutManager(mLayoutManager);
 
-        finalArrayBitmap.addAll(mutliCreatedArrayBitmap);
 
-//        adapter = new MultiFilesAdapter(mutliCreatedArrayBitmap, MultiScanActivity.this);
-        adapter = new MultiFilesAdapter(finalArrayBitmap, MultiScanActivity.this);
+         adapter = new MultiFilesAdapter(mutliCreatedArrayBitmap, MultiScanActivity.this);
         multi_imgs_rv.setAdapter(adapter);
 
 
@@ -106,15 +104,6 @@ public class MultiScanActivity extends BaseActivity implements OnPDFCreatedInter
             }
         });
 
-//        fab_multi.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                captureAgain=true;
-//                Intent intent= new Intent(MultiScanActivity.this, GernalCameraActivity.class);
-//                intent.putExtra("fromMulti",true);
-//                startActivity(intent);
-//            }
-//        });
         fabWithOptions.setMiniFabsColors(
                 R.color.colorPrimary,
                 R.color.colorPrimary);
@@ -173,10 +162,10 @@ public class MultiScanActivity extends BaseActivity implements OnPDFCreatedInter
 
     private void createImgToPDF(String fileName) {
 
-        for (int i = 0; i < finalArrayBitmap.size(); i++) {
+        for (int i = 0; i < mutliCreatedArrayBitmap.size(); i++) {
 //        for (int i = 0; i < mutliCreatedArrayBitmap.size(); i++) {
 //            imagesUri.add(creatTempImg(mutliCreatedArrayBitmap.get(i), i));
-            imagesUri.add(creatTempImg(finalArrayBitmap.get(i), i));
+            imagesUri.add(creatTempImg(mutliCreatedArrayBitmap.get(i), i));
         }
 
         mPdfOptions.setImagesUri(imagesUri);
@@ -200,7 +189,7 @@ public class MultiScanActivity extends BaseActivity implements OnPDFCreatedInter
     public void onPDFCreated(boolean success, final String path) {
         dialog.dismiss();
         if (success) {
-            finalArrayBitmap.clear();
+            mutliCreatedArrayBitmap.clear();
             imagesUri.clear();
             StringUtils.getInstance().showSnackbar(MultiScanActivity.this, getString(R.string.created_success));
             startActivity(DocumentsActivity.class, null);
@@ -213,8 +202,7 @@ public class MultiScanActivity extends BaseActivity implements OnPDFCreatedInter
     protected void onDestroy() {
         super.onDestroy();
         if (!captureAgain) {
-            finalArrayBitmap.clear();
+            mutliCreatedArrayBitmap.clear();
         }
-        mutliCreatedArrayBitmap.clear();
-    }
+     }
 }

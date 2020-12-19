@@ -22,11 +22,9 @@ import me.sid.smartcropper.dialogs.AlertDialogHelper;
 public class BaseActivity extends AppCompatActivity {
 //    AppContro appContro;
 
-    static int againCropIndex = 0;
-    static Bitmap croppedBitmap = null;
-    static ArrayList<Bitmap> croppedArrayBitmap = new ArrayList<>();
-    static ArrayList<Bitmap> mutliCreatedArrayBitmap = new ArrayList<>();
-    static ArrayList<Bitmap> finalArrayBitmap = new ArrayList<>();
+    public static int againCropIndex = 0;
+    public static ArrayList<Bitmap> croppedArrayBitmap = new ArrayList<>();
+    public static ArrayList<Bitmap> mutliCreatedArrayBitmap = new ArrayList<>();
 
 
     static {
@@ -68,7 +66,6 @@ public class BaseActivity extends AppCompatActivity {
         builder.setPositiveButton("Discard", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                croppedBitmap = null;
                 croppedArrayBitmap.clear();
                 mutliCreatedArrayBitmap.clear();
                 if (activity instanceof EditActivity || activity instanceof CropActivity || activity instanceof MultiScanActivity)
@@ -85,28 +82,22 @@ public class BaseActivity extends AppCompatActivity {
             }
         });
 
-       /* builder.setNeutralButton("Discard", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                finish();
-            }
-        });*/
         builder.setCancelable(false);
         builder.create().show();
 
     }
 
     public void quitApp(Activity activity) {
-        if(activity instanceof  SettingActivity || activity instanceof DocumentsActivity)
-        AlertDialogHelper.showAlert(activity, new AlertDialogHelper.Callback() {
-            @Override
-            public void onSucess(int t) {
-                if (t == 0) {
-                    finishAffinity();
-                    System.exit(0);
+        if (activity instanceof SettingActivity || activity instanceof DocumentsActivity)
+            AlertDialogHelper.showAlert(activity, new AlertDialogHelper.Callback() {
+                @Override
+                public void onSucess(int t) {
+                    if (t == 0) {
+                        finishAffinity();
+                        System.exit(0);
+                    }
                 }
-            }
-        }, "Quit", "Do you want to quit this app?");
+            }, "Quit", "Do you want to quit this app?");
 
     }
 

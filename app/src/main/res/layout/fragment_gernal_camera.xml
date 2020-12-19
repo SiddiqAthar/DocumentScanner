@@ -32,7 +32,7 @@
             android:id="@+id/scan_shape"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_camera_scan_b"
+            android:src="@drawable/ic_camera_whiteboard_c"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -43,7 +43,7 @@
         android:layout_width="88dp"
         android:layout_height="28dp"
         android:background="@drawable/button_seagreen"
-        android:text="@string/done"
+        android:text="Done"
         android:layout_marginBottom="20dp"
         android:visibility="gone"
          app:layout_constraintBottom_toBottomOf="parent"

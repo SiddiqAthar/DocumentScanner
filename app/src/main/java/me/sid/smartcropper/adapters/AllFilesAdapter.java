@@ -55,7 +55,6 @@ public class AllFilesAdapter extends RecyclerView.Adapter<AllFilesAdapter.MyFile
 
     public void setCallback(GenericCallback callback) {
         this.callback = callback;
-
     }
 
     public AllFilesAdapter(Context context, ArrayList<FileInfoModel> filesArrayList) {
