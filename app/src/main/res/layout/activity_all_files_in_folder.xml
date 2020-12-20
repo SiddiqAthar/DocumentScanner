@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@color/white"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".views.activities.AllFilesInFolderActivity">
 
     <androidx.appcompat.widget.Toolbar
@@ -12,9 +12,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
+        android:elevation="3dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:elevation="3dp"
         app:titleTextAppearance="@style/Toolbar.TitleText"
         app:titleTextColor="@color/dark_grey" />
 
@@ -22,12 +22,12 @@
         android:id="@+id/titleTv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:text="@string/files"
         android:textColor="@color/light_grey"
         android:textSize="12dp"
         android:textStyle="bold"
-        android:layout_marginStart="10dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
@@ -37,14 +37,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
         android:drawableEnd="@drawable/ic_filter"
         android:drawablePadding="5dp"
         android:paddingStart="5dp"
-        android:textColor="@color/light_grey"
         android:text="Sort By"
+        android:textColor="@color/light_grey"
         android:textSize="14sp"
         android:textStyle="bold"
-        android:layout_marginEnd="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
@@ -60,11 +60,11 @@
         android:id="@+id/allFilesRecycler"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:clipToPadding="false"
-        android:paddingBottom="10dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:clipToPadding="false"
+        android:paddingBottom="10dp"
+        app:layout_constraintBottom_toTopOf="@id/adlayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titleTv" />
@@ -81,16 +81,45 @@
         app:layout_constraintTop_toTopOf="parent" />
 
 
-   <!-- <Button
-        android:id="@+id/importFilesBtn"
+    <!-- <Button
+         android:id="@+id/importFilesBtn"
+         android:layout_width="match_parent"
+         android:layout_height="35dp"
+         android:layout_margin="20dp"
+         android:background="@color/sea_green"
+         android:text="@string/import_files"
+         android:textAllCaps="false"
+         android:textColor="@color/colorWhite"
+         app:layout_constraintBottom_toBottomOf="parent"
+         app:layout_constraintEnd_toEndOf="parent"
+         app:layout_constraintStart_toStartOf="parent" />-->
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/adlayout"
         android:layout_width="match_parent"
-        android:layout_height="35dp"
-        android:layout_margin="20dp"
-        android:background="@color/sea_green"
-        android:text="@string/import_files"
-        android:textAllCaps="false"
-        android:textColor="@color/colorWhite"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />-->
+        android:layout_height="@dimen/_150sdp"
+        android:layout_margin="@dimen/_4sdp"
+        android:background="@drawable/ad_bg"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <com.facebook.ads.NativeAdLayout
+            android:id="@+id/native_ad_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <FrameLayout
+            android:id="@+id/admobNativeView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <include
+            android:id="@+id/adlayout2"
+            layout="@layout/ad_loading2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

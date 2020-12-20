@@ -1,6 +1,7 @@
 package me.sid.smartcropper.views.activities;
 
 import android.annotation.SuppressLint;
+import android.content.ActivityNotFoundException;
 import android.content.ContentResolver;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -345,6 +346,14 @@ public class GernalCameraActivity extends BaseActivity implements View.OnClickLi
 
         if (view.getId() == R.id.settin_btn) {
             startActivity(SettingActivity.class, null);
+        } else if (view.getId() == R.id.pdf_btn) {
+            final String appPackageName = "com.pdfreader.pdfviewer.pdfeditor.pdfcreator.securepdf"; // getPackageName() from Context or Activity object
+            try {
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appPackageName)));
+            } catch (android.content.ActivityNotFoundException anfe) {
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + appPackageName)));
+            }
+
         } else if (view.getId() == R.id.btnCapture) {
             takePicture();
         } else if (view.getId() == R.id.close_btn) {

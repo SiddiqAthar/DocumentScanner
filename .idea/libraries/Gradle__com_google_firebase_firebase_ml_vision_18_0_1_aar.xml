@@ -4,6 +4,10 @@
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/3bccccc103a768dd8cc529b8829c96f5/jetified-firebase-ml-vision-18.0.1/AndroidManifest.xml" />
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/3bccccc103a768dd8cc529b8829c96f5/jetified-firebase-ml-vision-18.0.1/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/3bccccc103a768dd8cc529b8829c96f5/jetified-firebase-ml-vision-18.0.1/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/534e4a7b07539509e7248141ff433d99/jetified-firebase-ml-vision-18.0.1/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d159720b7eb16162ffb50b5c4a1759bd/jetified-firebase-ml-vision-18.0.1/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d159720b7eb16162ffb50b5c4a1759bd/jetified-firebase-ml-vision-18.0.1/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d159720b7eb16162ffb50b5c4a1759bd/jetified-firebase-ml-vision-18.0.1/res" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.firebase/firebase-ml-vision/18.0.1/48c003603175be1babb1b1bf025d6bd19fc517a4/firebase-ml-vision-18.0.1-javadoc.jar!/" />

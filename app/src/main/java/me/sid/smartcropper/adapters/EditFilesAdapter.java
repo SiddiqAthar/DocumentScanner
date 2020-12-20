@@ -8,6 +8,7 @@ import android.graphics.Bitmap;
 import android.graphics.Matrix;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Handler;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -89,7 +90,18 @@ public class EditFilesAdapter extends RecyclerView.Adapter<EditFilesAdapter.Edit
         mRecyclerView = recyclerView;
     }
 
+    @Override
+    public int getItemViewType(int position) {
+        return position;
+    }
+
+    @Override
+    public long getItemId(int position) {
+        return position;
+    }
+
     void scrollToPosition(int position) {
+        Log.d("positionn",String.valueOf(position));
         mRecyclerView.scrollToPosition(position);
     }
 

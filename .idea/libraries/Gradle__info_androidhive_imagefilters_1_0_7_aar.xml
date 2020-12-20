@@ -1,9 +1,9 @@
 <component name="libraryTable">
   <library name="Gradle: info.androidhive:imagefilters:1.0.7@aar">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/bda41fed463ec2adf46fdb842f1c94df/jetified-imagefilters-1.0.7/AndroidManifest.xml" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/bda41fed463ec2adf46fdb842f1c94df/jetified-imagefilters-1.0.7/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/bda41fed463ec2adf46fdb842f1c94df/jetified-imagefilters-1.0.7/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/35bc01f3cd878add3ae563d410fb81a9/jetified-imagefilters-1.0.7/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/35bc01f3cd878add3ae563d410fb81a9/jetified-imagefilters-1.0.7/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/35bc01f3cd878add3ae563d410fb81a9/jetified-imagefilters-1.0.7/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/info.androidhive/imagefilters/1.0.7/bf35d324679e1737f03e4a4304e9627a3afe5e9b/imagefilters-1.0.7-javadoc.jar!/" />

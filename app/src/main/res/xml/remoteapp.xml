@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<defaultsMap>
+    <entry>
+
+        <key>isadmobsplash</key>
+        <value>true</value>
+
+        <key>isadmobhome</key>
+        <value>true</value>
+
+        <key>isadmobfile</key>
+        <value>true</value>
+
+        <key>isadmobfolder</key>
+        <value>true</value>
+
+        <key>isadmobtools</key>
+        <value>true</value>
+
+        <key>isadmobshare</key>
+        <value>true</value>
+
+        <key>isadmobsecure</key>
+        <value>true</value>
+
+        <key>isadmobmerge</key>
+        <value>true</value>
+
+
+        <key>isadmobword</key>
+        <value>true</value>
+
+
+        <key>isadmobreduce</key>
+        <value>true</value>
+
+        <key>isadmobcreateinter</key>
+        <value>true</value>
+
+        <key>isadmobwordinter</key>
+        <value>true</value>
+
+        <key>isadmobimgpdfinter</key>
+        <value>true</value>
+
+        <key>isadmobmergeinter</key>
+        <value>true</value>
+
+        <key>isadmobscanpdfinter</key>
+        <value>true</value>
+
+
+
+    </entry>
+
+
+</defaultsMap>

@@ -1,9 +1,9 @@
 <component name="libraryTable">
   <library name="Gradle: com.rishabhharit.roundedimageview:RoundedImageView:0.8.4@aar">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d1fa1ee0f1ba1d6f4103d72d808f1ca7/jetified-RoundedImageView-0.8.4/AndroidManifest.xml" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d1fa1ee0f1ba1d6f4103d72d808f1ca7/jetified-RoundedImageView-0.8.4/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d1fa1ee0f1ba1d6f4103d72d808f1ca7/jetified-RoundedImageView-0.8.4/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/997919a7f633c925ca0291e88a873ae4/jetified-RoundedImageView-0.8.4/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/997919a7f633c925ca0291e88a873ae4/jetified-RoundedImageView-0.8.4/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/997919a7f633c925ca0291e88a873ae4/jetified-RoundedImageView-0.8.4/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.rishabhharit.roundedimageview/RoundedImageView/0.8.4/7296c7f3d0579641e7cdad5b3b0b914896a00fab/RoundedImageView-0.8.4-javadoc.jar!/" />

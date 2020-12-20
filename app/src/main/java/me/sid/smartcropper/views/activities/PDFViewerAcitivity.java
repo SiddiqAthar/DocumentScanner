@@ -27,6 +27,7 @@ import me.sid.smartcropper.R;
 import me.sid.smartcropper.interfaces.GenericCallback;
 import me.sid.smartcropper.utils.Constants;
 import me.sid.smartcropper.utils.DirectoryUtils;
+import me.sid.smartcropper.utils.InterstitalAdsInner;
 import me.sid.smartcropper.utils.PDFUtils;
 import me.sid.smartcropper.utils.StringUtils;
 
@@ -112,7 +113,8 @@ public class PDFViewerAcitivity extends BaseActivity implements OnErrorListener,
     @Override
     public boolean onOptionsItemSelected(@NonNull final MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
-            onBackPressed();
+            InterstitalAdsInner ads=new InterstitalAdsInner();
+            ads.ShowAdMob(this);
             return true;
         }
         else if (item.getItemId() == R.id.share) {
@@ -137,7 +139,8 @@ public class PDFViewerAcitivity extends BaseActivity implements OnErrorListener,
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
+        InterstitalAdsInner ads=new InterstitalAdsInner();
+        ads.ShowAdMob(this);
     }
 
     @Override

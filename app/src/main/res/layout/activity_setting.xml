@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/white"
      android:paddingTop="35dp"
-    android:paddingBottom="35dp"
+    android:paddingBottom="8dp"
     tools:context=".views.activities.SettingActivity">
 
 
@@ -47,20 +47,43 @@
     <androidx.recyclerview.widget.RecyclerView
         android:layout_marginTop="35dp"
         android:background="@color/white"
+        app:layout_constraintBottom_toTopOf="@id/adlayout"
         app:layout_constraintTop_toBottomOf="@id/setting_back_btn"
         android:id="@+id/recyclerView_setting"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"  />
+        android:layout_marginBottom="8dp"
+        android:layout_height="0dp"  />
 
-    <include
-        android:id="@+id/bannderLayout"
-        layout="@layout/banner_layout"
-        android:layout_width="0dp"
-        android:layout_height="150dp"
-        android:layout_marginTop="17dp"
-        app:layout_constraintEnd_toEndOf="@+id/setting_exit_btn"
-        app:layout_constraintStart_toStartOf="@+id/setting_back_btn"
-        app:layout_constraintTop_toBottomOf="@+id/recyclerView_setting" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/adlayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_180sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_margin="@dimen/_4sdp"
+        android:background="@drawable/ad_bg"
+        >
+        <com.facebook.ads.NativeAdLayout
+            android:id="@+id/native_ad_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:visibility="gone"
+            />
 
+        <FrameLayout
+            android:id="@+id/admobNativeView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:visibility="gone"
+            />
+
+        <include
+            android:id="@+id/adlayout2"
+            layout="@layout/ad_loading2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

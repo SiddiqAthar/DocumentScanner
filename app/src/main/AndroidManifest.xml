@@ -4,7 +4,9 @@
     package="me.sid.smartcropper">
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="com.android.vending.BILLING" />
 
     <application
         android:name=".App"
@@ -15,6 +17,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".views.activities.PrivacyActivity"></activity>
+
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="@string/admob_app_id" />
 
         <activity android:name=".views.activities.BaseActivity" />
 
@@ -28,8 +35,7 @@
                 android:resource="@xml/file_paths" />
         </provider>
 
-        <activity
-            android:name=".views.activities.SplashActivity" >
+        <activity android:name=".views.activities.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -37,25 +43,17 @@
             </intent-filter>
         </activity>
         <activity android:name=".views.activities.GernalCameraActivity" />
-        <activity
-            android:name=".views.activities.ViewImageActivity" />
-        <activity
-            android:name=".views.activities.ViewTextActivity" />
-        <activity
-            android:name=".views.activities.OCRActivity" />
-        <activity
-            android:name=".views.activities.CropActivity"  />
-         <activity
-            android:name=".views.activities.EditActivity"  />
-        <activity
-            android:name=".views.activities.MultiScanActivity"  />
-        <activity
-            android:name=".views.activities.TrashActivity"  />
+        <activity android:name=".views.activities.ViewImageActivity" />
+        <activity android:name=".views.activities.ViewTextActivity" />
+        <activity android:name=".views.activities.OCRActivity" />
+        <activity android:name=".views.activities.CropActivity" />
+        <activity android:name=".views.activities.EditActivity" />
+        <activity android:name=".views.activities.MultiScanActivity" />
+        <activity android:name=".views.activities.TrashActivity" />
         <activity
             android:name=".views.activities.DocumentsActivity"
-             android:windowSoftInputMode="adjustResize|stateHidden" />
-        <activity
-            android:name=".views.activities.SettingActivity"  />
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity android:name=".views.activities.SettingActivity" />
         <activity
             android:name=".views.activities.PDFViewerAcitivity"
             android:label="@string/pdf_reader" />

@@ -124,7 +124,8 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:visibility="visible"
-        app:layout_constraintBottom_toTopOf="@+id/bannderLayout"
+        android:layout_marginBottom="@dimen/_2sdp"
+        app:layout_constraintBottom_toTopOf="@+id/adlayout"
         app:layout_constraintTop_toBottomOf="@id/heading_text">
 
         <me.sid.smartcropper.views.customView.toggleButton.SingleSelectToggleGroup
@@ -282,7 +283,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="13dp"
-        app:layout_constraintBottom_toTopOf="@+id/bannderLayout"
+        app:layout_constraintBottom_toTopOf="@+id/adlayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:lottie_autoPlay="true"
         app:lottie_rawRes="@raw/camerbtn"
@@ -290,14 +291,38 @@
         android:elevation="2dp"
          />
 
-    <include
-        android:id="@+id/bannderLayout"
-        layout="@layout/banner_layout"
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/adlayout"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="@dimen/_150sdp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:layout_margin="@dimen/_4sdp"
+        android:background="@drawable/ad_bg"
+        >
+        <com.facebook.ads.NativeAdLayout
+            android:id="@+id/native_ad_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:visibility="gone"
+            />
+
+        <FrameLayout
+            android:id="@+id/admobNativeView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:visibility="gone"
+            />
+
+        <include
+            android:id="@+id/adlayout2"
+            layout="@layout/ad_loading2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

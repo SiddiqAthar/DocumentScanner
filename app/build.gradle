@@ -1,14 +1,15 @@
 apply plugin: 'com.android.application'
 apply plugin: 'com.google.gms.google-services'
 apply plugin: 'com.google.firebase.crashlytics'
-
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 30
     defaultConfig {
         applicationId "me.sid.smartcropper"
         minSdkVersion 21
-        targetSdkVersion 28
+        targetSdkVersion 30
         versionCode 2
         versionName "1.1"
         ndk {
@@ -19,12 +20,45 @@ android {
     }
     buildTypes {
 
+        debug{
+
+            minifyEnabled false
+            shrinkResources false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+            resValue "string", "billing_id", ""
+            resValue "string", "product_key", "docscannerapp"
+
+            resValue "string", "admob_app_id", "ca-app-pub-3940256099942544~3347511713"
+            resValue "string", "admob_banner", "ca-app-pub-3940256099942544/6300978111"
+            resValue "string", "admob_interstitial", "ca-app-pub-3940256099942544/1033173712"
+            resValue "string", "admob_native", "ca-app-pub-3940256099942544/2247696110"
+
+            resValue "string", "fb_banner", "YOUR_PLACEMENT_ID"
+            resValue "string", "fb_rectangle", "YOUR_PLACEMENT_ID"
+            resValue "string", "fb_interstitial", "YOUR_PLACEMENT_ID"
+            resValue "string", "fb_native", "YOUR_PLACEMENT_ID"
+            resValue "string", "fb_native_banner", "YOUR_PLACEMENT_ID"
+        }
 
         release {
-            minifyEnabled true
-            useProguard true
-            shrinkResources true
+            minifyEnabled false
+            shrinkResources false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+            resValue "string", "billing_id", ""
+            resValue "string", "product_key", "docscannerapp"
+
+            resValue "string", "admob_app_id", "ca-app-pub-3940256099942544~3347511713"
+            resValue "string", "admob_banner", "ca-app-pub-3940256099942544/6300978111"
+            resValue "string", "admob_interstitial", "ca-app-pub-3940256099942544/1033173712"
+            resValue "string", "admob_native", "ca-app-pub-3940256099942544/2247696110"
+
+            resValue "string", "fb_banner", ""
+            resValue "string", "fb_rectangle", ""
+            resValue "string", "fb_interstitial", ""
+            resValue "string", "fb_native", ""
+            resValue "string", "fb_native_banner", ""
         }
     }
     lintOptions {
@@ -39,15 +73,16 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
 }
 
 dependencies {
     implementation project(':smartcropperlib')
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation 'com.android.support:support-v4:28.0.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     // For developers using AndroidX in their applications
     implementation 'pub.devrel:easypermissions:3.0.0'
-
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     // For developers using the Android Support Library
 //    implementation 'pub.devrel:easypermissions:2.0.1'
 //    api 'com.github.sid:SmartCropper:v2.1.1'
@@ -57,11 +92,10 @@ dependencies {
 
     // Declare the dependencies for the Crashlytics and Analytics libraries
     // When using the BoM, you don't specify versions in Firebase library dependencies
-    implementation 'com.google.firebase:firebase-crashlytics:17.2.2'
-    implementation 'com.google.firebase:firebase-analytics:17.2.2'
+    implementation 'com.google.firebase:firebase-crashlytics:17.3.0'
+    implementation 'com.google.firebase:firebase-analytics:18.0.0'
 
     implementation 'com.android.support.constraint:constraint-layout:2.0.2'
-    implementation 'com.android.support:appcompat-v7:28.0.0'
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
 
@@ -99,5 +133,14 @@ dependencies {
 
     implementation "com.airbnb.android:lottie:3.4.0"
 
+
+    implementation 'com.google.android.gms:play-services-ads:19.6.0'
+
+    implementation 'com.anjlab.android.iab.v3:library:1.1.0'
+
+    implementation 'com.facebook.android:audience-network-sdk:6.+'
+    implementation 'com.google.firebase:firebase-config:20.0.2'
+
+    implementation 'com.intuit.sdp:sdp-android:1.0.6'
 
 }

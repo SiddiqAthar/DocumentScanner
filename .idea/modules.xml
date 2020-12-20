@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/SmartCropper-master.iml" filepath="$PROJECT_DIR$/.idea/modules/SmartCropper-master.iml" group="SmartCropper-master" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/app.iml" group="SmartCropper-master/app" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/smartcropperlib/smartcropperlib.iml" filepath="$PROJECT_DIR$/.idea/modules/smartcropperlib/smartcropperlib.iml" group="SmartCropper-master/smartcropperlib" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/DocumentScanner.iml" filepath="$PROJECT_DIR$/.idea/modules/DocumentScanner.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/DocumentScanner.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/DocumentScanner.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/smartcropperlib/DocumentScanner.smartcropperlib.iml" filepath="$PROJECT_DIR$/.idea/modules/smartcropperlib/DocumentScanner.smartcropperlib.iml" />
     </modules>
   </component>
 </project>

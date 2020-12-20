@@ -1,0 +1,1291 @@
+Index: app/build.gradle
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>apply plugin: 'com.android.application'\r\napply plugin: 'com.google.gms.google-services'\r\napply plugin: 'com.google.firebase.crashlytics'\r\n\r\n\r\nandroid {\r\n    compileSdkVersion 28\r\n    defaultConfig {\r\n        applicationId \"me.sid.smartcropper\"\r\n        minSdkVersion 21\r\n        targetSdkVersion 28\r\n        versionCode 2\r\n        versionName \"1.1\"\r\n        ndk {\r\n//            abiFilters 'armeabi-v7a', \"arm64-v8a\", 'x86', 'x86_64'\r\n            abiFilters 'armeabi-v7a', \"arm64-v8a\"\r\n\r\n        }\r\n    }\r\n    buildTypes {\r\n\r\n\r\n        release {\r\n            minifyEnabled true\r\n            useProguard true\r\n            shrinkResources true\r\n            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'\r\n        }\r\n    }\r\n    lintOptions {\r\n        abortOnError false\r\n    }\r\n    aaptOptions {\r\n        noCompress \"tflite\"\r\n        noCompress \"lite\"\r\n    }\r\n\r\n    compileOptions {\r\n        sourceCompatibility JavaVersion.VERSION_1_8\r\n        targetCompatibility JavaVersion.VERSION_1_8\r\n    }\r\n}\r\n\r\ndependencies {\r\n    implementation project(':smartcropperlib')\r\n    implementation fileTree(include: ['*.jar'], dir: 'libs')\r\n    implementation 'com.android.support:support-v4:28.0.0'\r\n    // For developers using AndroidX in their applications\r\n    implementation 'pub.devrel:easypermissions:3.0.0'\r\n\r\n    // For developers using the Android Support Library\r\n//    implementation 'pub.devrel:easypermissions:2.0.1'\r\n//    api 'com.github.sid:SmartCropper:v2.1.1'\r\n    implementation 'jp.co.cyberagent.android:gpuimage:2.1.0'\r\n\r\n    implementation 'com.google.firebase:firebase-ml-vision:18.0.1'\r\n\r\n    // Declare the dependencies for the Crashlytics and Analytics libraries\r\n    // When using the BoM, you don't specify versions in Firebase library dependencies\r\n    implementation 'com.google.firebase:firebase-crashlytics:17.2.2'\r\n    implementation 'com.google.firebase:firebase-analytics:17.2.2'\r\n\r\n    implementation 'com.android.support.constraint:constraint-layout:2.0.2'\r\n    implementation 'com.android.support:appcompat-v7:28.0.0'\r\n    implementation 'androidx.appcompat:appcompat:1.2.0'\r\n    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'\r\n\r\n    //cameraX\r\n    def camerax_version = \"1.0.0-alpha11\"\r\n    implementation \"androidx.camera:camera-camera2:${camerax_version}\"\r\n    implementation \"androidx.camera:camera-lifecycle:${camerax_version}\"\r\n    implementation \"androidx.camera:camera-view:1.0.0-alpha11\"\r\n    implementation \"androidx.camera:camera-extensions:1.0.0-alpha11\"\r\n\r\n    implementation 'id.zelory:compressor:2.1.0'\r\n\r\n\r\n    implementation 'com.google.android.material:material:1.1.0'\r\n\r\n\r\n    implementation 'com.github.bumptech.glide:glide:4.9.0'\r\n    annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'\r\n\r\n    implementation 'info.androidhive:imagefilters:1.0.7'\r\n\r\n    implementation 'com.agrawalsuneet.androidlibs:dotsloader:1.4'\r\n    implementation 'com.itextpdf:itextpdf:5.0.6'\r\n\r\n    implementation 'com.github.barteksc:android-pdf-viewer:2.8.2'\r\n    implementation 'com.zhihu.android:matisse:0.5.3-beta3'\r\n\r\n    implementation 'com.chauthai.swipereveallayout:swipe-reveal-layout:1.4.1'\r\n\r\n    implementation 'com.rishabhharit.roundedimageview:RoundedImageView:0.8.4'\r\n\r\n    implementation 'com.github.arthurghazaryan:floatingactionmenu:1.0.0'\r\n\r\n    implementation 'ja.burhanrashid52:photoeditor:1.1.0'\r\n\r\n    implementation \"com.airbnb.android:lottie:3.4.0\"\r\n\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/build.gradle	(revision b9bde0ad6f5adb4bf75bf4aa5fdfad508d3e1b53)
++++ app/build.gradle	(date 1608462170696)
+@@ -39,6 +39,7 @@
+         sourceCompatibility JavaVersion.VERSION_1_8
+         targetCompatibility JavaVersion.VERSION_1_8
+     }
++
+ }
+ 
+ dependencies {
+Index: local.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>## This file must *NOT* be checked into Version Control Systems,\r\n# as it contains information specific to your local configuration.\r\n#\r\n# Location of the SDK. This is only used by Gradle.\r\n# For customization when using a Version Control System, please read the\r\n# header note.\r\n#Mon Oct 26 12:24:21 PKT 2020\r\nndk.dir=C\\:\\\\Users\\\\siddiq.athar\\\\AppData\\\\Local\\\\Android\\\\Sdk\\\\ndk\\\\21.3.6528147\r\nsdk.dir=C\\:\\\\Users\\\\siddiq.athar\\\\AppData\\\\Local\\\\Android\\\\Sdk\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- local.properties	(revision b9bde0ad6f5adb4bf75bf4aa5fdfad508d3e1b53)
++++ local.properties	(date 1608461759513)
+@@ -4,6 +4,6 @@
+ # Location of the SDK. This is only used by Gradle.
+ # For customization when using a Version Control System, please read the
+ # header note.
+-#Mon Oct 26 12:24:21 PKT 2020
+-ndk.dir=C\:\\Users\\siddiq.athar\\AppData\\Local\\Android\\Sdk\\ndk\\21.3.6528147
+-sdk.dir=C\:\\Users\\siddiq.athar\\AppData\\Local\\Android\\Sdk
++#Sun Dec 20 14:40:08 PKT 2020
++ndk.dir=C\:\\Users\\muhammad.zohaib\\AppData\\Local\\Android\\Sdk\\ndk\\21.0.6113669
++sdk.dir=C\:\\Users\\muhammad.zohaib\\AppData\\Local\\Android\\Sdk
+Index: .idea/modules/smartcropperlib/smartcropperlib.iml
+===================================================================
+--- .idea/modules/smartcropperlib/smartcropperlib.iml	(revision b9bde0ad6f5adb4bf75bf4aa5fdfad508d3e1b53)
++++ .idea/modules/smartcropperlib/smartcropperlib.iml	(revision b9bde0ad6f5adb4bf75bf4aa5fdfad508d3e1b53)
+@@ -1,107 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<module external.linked.project.id=":smartcropperlib" external.linked.project.path="$MODULE_DIR$/../../../smartcropperlib" external.root.project.path="$MODULE_DIR$/../../.." external.system.id="GRADLE" external.system.module.group="com.github.sid" external.system.module.version="unspecified" type="JAVA_MODULE" version="4">
+-  <component name="FacetManager">
+-    <facet type="android-gradle" name="Android-Gradle">
+-      <configuration>
+-        <option name="GRADLE_PROJECT_PATH" value=":smartcropperlib" />
+-        <option name="LAST_SUCCESSFUL_SYNC_AGP_VERSION" value="4.0.0" />
+-        <option name="LAST_KNOWN_AGP_VERSION" value="4.0.0" />
+-      </configuration>
+-    </facet>
+-    <facet type="native-android-gradle" name="Native-Android-Gradle">
+-      <configuration>
+-        <option name="SELECTED_BUILD_VARIANT" value="debug-x86" />
+-      </configuration>
+-    </facet>
+-    <facet type="android" name="Android">
+-      <configuration>
+-        <option name="SELECTED_BUILD_VARIANT" value="debug" />
+-        <option name="ASSEMBLE_TASK_NAME" value="assembleDebug" />
+-        <option name="COMPILE_JAVA_TASK_NAME" value="compileDebugSources" />
+-        <afterSyncTasks>
+-          <task>generateDebugSources</task>
+-        </afterSyncTasks>
+-        <option name="ALLOW_USER_CONFIGURATION" value="false" />
+-        <option name="MANIFEST_FILE_RELATIVE_PATH" value="/src/main/AndroidManifest.xml" />
+-        <option name="RES_FOLDER_RELATIVE_PATH" value="/src/main/res" />
+-        <option name="RES_FOLDERS_RELATIVE_PATH" value="file://$MODULE_DIR$/../../../smartcropperlib/src/main/res;file://$MODULE_DIR$/../../../smartcropperlib/src/debug/res;file://$MODULE_DIR$/../../../smartcropperlib/build/generated/res/rs/debug" />
+-        <option name="TEST_RES_FOLDERS_RELATIVE_PATH" value="file://$MODULE_DIR$/../../../smartcropperlib/src/androidTest/res;file://$MODULE_DIR$/../../../smartcropperlib/src/test/res;file://$MODULE_DIR$/../../../smartcropperlib/src/androidTestDebug/res;file://$MODULE_DIR$/../../../smartcropperlib/src/testDebug/res;file://$MODULE_DIR$/../../../smartcropperlib/build/generated/res/rs/androidTest/debug" />
+-        <option name="ASSETS_FOLDER_RELATIVE_PATH" value="/src/main/assets" />
+-        <option name="PROJECT_TYPE" value="1" />
+-      </configuration>
+-    </facet>
+-  </component>
+-  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_7">
+-    <output url="file://$MODULE_DIR$/../../../smartcropperlib/build/intermediates/javac/debug/classes" />
+-    <output-test url="file://$MODULE_DIR$/../../../smartcropperlib/build/intermediates/javac/debugUnitTest/classes" />
+-    <exclude-output />
+-    <content url="file://$MODULE_DIR$/../../../smartcropperlib">
+-      <sourceFolder url="file://$MODULE_DIR$/../../../smartcropperlib/src/main/cpp" isTestSource="false" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../smartcropperlib/build/generated/source/buildConfig/debug" isTestSource="false" generated="true" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../smartcropperlib/build/generated/aidl_source_output_dir/debug/out" isTestSource="false" generated="true" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../smartcropperlib/build/generated/renderscript_source_output_dir/debug/out" isTestSource="false" generated="true" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../smartcropperlib/build/generated/ap_generated_sources/debug/out" isTestSource="false" generated="true" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../smartcropperlib/build/generated/res/rs/debug" type="java-resource" generated="true" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../smartcropperlib/build/generated/source/buildConfig/androidTest/debug" isTestSource="true" generated="true" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../smartcropperlib/build/generated/aidl_source_output_dir/debugAndroidTest/out" isTestSource="true" generated="true" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../smartcropperlib/build/generated/ap_generated_sources/debugAndroidTest/out" isTestSource="true" generated="true" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../smartcropperlib/build/generated/renderscript_source_output_dir/debugAndroidTest/out" isTestSource="true" generated="true" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../smartcropperlib/build/generated/res/rs/androidTest/debug" type="java-test-resource" generated="true" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../smartcropperlib/build/generated/ap_generated_sources/debugUnitTest/out" isTestSource="true" generated="true" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../smartcropperlib/src/debug/res" type="java-resource" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../smartcropperlib/src/debug/resources" type="java-resource" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../smartcropperlib/src/debug/assets" type="java-resource" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../smartcropperlib/src/debug/aidl" isTestSource="false" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../smartcropperlib/src/debug/java" isTestSource="false" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../smartcropperlib/src/debug/jni" isTestSource="false" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../smartcropperlib/src/debug/rs" isTestSource="false" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../smartcropperlib/src/debug/shaders" isTestSource="false" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../smartcropperlib/src/androidTestDebug/res" type="java-test-resource" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../smartcropperlib/src/androidTestDebug/resources" type="java-test-resource" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../smartcropperlib/src/androidTestDebug/assets" type="java-test-resource" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../smartcropperlib/src/androidTestDebug/aidl" isTestSource="true" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../smartcropperlib/src/androidTestDebug/java" isTestSource="true" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../smartcropperlib/src/androidTestDebug/jni" isTestSource="true" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../smartcropperlib/src/androidTestDebug/rs" isTestSource="true" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../smartcropperlib/src/androidTestDebug/shaders" isTestSource="true" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../smartcropperlib/src/testDebug/res" type="java-test-resource" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../smartcropperlib/src/testDebug/resources" type="java-test-resource" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../smartcropperlib/src/testDebug/assets" type="java-test-resource" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../smartcropperlib/src/testDebug/aidl" isTestSource="true" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../smartcropperlib/src/testDebug/java" isTestSource="true" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../smartcropperlib/src/testDebug/jni" isTestSource="true" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../smartcropperlib/src/testDebug/rs" isTestSource="true" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../smartcropperlib/src/testDebug/shaders" isTestSource="true" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../smartcropperlib/src/main/res" type="java-resource" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../smartcropperlib/src/main/resources" type="java-resource" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../smartcropperlib/src/main/assets" type="java-resource" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../smartcropperlib/src/main/aidl" isTestSource="false" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../smartcropperlib/src/main/java" isTestSource="false" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../smartcropperlib/src/main/jni" isTestSource="false" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../smartcropperlib/src/main/rs" isTestSource="false" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../smartcropperlib/src/main/shaders" isTestSource="false" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../smartcropperlib/src/androidTest/res" type="java-test-resource" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../smartcropperlib/src/androidTest/resources" type="java-test-resource" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../smartcropperlib/src/androidTest/assets" type="java-test-resource" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../smartcropperlib/src/androidTest/aidl" isTestSource="true" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../smartcropperlib/src/androidTest/java" isTestSource="true" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../smartcropperlib/src/androidTest/jni" isTestSource="true" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../smartcropperlib/src/androidTest/rs" isTestSource="true" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../smartcropperlib/src/androidTest/shaders" isTestSource="true" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../smartcropperlib/src/test/res" type="java-test-resource" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../smartcropperlib/src/test/resources" type="java-test-resource" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../smartcropperlib/src/test/assets" type="java-test-resource" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../smartcropperlib/src/test/aidl" isTestSource="true" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../smartcropperlib/src/test/java" isTestSource="true" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../smartcropperlib/src/test/jni" isTestSource="true" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../smartcropperlib/src/test/rs" isTestSource="true" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../smartcropperlib/src/test/shaders" isTestSource="true" />
+-      <excludeFolder url="file://$MODULE_DIR$/../../../smartcropperlib/.cxx" />
+-      <excludeFolder url="file://$MODULE_DIR$/../../../smartcropperlib/.externalNativeBuild" />
+-      <excludeFolder url="file://$MODULE_DIR$/../../../smartcropperlib/build" />
+-    </content>
+-    <orderEntry type="jdk" jdkName="Android API 28 Platform" jdkType="Android SDK" />
+-    <orderEntry type="sourceFolder" forTests="false" />
+-    <orderEntry type="library" name="Gradle: org.tensorflow:tensorflow-lite:1.13.1@aar" level="project" />
+-  </component>
+-</module>
+\ No newline at end of file
+Index: .idea/modules/SmartCropper-master.iml
+===================================================================
+--- .idea/modules/SmartCropper-master.iml	(revision b9bde0ad6f5adb4bf75bf4aa5fdfad508d3e1b53)
++++ .idea/modules/SmartCropper-master.iml	(revision b9bde0ad6f5adb4bf75bf4aa5fdfad508d3e1b53)
+@@ -1,19 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<module external.linked.project.id="SmartCropper-master" external.linked.project.path="$MODULE_DIR$/../.." external.root.project.path="$MODULE_DIR$/../.." external.system.id="GRADLE" external.system.module.group="" external.system.module.version="unspecified" type="JAVA_MODULE" version="4">
+-  <component name="FacetManager">
+-    <facet type="java-gradle" name="Java-Gradle">
+-      <configuration>
+-        <option name="BUILD_FOLDER_PATH" value="$MODULE_DIR$/../../build" />
+-        <option name="BUILDABLE" value="false" />
+-      </configuration>
+-    </facet>
+-  </component>
+-  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_7" inherit-compiler-output="true">
+-    <exclude-output />
+-    <content url="file://$MODULE_DIR$/../..">
+-      <excludeFolder url="file://$MODULE_DIR$/../../.gradle" />
+-    </content>
+-    <orderEntry type="inheritedJdk" />
+-    <orderEntry type="sourceFolder" forTests="false" />
+-  </component>
+-</module>
+\ No newline at end of file
+Index: .idea/modules/app/app.iml
+===================================================================
+--- .idea/modules/app/app.iml	(revision b9bde0ad6f5adb4bf75bf4aa5fdfad508d3e1b53)
++++ .idea/modules/app/app.iml	(revision b9bde0ad6f5adb4bf75bf4aa5fdfad508d3e1b53)
+@@ -1,210 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<module external.linked.project.id=":app" external.linked.project.path="$MODULE_DIR$/../../../app" external.root.project.path="$MODULE_DIR$/../../.." external.system.id="GRADLE" external.system.module.group="SmartCropper-master" external.system.module.version="unspecified" type="JAVA_MODULE" version="4">
+-  <component name="FacetManager">
+-    <facet type="android-gradle" name="Android-Gradle">
+-      <configuration>
+-        <option name="GRADLE_PROJECT_PATH" value=":app" />
+-        <option name="LAST_SUCCESSFUL_SYNC_AGP_VERSION" value="4.0.0" />
+-        <option name="LAST_KNOWN_AGP_VERSION" value="4.0.0" />
+-      </configuration>
+-    </facet>
+-    <facet type="android" name="Android">
+-      <configuration>
+-        <option name="SELECTED_BUILD_VARIANT" value="debug" />
+-        <option name="ASSEMBLE_TASK_NAME" value="assembleDebug" />
+-        <option name="COMPILE_JAVA_TASK_NAME" value="compileDebugSources" />
+-        <afterSyncTasks>
+-          <task>generateDebugSources</task>
+-        </afterSyncTasks>
+-        <option name="ALLOW_USER_CONFIGURATION" value="false" />
+-        <option name="MANIFEST_FILE_RELATIVE_PATH" value="/src/main/AndroidManifest.xml" />
+-        <option name="RES_FOLDER_RELATIVE_PATH" value="/src/main/res" />
+-        <option name="RES_FOLDERS_RELATIVE_PATH" value="file://$MODULE_DIR$/../../../app/src/main/res;file://$MODULE_DIR$/../../../app/src/debug/res;file://$MODULE_DIR$/../../../app/build/generated/res/google-services/debug;file://$MODULE_DIR$/../../../app/build/generated/crashlytics/res/debug;file://$MODULE_DIR$/../../../app/build/generated/res/rs/debug" />
+-        <option name="TEST_RES_FOLDERS_RELATIVE_PATH" value="file://$MODULE_DIR$/../../../app/src/androidTest/res;file://$MODULE_DIR$/../../../app/src/test/res;file://$MODULE_DIR$/../../../app/src/androidTestDebug/res;file://$MODULE_DIR$/../../../app/src/testDebug/res;file://$MODULE_DIR$/../../../app/build/generated/res/rs/androidTest/debug" />
+-        <option name="ASSETS_FOLDER_RELATIVE_PATH" value="/src/main/assets" />
+-      </configuration>
+-    </facet>
+-  </component>
+-  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8">
+-    <output url="file://$MODULE_DIR$/../../../app/build/intermediates/javac/debug/classes" />
+-    <output-test url="file://$MODULE_DIR$/../../../app/build/intermediates/javac/debugUnitTest/classes" />
+-    <exclude-output />
+-    <content url="file://$MODULE_DIR$/../../../app">
+-      <sourceFolder url="file://$MODULE_DIR$/../../../app/build/generated/ap_generated_sources/debug/out" isTestSource="false" generated="true" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../app/build/generated/source/buildConfig/debug" isTestSource="false" generated="true" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../app/build/generated/aidl_source_output_dir/debug/out" isTestSource="false" generated="true" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../app/build/generated/renderscript_source_output_dir/debug/out" isTestSource="false" generated="true" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../app/build/generated/res/google-services/debug" type="java-resource" generated="true" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../app/build/generated/crashlytics/res/debug" type="java-resource" generated="true" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../app/build/generated/res/rs/debug" type="java-resource" generated="true" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../app/build/generated/renderscript_source_output_dir/debugAndroidTest/out" isTestSource="true" generated="true" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../app/build/generated/ap_generated_sources/debugAndroidTest/out" isTestSource="true" generated="true" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../app/build/generated/aidl_source_output_dir/debugAndroidTest/out" isTestSource="true" generated="true" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../app/build/generated/source/buildConfig/androidTest/debug" isTestSource="true" generated="true" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../app/build/generated/res/rs/androidTest/debug" type="java-test-resource" generated="true" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../app/build/generated/ap_generated_sources/debugUnitTest/out" isTestSource="true" generated="true" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../app/src/debug/res" type="java-resource" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../app/src/debug/resources" type="java-resource" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../app/src/debug/assets" type="java-resource" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../app/src/debug/aidl" isTestSource="false" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../app/src/debug/java" isTestSource="false" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../app/src/debug/rs" isTestSource="false" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../app/src/debug/shaders" isTestSource="false" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../app/src/androidTestDebug/res" type="java-test-resource" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../app/src/androidTestDebug/resources" type="java-test-resource" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../app/src/androidTestDebug/assets" type="java-test-resource" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../app/src/androidTestDebug/aidl" isTestSource="true" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../app/src/androidTestDebug/java" isTestSource="true" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../app/src/androidTestDebug/rs" isTestSource="true" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../app/src/androidTestDebug/shaders" isTestSource="true" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../app/src/testDebug/res" type="java-test-resource" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../app/src/testDebug/resources" type="java-test-resource" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../app/src/testDebug/assets" type="java-test-resource" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../app/src/testDebug/aidl" isTestSource="true" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../app/src/testDebug/java" isTestSource="true" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../app/src/testDebug/rs" isTestSource="true" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../app/src/testDebug/shaders" isTestSource="true" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../app/src/main/res" type="java-resource" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../app/src/main/resources" type="java-resource" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../app/src/main/assets" type="java-resource" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../app/src/main/aidl" isTestSource="false" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../app/src/main/java" isTestSource="false" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../app/src/main/rs" isTestSource="false" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../app/src/main/shaders" isTestSource="false" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../app/src/androidTest/res" type="java-test-resource" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../app/src/androidTest/resources" type="java-test-resource" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../app/src/androidTest/assets" type="java-test-resource" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../app/src/androidTest/aidl" isTestSource="true" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../app/src/androidTest/java" isTestSource="true" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../app/src/androidTest/rs" isTestSource="true" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../app/src/androidTest/shaders" isTestSource="true" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../app/src/test/res" type="java-test-resource" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../app/src/test/resources" type="java-test-resource" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../app/src/test/assets" type="java-test-resource" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../app/src/test/aidl" isTestSource="true" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../app/src/test/java" isTestSource="true" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../app/src/test/rs" isTestSource="true" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../app/src/test/shaders" isTestSource="true" />
+-      <excludeFolder url="file://$MODULE_DIR$/../../../app/build" />
+-    </content>
+-    <orderEntry type="jdk" jdkName="Android API 28 Platform" jdkType="Android SDK" />
+-    <orderEntry type="sourceFolder" forTests="false" />
+-    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-encoders:16.0.0@jar" level="project" />
+-    <orderEntry type="library" name="Gradle: androidx.lifecycle:lifecycle-common:2.1.0@jar" level="project" />
+-    <orderEntry type="library" name="Gradle: androidx.collection:collection:1.1.0@jar" level="project" />
+-    <orderEntry type="library" name="Gradle: androidx.arch.core:core-common:2.1.0@jar" level="project" />
+-    <orderEntry type="library" name="Gradle: androidx.annotation:annotation:1.1.0@jar" level="project" />
+-    <orderEntry type="library" name="Gradle: com.google.dagger:dagger:2.27@jar" level="project" />
+-    <orderEntry type="library" name="Gradle: javax.inject:javax.inject:1@jar" level="project" />
+-    <orderEntry type="library" name="Gradle: com.squareup.okhttp3:okhttp:3.12.1@jar" level="project" />
+-    <orderEntry type="library" name="Gradle: com.squareup.okio:okio:1.17.4@jar" level="project" />
+-    <orderEntry type="library" name="Gradle: androidx.constraintlayout:constraintlayout-solver:2.0.4@jar" level="project" />
+-    <orderEntry type="library" name="Gradle: com.google.guava:listenablefuture:1.0@jar" level="project" />
+-    <orderEntry type="library" name="Gradle: io.reactivex.rxjava2:rxjava:2.1.0@jar" level="project" />
+-    <orderEntry type="library" name="Gradle: org.reactivestreams:reactive-streams:1.0.0@jar" level="project" />
+-    <orderEntry type="library" name="Gradle: com.github.bumptech.glide:disklrucache:4.9.0@jar" level="project" />
+-    <orderEntry type="library" name="Gradle: com.github.bumptech.glide:annotations:4.9.0@jar" level="project" />
+-    <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.2.51@jar" level="project" />
+-    <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.2.51@jar" level="project" />
+-    <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib-common:1.2.51@jar" level="project" />
+-    <orderEntry type="library" name="Gradle: org.jetbrains:annotations:13.0@jar" level="project" />
+-    <orderEntry type="library" name="Gradle: com.itextpdf:itextpdf:5.0.6@jar" level="project" />
+-    <orderEntry type="library" name="Gradle: org.bouncycastle:bctsp-jdk14:1.38@jar" level="project" />
+-    <orderEntry type="library" name="Gradle: org.bouncycastle:bcmail-jdk14:1.38@jar" level="project" />
+-    <orderEntry type="library" name="Gradle: org.bouncycastle:bcprov-jdk14:1.38@jar" level="project" />
+-    <orderEntry type="library" name="Gradle: org.tensorflow:tensorflow-lite:1.13.1@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: com.chauthai.swipereveallayout:swipe-reveal-layout:1.4.1@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: com.github.barteksc:android-pdf-viewer:2.8.2@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: com.github.barteksc:pdfium-android:1.7.1@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: androidx.legacy:legacy-support-v4:1.0.0@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: androidx.constraintlayout:constraintlayout:2.0.4@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: pub.devrel:easypermissions:3.0.0@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: com.google.android.material:material:1.1.0@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: info.androidhive:imagefilters:1.0.7@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: com.airbnb.android:lottie:3.4.0@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: androidx.appcompat:appcompat:1.2.0@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: com.github.bumptech.glide:glide:4.9.0@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-ml-vision:18.0.1@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-auth-base:16.0.0@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-vision:17.0.2@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-vision-image-label:17.0.2@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-vision-common:17.0.2@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-ml-common:16.1.5@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-clearcut:16.0.0@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-flags:16.0.1@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-phenotype:16.0.0@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-analytics:17.2.2@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-measurement-api:17.2.2@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-iid:20.0.2@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-iid-interop:17.0.0@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-base:17.0.0@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-crashlytics:17.2.2@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-installations:16.3.3@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-common:19.3.1@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-installations-interop:16.0.0@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-tasks:17.0.0@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-measurement-connector:18.0.0@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-measurement:17.2.2@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-measurement-sdk:17.2.2@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-measurement-impl:17.2.2@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-measurement-sdk-api:17.2.2@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-measurement-base:17.2.2@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-stats:17.0.0@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-ads-identifier:17.0.0@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-basement:17.0.0@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: androidx.viewpager2:viewpager2:1.0.0@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: androidx.fragment:fragment:1.1.0@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: androidx.appcompat:appcompat-resources:1.2.0@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: androidx.legacy:legacy-support-core-ui:1.0.0@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: androidx.drawerlayout:drawerlayout:1.0.0@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: androidx.media:media:1.0.0@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: androidx.legacy:legacy-support-core-utils:1.0.0@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: androidx.coordinatorlayout:coordinatorlayout:1.1.0@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: androidx.recyclerview:recyclerview:1.1.0@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: androidx.transition:transition:1.2.0@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: androidx.vectordrawable:vectordrawable-animated:1.1.0@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: androidx.vectordrawable:vectordrawable:1.1.0@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: androidx.viewpager:viewpager:1.0.0@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: androidx.loader:loader:1.0.0@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: androidx.activity:activity:1.0.0@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: androidx.slidingpanelayout:slidingpanelayout:1.0.0@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: androidx.customview:customview:1.0.0@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: androidx.swiperefreshlayout:swiperefreshlayout:1.0.0@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: androidx.asynclayoutinflater:asynclayoutinflater:1.0.0@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: androidx.core:core:1.3.1@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: androidx.camera:camera-camera2:1.0.0-beta04@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: androidx.camera:camera-view:1.0.0-alpha11@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: androidx.cursoradapter:cursoradapter:1.0.0@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: androidx.exifinterface:exifinterface:1.0.0@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: com.google.android.datatransport:transport-backend-cct:2.3.1@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: com.google.android.datatransport:transport-runtime:2.2.4@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: com.google.android.datatransport:transport-api:2.2.1@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-components:16.0.0@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-encoders-json:17.0.0@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: androidx.camera:camera-lifecycle:1.0.0-beta04@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: androidx.camera:camera-extensions:1.0.0-alpha11@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: androidx.camera:camera-core:1.0.0-beta04@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: androidx.lifecycle:lifecycle-runtime:2.1.0@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: androidx.savedstate:savedstate:1.0.0@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: androidx.lifecycle:lifecycle-livedata:2.1.0@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: androidx.lifecycle:lifecycle-livedata-core:2.1.0@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: androidx.cardview:cardview:1.0.0@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: com.github.bumptech.glide:gifdecoder:4.9.0@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: androidx.versionedparcelable:versionedparcelable:1.1.0@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: androidx.lifecycle:lifecycle-viewmodel:2.1.0@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: androidx.documentfile:documentfile:1.0.0@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: androidx.localbroadcastmanager:localbroadcastmanager:1.0.0@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: androidx.print:print:1.0.0@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: androidx.interpolator:interpolator:1.0.0@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: androidx.arch.core:core-runtime:2.1.0@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: jp.co.cyberagent.android:gpuimage:2.1.0@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: androidx.annotation:annotation-experimental:1.0.0-rc01@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: id.zelory:compressor:2.1.0@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: com.agrawalsuneet.androidlibs:dotsloader:1.4@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: com.zhihu.android:matisse:0.5.3-beta3@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: com.rishabhharit.roundedimageview:RoundedImageView:0.8.4@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: com.github.arthurghazaryan:floatingactionmenu:1.0.0@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: ja.burhanrashid52:photoeditor:1.1.0@aar" level="project" />
+-    <orderEntry type="module" module-name="smartcropperlib" />
+-  </component>
+-</module>
+\ No newline at end of file
+Index: .idea/codestream.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/codestream.xml	(date 1608457258347)
++++ .idea/codestream.xml	(date 1608457258347)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="CodeStream">
++    <option name="webViewContext" value="{&quot;chatProviderAccess&quot;:&quot;strict&quot;,&quot;currentTeamId&quot;:&quot;&quot;,&quot;currentStreamId&quot;:&quot;&quot;,&quot;pullRequestCheckoutBranch&quot;:false,&quot;isRepositioning&quot;:false,&quot;panelStack&quot;:[&quot;landing-redirect&quot;],&quot;hasFocus&quot;:false,&quot;channelFilter&quot;:&quot;all&quot;,&quot;channelsMuteAll&quot;:false,&quot;codemarkFileFilter&quot;:&quot;all&quot;,&quot;codemarkTypeFilter&quot;:&quot;all&quot;,&quot;codemarkTagFilter&quot;:&quot;all&quot;,&quot;codemarkBranchFilter&quot;:&quot;all&quot;,&quot;codemarkAuthorFilter&quot;:&quot;all&quot;,&quot;codemarksFileViewStyle&quot;:&quot;inline&quot;,&quot;codemarksShowArchived&quot;:false,&quot;codemarksShowResolved&quot;:false,&quot;codemarksWrapComments&quot;:false,&quot;showFeedbackSmiley&quot;:true,&quot;route&quot;:{&quot;name&quot;:&quot;newUserEntry&quot;,&quot;params&quot;:{}},&quot;spatialViewShowPRComments&quot;:false}" />
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/libraries/Gradle__com_google_android_gms_play_services_phenotype_16_0_0_aar.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><component name=\"libraryTable\">\r\n  <library name=\"Gradle: com.google.android.gms:play-services-phenotype:16.0.0@aar\">\r\n    <CLASSES>\r\n      <root url=\"file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d5fc9ebe4287bf1c6c325baa002014c9/jetified-play-services-phenotype-16.0.0/AndroidManifest.xml\" />\r\n      <root url=\"jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d5fc9ebe4287bf1c6c325baa002014c9/jetified-play-services-phenotype-16.0.0/jars/classes.jar!/\" />\r\n      <root url=\"file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d5fc9ebe4287bf1c6c325baa002014c9/jetified-play-services-phenotype-16.0.0/res\" />\r\n    </CLASSES>\r\n    <JAVADOC />\r\n    <SOURCES />\r\n  </library>\r\n</component>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/libraries/Gradle__com_google_android_gms_play_services_phenotype_16_0_0_aar.xml	(revision b9bde0ad6f5adb4bf75bf4aa5fdfad508d3e1b53)
++++ .idea/libraries/Gradle__com_google_android_gms_play_services_phenotype_16_0_0_aar.xml	(date 1608462125429)
+@@ -4,6 +4,9 @@
+       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d5fc9ebe4287bf1c6c325baa002014c9/jetified-play-services-phenotype-16.0.0/AndroidManifest.xml" />
+       <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d5fc9ebe4287bf1c6c325baa002014c9/jetified-play-services-phenotype-16.0.0/jars/classes.jar!/" />
+       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d5fc9ebe4287bf1c6c325baa002014c9/jetified-play-services-phenotype-16.0.0/res" />
++      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/7a0d342fb4e6f503f3718fe526494ac0/jetified-play-services-phenotype-16.0.0/jars/classes.jar!/" />
++      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/7a0d342fb4e6f503f3718fe526494ac0/jetified-play-services-phenotype-16.0.0/AndroidManifest.xml" />
++      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/7a0d342fb4e6f503f3718fe526494ac0/jetified-play-services-phenotype-16.0.0/res" />
+     </CLASSES>
+     <JAVADOC />
+     <SOURCES />
+Index: .idea/modules/smartcropperlib/DocumentScanner.smartcropperlib.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/modules/smartcropperlib/DocumentScanner.smartcropperlib.iml	(date 1608462125103)
++++ .idea/modules/smartcropperlib/DocumentScanner.smartcropperlib.iml	(date 1608462125103)
+@@ -0,0 +1,52 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<module external.linked.project.id=":smartcropperlib" external.linked.project.path="$MODULE_DIR$/../../../smartcropperlib" external.root.project.path="$MODULE_DIR$/../../.." external.system.id="GRADLE" external.system.module.group="com.github.sid" external.system.module.version="unspecified" type="JAVA_MODULE" version="4">
++  <component name="FacetManager">
++    <facet type="android-gradle" name="Android-Gradle">
++      <configuration>
++        <option name="GRADLE_PROJECT_PATH" value=":smartcropperlib" />
++        <option name="LAST_SUCCESSFUL_SYNC_AGP_VERSION" value="4.0.0" />
++        <option name="LAST_KNOWN_AGP_VERSION" value="4.0.0" />
++      </configuration>
++    </facet>
++    <facet type="native-android-gradle" name="Native-Android-Gradle">
++      <configuration>
++        <option name="SELECTED_BUILD_VARIANT" value="debug-arm64-v8a" />
++      </configuration>
++    </facet>
++    <facet type="android" name="Android">
++      <configuration>
++        <option name="SELECTED_BUILD_VARIANT" value="debug" />
++        <option name="ASSEMBLE_TASK_NAME" value="assembleDebug" />
++        <option name="COMPILE_JAVA_TASK_NAME" value="compileDebugSources" />
++        <afterSyncTasks>
++          <task>generateDebugSources</task>
++        </afterSyncTasks>
++        <option name="ALLOW_USER_CONFIGURATION" value="false" />
++        <option name="MANIFEST_FILE_RELATIVE_PATH" value="/src/main/AndroidManifest.xml" />
++        <option name="RES_FOLDER_RELATIVE_PATH" value="/src/main/res" />
++        <option name="RES_FOLDERS_RELATIVE_PATH" value="file://$MODULE_DIR$/../../../smartcropperlib/src/main/res;file://$MODULE_DIR$/../../../smartcropperlib/src/debug/res;file://$MODULE_DIR$/../../../smartcropperlib/build/generated/res/rs/debug" />
++        <option name="TEST_RES_FOLDERS_RELATIVE_PATH" value="file://$MODULE_DIR$/../../../smartcropperlib/src/androidTest/res;file://$MODULE_DIR$/../../../smartcropperlib/src/androidTestDebug/res;file://$MODULE_DIR$/../../../smartcropperlib/build/generated/res/rs/androidTest/debug" />
++        <option name="ASSETS_FOLDER_RELATIVE_PATH" value="/src/main/assets" />
++        <option name="PROJECT_TYPE" value="1" />
++      </configuration>
++    </facet>
++  </component>
++  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_7">
++    <output url="file://$MODULE_DIR$/../../../smartcropperlib/build/intermediates/javac/debug/classes" />
++    <output-test url="file://$MODULE_DIR$/../../../smartcropperlib/build/intermediates/javac/debugUnitTest/classes" />
++    <exclude-output />
++    <content url="file://$MODULE_DIR$/../../../smartcropperlib">
++      <sourceFolder url="file://$MODULE_DIR$/../../../smartcropperlib/src/main/java" isTestSource="false" />
++      <sourceFolder url="file://$MODULE_DIR$/../../../smartcropperlib/src/main/assets" type="java-resource" />
++      <sourceFolder url="file://$MODULE_DIR$/../../../smartcropperlib/src/main/res" type="java-resource" />
++      <sourceFolder url="file://$MODULE_DIR$/../../../smartcropperlib/src/main/cpp" isTestSource="false" />
++      <excludeFolder url="file://$MODULE_DIR$/../../../smartcropperlib/.cxx" />
++      <excludeFolder url="file://$MODULE_DIR$/../../../smartcropperlib/.externalNativeBuild" />
++      <excludeFolder url="file://$MODULE_DIR$/../../../smartcropperlib/.gradle" />
++      <excludeFolder url="file://$MODULE_DIR$/../../../smartcropperlib/build" />
++    </content>
++    <orderEntry type="jdk" jdkName="Android API 28 Platform" jdkType="Android SDK" />
++    <orderEntry type="sourceFolder" forTests="false" />
++    <orderEntry type="library" name="Gradle: org.tensorflow:tensorflow-lite:1.13.1@aar" level="project" />
++  </component>
++</module>
+\ No newline at end of file
+Index: .idea/modules/app/DocumentScanner.app.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/modules/app/DocumentScanner.app.iml	(date 1608462125070)
++++ .idea/modules/app/DocumentScanner.app.iml	(date 1608462125070)
+@@ -0,0 +1,159 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<module external.linked.project.id=":app" external.linked.project.path="$MODULE_DIR$/../../../app" external.root.project.path="$MODULE_DIR$/../../.." external.system.id="GRADLE" external.system.module.group="DocumentScanner" external.system.module.version="unspecified" type="JAVA_MODULE" version="4">
++  <component name="FacetManager">
++    <facet type="android-gradle" name="Android-Gradle">
++      <configuration>
++        <option name="GRADLE_PROJECT_PATH" value=":app" />
++        <option name="LAST_SUCCESSFUL_SYNC_AGP_VERSION" value="4.0.0" />
++        <option name="LAST_KNOWN_AGP_VERSION" value="4.0.0" />
++      </configuration>
++    </facet>
++    <facet type="android" name="Android">
++      <configuration>
++        <option name="SELECTED_BUILD_VARIANT" value="debug" />
++        <option name="ASSEMBLE_TASK_NAME" value="assembleDebug" />
++        <option name="COMPILE_JAVA_TASK_NAME" value="compileDebugSources" />
++        <afterSyncTasks>
++          <task>generateDebugSources</task>
++        </afterSyncTasks>
++        <option name="ALLOW_USER_CONFIGURATION" value="false" />
++        <option name="MANIFEST_FILE_RELATIVE_PATH" value="/src/main/AndroidManifest.xml" />
++        <option name="RES_FOLDER_RELATIVE_PATH" value="/src/main/res" />
++        <option name="RES_FOLDERS_RELATIVE_PATH" value="file://$MODULE_DIR$/../../../app/src/main/res;file://$MODULE_DIR$/../../../app/src/debug/res;file://$MODULE_DIR$/../../../app/build/generated/res/google-services/debug;file://$MODULE_DIR$/../../../app/build/generated/crashlytics/res/debug;file://$MODULE_DIR$/../../../app/build/generated/res/rs/debug" />
++        <option name="TEST_RES_FOLDERS_RELATIVE_PATH" value="file://$MODULE_DIR$/../../../app/src/androidTest/res;file://$MODULE_DIR$/../../../app/src/androidTestDebug/res;file://$MODULE_DIR$/../../../app/build/generated/res/rs/androidTest/debug" />
++        <option name="ASSETS_FOLDER_RELATIVE_PATH" value="/src/main/assets" />
++      </configuration>
++    </facet>
++  </component>
++  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8">
++    <output url="file://$MODULE_DIR$/../../../app/build/intermediates/javac/debug/classes" />
++    <output-test url="file://$MODULE_DIR$/../../../app/build/intermediates/javac/debugUnitTest/classes" />
++    <exclude-output />
++    <content url="file://$MODULE_DIR$/../../../app">
++      <sourceFolder url="file://$MODULE_DIR$/../../../app/src/main/java" isTestSource="false" />
++      <sourceFolder url="file://$MODULE_DIR$/../../../app/src/main/assets" type="java-resource" />
++      <sourceFolder url="file://$MODULE_DIR$/../../../app/src/main/res" type="java-resource" />
++      <excludeFolder url="file://$MODULE_DIR$/../../../app/.gradle" />
++      <excludeFolder url="file://$MODULE_DIR$/../../../app/build" />
++    </content>
++    <orderEntry type="jdk" jdkName="Android API 28 Platform" jdkType="Android SDK" />
++    <orderEntry type="sourceFolder" forTests="false" />
++    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-encoders:16.0.0" level="project" />
++    <orderEntry type="library" name="Gradle: androidx.lifecycle:lifecycle-common:2.1.0" level="project" />
++    <orderEntry type="library" name="Gradle: androidx.collection:collection:1.1.0" level="project" />
++    <orderEntry type="library" name="Gradle: androidx.arch.core:core-common:2.1.0" level="project" />
++    <orderEntry type="library" name="Gradle: androidx.annotation:annotation:1.1.0" level="project" />
++    <orderEntry type="library" name="Gradle: com.google.dagger:dagger:2.27" level="project" />
++    <orderEntry type="library" name="Gradle: javax.inject:javax.inject:1" level="project" />
++    <orderEntry type="library" name="Gradle: com.squareup.okhttp3:okhttp:3.12.1" level="project" />
++    <orderEntry type="library" name="Gradle: com.squareup.okio:okio:1.17.4" level="project" />
++    <orderEntry type="library" name="Gradle: androidx.constraintlayout:constraintlayout-solver:2.0.4" level="project" />
++    <orderEntry type="library" name="Gradle: com.google.guava:listenablefuture:1.0" level="project" />
++    <orderEntry type="library" name="Gradle: io.reactivex.rxjava2:rxjava:2.1.0" level="project" />
++    <orderEntry type="library" name="Gradle: org.reactivestreams:reactive-streams:1.0.0" level="project" />
++    <orderEntry type="library" name="Gradle: com.github.bumptech.glide:disklrucache:4.9.0" level="project" />
++    <orderEntry type="library" name="Gradle: com.github.bumptech.glide:annotations:4.9.0" level="project" />
++    <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.2.51" level="project" />
++    <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.2.51" level="project" />
++    <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib-common:1.2.51" level="project" />
++    <orderEntry type="library" name="Gradle: org.jetbrains:annotations:13.0" level="project" />
++    <orderEntry type="library" name="Gradle: com.itextpdf:itextpdf:5.0.6" level="project" />
++    <orderEntry type="library" name="Gradle: org.bouncycastle:bctsp-jdk14:1.38" level="project" />
++    <orderEntry type="library" name="Gradle: org.bouncycastle:bcmail-jdk14:1.38" level="project" />
++    <orderEntry type="library" name="Gradle: org.bouncycastle:bcprov-jdk14:1.38" level="project" />
++    <orderEntry type="library" name="Gradle: org.tensorflow:tensorflow-lite:1.13.1@aar" level="project" />
++    <orderEntry type="library" name="Gradle: com.chauthai.swipereveallayout:swipe-reveal-layout:1.4.1@aar" level="project" />
++    <orderEntry type="library" name="Gradle: com.github.barteksc:android-pdf-viewer:2.8.2@aar" level="project" />
++    <orderEntry type="library" name="Gradle: com.github.barteksc:pdfium-android:1.7.1@aar" level="project" />
++    <orderEntry type="library" name="Gradle: androidx.legacy:legacy-support-v4:1.0.0@aar" level="project" />
++    <orderEntry type="library" name="Gradle: androidx.constraintlayout:constraintlayout:2.0.4@aar" level="project" />
++    <orderEntry type="library" name="Gradle: pub.devrel:easypermissions:3.0.0@aar" level="project" />
++    <orderEntry type="library" name="Gradle: com.google.android.material:material:1.1.0@aar" level="project" />
++    <orderEntry type="library" name="Gradle: info.androidhive:imagefilters:1.0.7@aar" level="project" />
++    <orderEntry type="library" name="Gradle: com.airbnb.android:lottie:3.4.0@aar" level="project" />
++    <orderEntry type="library" name="Gradle: androidx.appcompat:appcompat:1.2.0@aar" level="project" />
++    <orderEntry type="library" name="Gradle: com.github.bumptech.glide:glide:4.9.0@aar" level="project" />
++    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-ml-vision:18.0.1@aar" level="project" />
++    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-auth-base:16.0.0@aar" level="project" />
++    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-vision:17.0.2@aar" level="project" />
++    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-vision-image-label:17.0.2@aar" level="project" />
++    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-vision-common:17.0.2@aar" level="project" />
++    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-ml-common:16.1.5@aar" level="project" />
++    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-clearcut:16.0.0@aar" level="project" />
++    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-flags:16.0.1@aar" level="project" />
++    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-phenotype:16.0.0@aar" level="project" />
++    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-analytics:17.2.2@aar" level="project" />
++    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-measurement-api:17.2.2@aar" level="project" />
++    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-iid:20.0.2@aar" level="project" />
++    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-iid-interop:17.0.0@aar" level="project" />
++    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-base:17.0.0@aar" level="project" />
++    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-crashlytics:17.2.2@aar" level="project" />
++    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-installations:16.3.3@aar" level="project" />
++    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-common:19.3.1@aar" level="project" />
++    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-installations-interop:16.0.0@aar" level="project" />
++    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-tasks:17.0.0@aar" level="project" />
++    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-measurement-connector:18.0.0@aar" level="project" />
++    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-measurement:17.2.2@aar" level="project" />
++    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-measurement-sdk:17.2.2@aar" level="project" />
++    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-measurement-impl:17.2.2@aar" level="project" />
++    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-measurement-sdk-api:17.2.2@aar" level="project" />
++    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-measurement-base:17.2.2@aar" level="project" />
++    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-stats:17.0.0@aar" level="project" />
++    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-ads-identifier:17.0.0@aar" level="project" />
++    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-basement:17.0.0@aar" level="project" />
++    <orderEntry type="library" name="Gradle: androidx.viewpager2:viewpager2:1.0.0@aar" level="project" />
++    <orderEntry type="library" name="Gradle: androidx.fragment:fragment:1.1.0@aar" level="project" />
++    <orderEntry type="library" name="Gradle: androidx.appcompat:appcompat-resources:1.2.0@aar" level="project" />
++    <orderEntry type="library" name="Gradle: androidx.legacy:legacy-support-core-ui:1.0.0@aar" level="project" />
++    <orderEntry type="library" name="Gradle: androidx.drawerlayout:drawerlayout:1.0.0@aar" level="project" />
++    <orderEntry type="library" name="Gradle: androidx.media:media:1.0.0@aar" level="project" />
++    <orderEntry type="library" name="Gradle: androidx.legacy:legacy-support-core-utils:1.0.0@aar" level="project" />
++    <orderEntry type="library" name="Gradle: androidx.coordinatorlayout:coordinatorlayout:1.1.0@aar" level="project" />
++    <orderEntry type="library" name="Gradle: androidx.recyclerview:recyclerview:1.1.0@aar" level="project" />
++    <orderEntry type="library" name="Gradle: androidx.transition:transition:1.2.0@aar" level="project" />
++    <orderEntry type="library" name="Gradle: androidx.vectordrawable:vectordrawable-animated:1.1.0@aar" level="project" />
++    <orderEntry type="library" name="Gradle: androidx.vectordrawable:vectordrawable:1.1.0@aar" level="project" />
++    <orderEntry type="library" name="Gradle: androidx.viewpager:viewpager:1.0.0@aar" level="project" />
++    <orderEntry type="library" name="Gradle: androidx.loader:loader:1.0.0@aar" level="project" />
++    <orderEntry type="library" name="Gradle: androidx.activity:activity:1.0.0@aar" level="project" />
++    <orderEntry type="library" name="Gradle: androidx.slidingpanelayout:slidingpanelayout:1.0.0@aar" level="project" />
++    <orderEntry type="library" name="Gradle: androidx.customview:customview:1.0.0@aar" level="project" />
++    <orderEntry type="library" name="Gradle: androidx.swiperefreshlayout:swiperefreshlayout:1.0.0@aar" level="project" />
++    <orderEntry type="library" name="Gradle: androidx.asynclayoutinflater:asynclayoutinflater:1.0.0@aar" level="project" />
++    <orderEntry type="library" name="Gradle: androidx.core:core:1.3.1@aar" level="project" />
++    <orderEntry type="library" name="Gradle: androidx.camera:camera-camera2:1.0.0-beta04@aar" level="project" />
++    <orderEntry type="library" name="Gradle: androidx.camera:camera-view:1.0.0-alpha11@aar" level="project" />
++    <orderEntry type="library" name="Gradle: androidx.cursoradapter:cursoradapter:1.0.0@aar" level="project" />
++    <orderEntry type="library" name="Gradle: androidx.exifinterface:exifinterface:1.0.0@aar" level="project" />
++    <orderEntry type="library" name="Gradle: com.google.android.datatransport:transport-backend-cct:2.3.1@aar" level="project" />
++    <orderEntry type="library" name="Gradle: com.google.android.datatransport:transport-runtime:2.2.4@aar" level="project" />
++    <orderEntry type="library" name="Gradle: com.google.android.datatransport:transport-api:2.2.1@aar" level="project" />
++    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-components:16.0.0@aar" level="project" />
++    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-encoders-json:17.0.0@aar" level="project" />
++    <orderEntry type="library" name="Gradle: androidx.camera:camera-lifecycle:1.0.0-beta04@aar" level="project" />
++    <orderEntry type="library" name="Gradle: androidx.camera:camera-extensions:1.0.0-alpha11@aar" level="project" />
++    <orderEntry type="library" name="Gradle: androidx.camera:camera-core:1.0.0-beta04@aar" level="project" />
++    <orderEntry type="library" name="Gradle: androidx.lifecycle:lifecycle-runtime:2.1.0@aar" level="project" />
++    <orderEntry type="library" name="Gradle: androidx.savedstate:savedstate:1.0.0@aar" level="project" />
++    <orderEntry type="library" name="Gradle: androidx.lifecycle:lifecycle-livedata:2.1.0@aar" level="project" />
++    <orderEntry type="library" name="Gradle: androidx.lifecycle:lifecycle-livedata-core:2.1.0@aar" level="project" />
++    <orderEntry type="library" name="Gradle: androidx.cardview:cardview:1.0.0@aar" level="project" />
++    <orderEntry type="library" name="Gradle: com.github.bumptech.glide:gifdecoder:4.9.0@aar" level="project" />
++    <orderEntry type="library" name="Gradle: androidx.versionedparcelable:versionedparcelable:1.1.0@aar" level="project" />
++    <orderEntry type="library" name="Gradle: androidx.lifecycle:lifecycle-viewmodel:2.1.0@aar" level="project" />
++    <orderEntry type="library" name="Gradle: androidx.documentfile:documentfile:1.0.0@aar" level="project" />
++    <orderEntry type="library" name="Gradle: androidx.localbroadcastmanager:localbroadcastmanager:1.0.0@aar" level="project" />
++    <orderEntry type="library" name="Gradle: androidx.print:print:1.0.0@aar" level="project" />
++    <orderEntry type="library" name="Gradle: androidx.interpolator:interpolator:1.0.0@aar" level="project" />
++    <orderEntry type="library" name="Gradle: androidx.arch.core:core-runtime:2.1.0@aar" level="project" />
++    <orderEntry type="library" name="Gradle: jp.co.cyberagent.android:gpuimage:2.1.0@aar" level="project" />
++    <orderEntry type="library" name="Gradle: androidx.annotation:annotation-experimental:1.0.0-rc01@aar" level="project" />
++    <orderEntry type="library" name="Gradle: id.zelory:compressor:2.1.0@aar" level="project" />
++    <orderEntry type="library" name="Gradle: com.agrawalsuneet.androidlibs:dotsloader:1.4@aar" level="project" />
++    <orderEntry type="library" name="Gradle: com.zhihu.android:matisse:0.5.3-beta3@aar" level="project" />
++    <orderEntry type="library" name="Gradle: com.rishabhharit.roundedimageview:RoundedImageView:0.8.4@aar" level="project" />
++    <orderEntry type="library" name="Gradle: com.github.arthurghazaryan:floatingactionmenu:1.0.0@aar" level="project" />
++    <orderEntry type="library" name="Gradle: ja.burhanrashid52:photoeditor:1.1.0@aar" level="project" />
++    <orderEntry type="module" module-name="DocumentScanner.smartcropperlib" />
++  </component>
++</module>
+\ No newline at end of file
+Index: .idea/libraries/Gradle__androidx_arch_core_core_common_2_1_0_jar.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><component name=\"libraryTable\">\r\n  <library name=\"Gradle: androidx.arch.core:core-common:2.1.0@jar\">\r\n    <CLASSES>\r\n      <root url=\"jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.arch.core/core-common/2.1.0/b3152fc64428c9354344bd89848ecddc09b6f07e/core-common-2.1.0.jar!/\" />\r\n    </CLASSES>\r\n    <JAVADOC />\r\n    <SOURCES>\r\n      <root url=\"jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.arch.core/core-common/2.1.0/80ac2d7c8e6400ce2fbc663cd1a7e1cbef38c4b8/core-common-2.1.0-sources.jar!/\" />\r\n    </SOURCES>\r\n  </library>\r\n</component>
+===================================================================
+--- .idea/libraries/Gradle__androidx_arch_core_core_common_2_1_0_jar.xml	(revision b9bde0ad6f5adb4bf75bf4aa5fdfad508d3e1b53)
++++ .idea/libraries/Gradle__androidx_arch_core_core_common_2_1_0.xml	(date 1608462125190)
+@@ -1,5 +1,5 @@
+ <component name="libraryTable">
+-  <library name="Gradle: androidx.arch.core:core-common:2.1.0@jar">
++  <library name="Gradle: androidx.arch.core:core-common:2.1.0">
+     <CLASSES>
+       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.arch.core/core-common/2.1.0/b3152fc64428c9354344bd89848ecddc09b6f07e/core-common-2.1.0.jar!/" />
+     </CLASSES>
+Index: .idea/libraries/Gradle__com_google_firebase_firebase_ml_common_16_1_5_aar.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><component name=\"libraryTable\">\r\n  <library name=\"Gradle: com.google.firebase:firebase-ml-common:16.1.5@aar\">\r\n    <CLASSES>\r\n      <root url=\"file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a008389ce4c35c15b6dc5ceb14ffc49d/jetified-firebase-ml-common-16.1.5/AndroidManifest.xml\" />\r\n      <root url=\"jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a008389ce4c35c15b6dc5ceb14ffc49d/jetified-firebase-ml-common-16.1.5/jars/classes.jar!/\" />\r\n      <root url=\"file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a008389ce4c35c15b6dc5ceb14ffc49d/jetified-firebase-ml-common-16.1.5/res\" />\r\n    </CLASSES>\r\n    <JAVADOC />\r\n    <SOURCES />\r\n  </library>\r\n</component>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/libraries/Gradle__com_google_firebase_firebase_ml_common_16_1_5_aar.xml	(revision b9bde0ad6f5adb4bf75bf4aa5fdfad508d3e1b53)
++++ .idea/libraries/Gradle__com_google_firebase_firebase_ml_common_16_1_5_aar.xml	(date 1608462125501)
+@@ -4,6 +4,9 @@
+       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a008389ce4c35c15b6dc5ceb14ffc49d/jetified-firebase-ml-common-16.1.5/AndroidManifest.xml" />
+       <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a008389ce4c35c15b6dc5ceb14ffc49d/jetified-firebase-ml-common-16.1.5/jars/classes.jar!/" />
+       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a008389ce4c35c15b6dc5ceb14ffc49d/jetified-firebase-ml-common-16.1.5/res" />
++      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/72b111d1c58660f29dfe6373526e2a35/jetified-firebase-ml-common-16.1.5/res" />
++      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/72b111d1c58660f29dfe6373526e2a35/jetified-firebase-ml-common-16.1.5/jars/classes.jar!/" />
++      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/72b111d1c58660f29dfe6373526e2a35/jetified-firebase-ml-common-16.1.5/AndroidManifest.xml" />
+     </CLASSES>
+     <JAVADOC />
+     <SOURCES />
+Index: .idea/libraries/Gradle__androidx_annotation_annotation_1_1_0_jar.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><component name=\"libraryTable\">\r\n  <library name=\"Gradle: androidx.annotation:annotation:1.1.0@jar\">\r\n    <CLASSES>\r\n      <root url=\"jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.annotation/annotation/1.1.0/e3a6fb2f40e3a3842e6b7472628ba4ce416ea4c8/annotation-1.1.0.jar!/\" />\r\n    </CLASSES>\r\n    <JAVADOC>\r\n      <root url=\"jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.annotation/annotation/1.1.0/408af38ec57369afe3fd6466e1c4bfdd5f15fc92/annotation-1.1.0-javadoc.jar!/\" />\r\n    </JAVADOC>\r\n    <SOURCES>\r\n      <root url=\"jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.annotation/annotation/1.1.0/8b7bdc00eb4d998bfbc76767b098620990f2a805/annotation-1.1.0-sources.jar!/\" />\r\n    </SOURCES>\r\n  </library>\r\n</component>
+===================================================================
+--- .idea/libraries/Gradle__androidx_annotation_annotation_1_1_0_jar.xml	(revision b9bde0ad6f5adb4bf75bf4aa5fdfad508d3e1b53)
++++ .idea/libraries/Gradle__androidx_annotation_annotation_1_1_0.xml	(date 1608462125169)
+@@ -1,5 +1,5 @@
+ <component name="libraryTable">
+-  <library name="Gradle: androidx.annotation:annotation:1.1.0@jar">
++  <library name="Gradle: androidx.annotation:annotation:1.1.0">
+     <CLASSES>
+       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.annotation/annotation/1.1.0/e3a6fb2f40e3a3842e6b7472628ba4ce416ea4c8/annotation-1.1.0.jar!/" />
+     </CLASSES>
+Index: .idea/libraries/Gradle__com_github_barteksc_pdfium_android_1_7_1_aar.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><component name=\"libraryTable\">\r\n  <library name=\"Gradle: com.github.barteksc:pdfium-android:1.7.1@aar\">\r\n    <CLASSES>\r\n      <root url=\"file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/64e6d994e480bea53b527e817f127d45/jetified-pdfium-android-1.7.1/AndroidManifest.xml\" />\r\n      <root url=\"jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/64e6d994e480bea53b527e817f127d45/jetified-pdfium-android-1.7.1/jars/classes.jar!/\" />\r\n      <root url=\"file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/64e6d994e480bea53b527e817f127d45/jetified-pdfium-android-1.7.1/res\" />\r\n    </CLASSES>\r\n    <JAVADOC>\r\n      <root url=\"jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.barteksc/pdfium-android/1.7.1/89b2c068c8fd5c088f1edbcab0fade1fe377865b/pdfium-android-1.7.1-javadoc.jar!/\" />\r\n    </JAVADOC>\r\n    <SOURCES>\r\n      <root url=\"jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.barteksc/pdfium-android/1.7.1/873c2791c515aa5748446911798f9a118092d8f8/pdfium-android-1.7.1-sources.jar!/\" />\r\n    </SOURCES>\r\n  </library>\r\n</component>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/libraries/Gradle__com_github_barteksc_pdfium_android_1_7_1_aar.xml	(revision b9bde0ad6f5adb4bf75bf4aa5fdfad508d3e1b53)
++++ .idea/libraries/Gradle__com_github_barteksc_pdfium_android_1_7_1_aar.xml	(date 1608462125311)
+@@ -4,6 +4,9 @@
+       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/64e6d994e480bea53b527e817f127d45/jetified-pdfium-android-1.7.1/AndroidManifest.xml" />
+       <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/64e6d994e480bea53b527e817f127d45/jetified-pdfium-android-1.7.1/jars/classes.jar!/" />
+       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/64e6d994e480bea53b527e817f127d45/jetified-pdfium-android-1.7.1/res" />
++      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/c3352f538ddf1b9325e35e5bf8534a4c/jetified-pdfium-android-1.7.1/res" />
++      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/c3352f538ddf1b9325e35e5bf8534a4c/jetified-pdfium-android-1.7.1/AndroidManifest.xml" />
++      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/c3352f538ddf1b9325e35e5bf8534a4c/jetified-pdfium-android-1.7.1/jars/classes.jar!/" />
+     </CLASSES>
+     <JAVADOC>
+       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.barteksc/pdfium-android/1.7.1/89b2c068c8fd5c088f1edbcab0fade1fe377865b/pdfium-android-1.7.1-javadoc.jar!/" />
+Index: .idea/libraries/Gradle__com_chauthai_swipereveallayout_swipe_reveal_layout_1_4_1_aar.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><component name=\"libraryTable\">\r\n  <library name=\"Gradle: com.chauthai.swipereveallayout:swipe-reveal-layout:1.4.1@aar\">\r\n    <CLASSES>\r\n      <root url=\"file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/f964c793f960556bddaa80de83fea002/jetified-swipe-reveal-layout-1.4.1/AndroidManifest.xml\" />\r\n      <root url=\"jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/f964c793f960556bddaa80de83fea002/jetified-swipe-reveal-layout-1.4.1/jars/classes.jar!/\" />\r\n      <root url=\"file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/f964c793f960556bddaa80de83fea002/jetified-swipe-reveal-layout-1.4.1/res\" />\r\n    </CLASSES>\r\n    <JAVADOC>\r\n      <root url=\"jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.chauthai.swipereveallayout/swipe-reveal-layout/1.4.1/4cb70dfff631146eb4ce510e9d6aee014887fa4b/swipe-reveal-layout-1.4.1-javadoc.jar!/\" />\r\n    </JAVADOC>\r\n    <SOURCES>\r\n      <root url=\"jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.chauthai.swipereveallayout/swipe-reveal-layout/1.4.1/dbbf011f8bf33315c1933d0c73d539dbdf95b58a/swipe-reveal-layout-1.4.1-sources.jar!/\" />\r\n    </SOURCES>\r\n  </library>\r\n</component>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/libraries/Gradle__com_chauthai_swipereveallayout_swipe_reveal_layout_1_4_1_aar.xml	(revision b9bde0ad6f5adb4bf75bf4aa5fdfad508d3e1b53)
++++ .idea/libraries/Gradle__com_chauthai_swipereveallayout_swipe_reveal_layout_1_4_1_aar.xml	(date 1608462125274)
+@@ -4,6 +4,9 @@
+       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/f964c793f960556bddaa80de83fea002/jetified-swipe-reveal-layout-1.4.1/AndroidManifest.xml" />
+       <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/f964c793f960556bddaa80de83fea002/jetified-swipe-reveal-layout-1.4.1/jars/classes.jar!/" />
+       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/f964c793f960556bddaa80de83fea002/jetified-swipe-reveal-layout-1.4.1/res" />
++      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/4a250b08b4ee2f715950a490175c4f27/jetified-swipe-reveal-layout-1.4.1/res" />
++      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/4a250b08b4ee2f715950a490175c4f27/jetified-swipe-reveal-layout-1.4.1/jars/classes.jar!/" />
++      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/4a250b08b4ee2f715950a490175c4f27/jetified-swipe-reveal-layout-1.4.1/AndroidManifest.xml" />
+     </CLASSES>
+     <JAVADOC>
+       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.chauthai.swipereveallayout/swipe-reveal-layout/1.4.1/4cb70dfff631146eb4ce510e9d6aee014887fa4b/swipe-reveal-layout-1.4.1-javadoc.jar!/" />
+Index: .idea/libraries/Gradle__com_github_bumptech_glide_gifdecoder_4_9_0_aar.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><component name=\"libraryTable\">\r\n  <library name=\"Gradle: com.github.bumptech.glide:gifdecoder:4.9.0@aar\">\r\n    <ANNOTATIONS>\r\n      <root url=\"jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/53252cec58407758429720baa33698e4/jetified-gifdecoder-4.9.0/annotations.zip!/\" />\r\n    </ANNOTATIONS>\r\n    <CLASSES>\r\n      <root url=\"file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/53252cec58407758429720baa33698e4/jetified-gifdecoder-4.9.0/AndroidManifest.xml\" />\r\n      <root url=\"jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/53252cec58407758429720baa33698e4/jetified-gifdecoder-4.9.0/jars/classes.jar!/\" />\r\n      <root url=\"file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/53252cec58407758429720baa33698e4/jetified-gifdecoder-4.9.0/res\" />\r\n    </CLASSES>\r\n    <JAVADOC>\r\n      <root url=\"jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.bumptech.glide/gifdecoder/4.9.0/5a535e1ca9189de869e65c35ebf5f76b565e6c07/gifdecoder-4.9.0-javadoc.jar!/\" />\r\n    </JAVADOC>\r\n    <SOURCES>\r\n      <root url=\"jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.bumptech.glide/gifdecoder/4.9.0/5b2b5c315c48fdfef00435450d8366e498dba7de/gifdecoder-4.9.0-sources.jar!/\" />\r\n    </SOURCES>\r\n  </library>\r\n</component>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/libraries/Gradle__com_github_bumptech_glide_gifdecoder_4_9_0_aar.xml	(revision b9bde0ad6f5adb4bf75bf4aa5fdfad508d3e1b53)
++++ .idea/libraries/Gradle__com_github_bumptech_glide_gifdecoder_4_9_0_aar.xml	(date 1608462125375)
+@@ -2,11 +2,15 @@
+   <library name="Gradle: com.github.bumptech.glide:gifdecoder:4.9.0@aar">
+     <ANNOTATIONS>
+       <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/53252cec58407758429720baa33698e4/jetified-gifdecoder-4.9.0/annotations.zip!/" />
++      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/c484c3028bf23905736f2da27f02dedc/jetified-gifdecoder-4.9.0/annotations.zip!/" />
+     </ANNOTATIONS>
+     <CLASSES>
+       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/53252cec58407758429720baa33698e4/jetified-gifdecoder-4.9.0/AndroidManifest.xml" />
+       <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/53252cec58407758429720baa33698e4/jetified-gifdecoder-4.9.0/jars/classes.jar!/" />
+       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/53252cec58407758429720baa33698e4/jetified-gifdecoder-4.9.0/res" />
++      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/c484c3028bf23905736f2da27f02dedc/jetified-gifdecoder-4.9.0/jars/classes.jar!/" />
++      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/c484c3028bf23905736f2da27f02dedc/jetified-gifdecoder-4.9.0/res" />
++      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/c484c3028bf23905736f2da27f02dedc/jetified-gifdecoder-4.9.0/AndroidManifest.xml" />
+     </CLASSES>
+     <JAVADOC>
+       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.bumptech.glide/gifdecoder/4.9.0/5a535e1ca9189de869e65c35ebf5f76b565e6c07/gifdecoder-4.9.0-javadoc.jar!/" />
+Index: .idea/modules/DocumentScanner.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/modules/DocumentScanner.iml	(date 1608462125034)
++++ .idea/modules/DocumentScanner.iml	(date 1608462125034)
+@@ -0,0 +1,20 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<module external.linked.project.id="DocumentScanner" external.linked.project.path="$MODULE_DIR$/../.." external.root.project.path="$MODULE_DIR$/../.." external.system.id="GRADLE" external.system.module.group="" external.system.module.version="unspecified" type="JAVA_MODULE" version="4">
++  <component name="FacetManager">
++    <facet type="java-gradle" name="Java-Gradle">
++      <configuration>
++        <option name="BUILD_FOLDER_PATH" value="$MODULE_DIR$/../../build" />
++        <option name="BUILDABLE" value="false" />
++      </configuration>
++    </facet>
++  </component>
++  <component name="NewModuleRootManager" inherit-compiler-output="true">
++    <exclude-output />
++    <content url="file://$MODULE_DIR$/../..">
++      <excludeFolder url="file://$MODULE_DIR$/../../.gradle" />
++      <excludeFolder url="file://$MODULE_DIR$/../../build" />
++    </content>
++    <orderEntry type="inheritedJdk" />
++    <orderEntry type="sourceFolder" forTests="false" />
++  </component>
++</module>
+\ No newline at end of file
+Index: .idea/libraries/Gradle__com_google_dagger_dagger_2_27_jar.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><component name=\"libraryTable\">\r\n  <library name=\"Gradle: com.google.dagger:dagger:2.27@jar\">\r\n    <CLASSES>\r\n      <root url=\"jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.dagger/dagger/2.27/7bee2792b10523e298a7de508635c6eed0c309be/dagger-2.27.jar!/\" />\r\n    </CLASSES>\r\n    <JAVADOC>\r\n      <root url=\"jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.dagger/dagger/2.27/2edef3c857bfb145ae416401da5297d262d9b1ae/dagger-2.27-javadoc.jar!/\" />\r\n    </JAVADOC>\r\n    <SOURCES>\r\n      <root url=\"jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.dagger/dagger/2.27/a325dd366f838606298ddb85735883dfbdd7b6b8/dagger-2.27-sources.jar!/\" />\r\n    </SOURCES>\r\n  </library>\r\n</component>
+===================================================================
+--- .idea/libraries/Gradle__com_google_dagger_dagger_2_27_jar.xml	(revision b9bde0ad6f5adb4bf75bf4aa5fdfad508d3e1b53)
++++ .idea/libraries/Gradle__com_google_dagger_dagger_2_27.xml	(date 1608462125461)
+@@ -1,5 +1,5 @@
+ <component name="libraryTable">
+-  <library name="Gradle: com.google.dagger:dagger:2.27@jar">
++  <library name="Gradle: com.google.dagger:dagger:2.27">
+     <CLASSES>
+       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.dagger/dagger/2.27/7bee2792b10523e298a7de508635c6eed0c309be/dagger-2.27.jar!/" />
+     </CLASSES>
+Index: .idea/libraries/Gradle__com_github_bumptech_glide_disklrucache_4_9_0_jar.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><component name=\"libraryTable\">\r\n  <library name=\"Gradle: com.github.bumptech.glide:disklrucache:4.9.0@jar\">\r\n    <CLASSES>\r\n      <root url=\"jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.bumptech.glide/disklrucache/4.9.0/cbb185635e8f265d6391c7d43118d3856574dc3a/disklrucache-4.9.0.jar!/\" />\r\n    </CLASSES>\r\n    <JAVADOC>\r\n      <root url=\"jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.bumptech.glide/disklrucache/4.9.0/2ceb48326728d65df5cc403fcf775a4e21ff2b85/disklrucache-4.9.0-javadoc.jar!/\" />\r\n    </JAVADOC>\r\n    <SOURCES>\r\n      <root url=\"jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.bumptech.glide/disklrucache/4.9.0/3814da9f6d7c75619f50c123fc907ffcfd997da1/disklrucache-4.9.0-sources.jar!/\" />\r\n    </SOURCES>\r\n  </library>\r\n</component>
+===================================================================
+--- .idea/libraries/Gradle__com_github_bumptech_glide_disklrucache_4_9_0_jar.xml	(revision b9bde0ad6f5adb4bf75bf4aa5fdfad508d3e1b53)
++++ .idea/libraries/Gradle__com_github_bumptech_glide_disklrucache_4_9_0.xml	(date 1608462125355)
+@@ -1,5 +1,5 @@
+ <component name="libraryTable">
+-  <library name="Gradle: com.github.bumptech.glide:disklrucache:4.9.0@jar">
++  <library name="Gradle: com.github.bumptech.glide:disklrucache:4.9.0">
+     <CLASSES>
+       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.bumptech.glide/disklrucache/4.9.0/cbb185635e8f265d6391c7d43118d3856574dc3a/disklrucache-4.9.0.jar!/" />
+     </CLASSES>
+Index: .idea/libraries/Gradle__com_google_guava_listenablefuture_1_0_jar.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><component name=\"libraryTable\">\r\n  <library name=\"Gradle: com.google.guava:listenablefuture:1.0@jar\">\r\n    <CLASSES>\r\n      <root url=\"jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.guava/listenablefuture/1.0/c949a840a6acbc5268d088e47b04177bf90b3cad/listenablefuture-1.0.jar!/\" />\r\n    </CLASSES>\r\n    <JAVADOC>\r\n      <root url=\"jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.guava/listenablefuture/1.0/c6fc3e29c8cc24b39c2cd8f66b41bf40e342901c/listenablefuture-1.0-javadoc.jar!/\" />\r\n    </JAVADOC>\r\n    <SOURCES>\r\n      <root url=\"jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.guava/listenablefuture/1.0/be1234988ac73d61e52e35a912169b06020caa7/listenablefuture-1.0-sources.jar!/\" />\r\n    </SOURCES>\r\n  </library>\r\n</component>
+===================================================================
+--- .idea/libraries/Gradle__com_google_guava_listenablefuture_1_0_jar.xml	(revision b9bde0ad6f5adb4bf75bf4aa5fdfad508d3e1b53)
++++ .idea/libraries/Gradle__com_google_guava_listenablefuture_1_0.xml	(date 1608462125536)
+@@ -1,5 +1,5 @@
+ <component name="libraryTable">
+-  <library name="Gradle: com.google.guava:listenablefuture:1.0@jar">
++  <library name="Gradle: com.google.guava:listenablefuture:1.0">
+     <CLASSES>
+       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.guava/listenablefuture/1.0/c949a840a6acbc5268d088e47b04177bf90b3cad/listenablefuture-1.0.jar!/" />
+     </CLASSES>
+Index: .idea/libraries/Gradle__com_google_firebase_firebase_encoders_16_0_0_jar.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><component name=\"libraryTable\">\r\n  <library name=\"Gradle: com.google.firebase:firebase-encoders:16.0.0@jar\">\r\n    <CLASSES>\r\n      <root url=\"jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.firebase/firebase-encoders/16.0.0/cdb2969254af26490ff30f05f5a2ccedebd49e98/firebase-encoders-16.0.0.jar!/\" />\r\n    </CLASSES>\r\n    <JAVADOC>\r\n      <root url=\"jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.firebase/firebase-encoders/16.0.0/d632ce74490e89cc52634b7982d0c6e99b66864e/firebase-encoders-16.0.0-javadoc.jar!/\" />\r\n    </JAVADOC>\r\n    <SOURCES>\r\n      <root url=\"jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.firebase/firebase-encoders/16.0.0/f19c4e6ebfb336f793ce9a709b0e67613ea3d515/firebase-encoders-16.0.0-sources.jar!/\" />\r\n    </SOURCES>\r\n  </library>\r\n</component>
+===================================================================
+--- .idea/libraries/Gradle__com_google_firebase_firebase_encoders_16_0_0_jar.xml	(revision b9bde0ad6f5adb4bf75bf4aa5fdfad508d3e1b53)
++++ .idea/libraries/Gradle__com_google_firebase_firebase_encoders_16_0_0.xml	(date 1608462125485)
+@@ -1,5 +1,5 @@
+ <component name="libraryTable">
+-  <library name="Gradle: com.google.firebase:firebase-encoders:16.0.0@jar">
++  <library name="Gradle: com.google.firebase:firebase-encoders:16.0.0">
+     <CLASSES>
+       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.firebase/firebase-encoders/16.0.0/cdb2969254af26490ff30f05f5a2ccedebd49e98/firebase-encoders-16.0.0.jar!/" />
+     </CLASSES>
+Index: .idea/libraries/Gradle__androidx_constraintlayout_constraintlayout_solver_2_0_4_jar.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><component name=\"libraryTable\">\r\n  <library name=\"Gradle: androidx.constraintlayout:constraintlayout-solver:2.0.4@jar\">\r\n    <CLASSES>\r\n      <root url=\"jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.constraintlayout/constraintlayout-solver/2.0.4/1f001d7db280a89a6c26b26a66eb064bb6d5efeb/constraintlayout-solver-2.0.4.jar!/\" />\r\n    </CLASSES>\r\n    <JAVADOC />\r\n    <SOURCES />\r\n  </library>\r\n</component>
+===================================================================
+--- .idea/libraries/Gradle__androidx_constraintlayout_constraintlayout_solver_2_0_4_jar.xml	(revision b9bde0ad6f5adb4bf75bf4aa5fdfad508d3e1b53)
++++ .idea/libraries/Gradle__androidx_constraintlayout_constraintlayout_solver_2_0_4.xml	(date 1608462125236)
+@@ -1,5 +1,5 @@
+ <component name="libraryTable">
+-  <library name="Gradle: androidx.constraintlayout:constraintlayout-solver:2.0.4@jar">
++  <library name="Gradle: androidx.constraintlayout:constraintlayout-solver:2.0.4">
+     <CLASSES>
+       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.constraintlayout/constraintlayout-solver/2.0.4/1f001d7db280a89a6c26b26a66eb064bb6d5efeb/constraintlayout-solver-2.0.4.jar!/" />
+     </CLASSES>
+Index: .idea/libraries/Gradle__androidx_collection_collection_1_1_0_jar.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><component name=\"libraryTable\">\r\n  <library name=\"Gradle: androidx.collection:collection:1.1.0@jar\">\r\n    <CLASSES>\r\n      <root url=\"jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.collection/collection/1.1.0/1f27220b47669781457de0d600849a5de0e89909/collection-1.1.0.jar!/\" />\r\n    </CLASSES>\r\n    <JAVADOC />\r\n    <SOURCES>\r\n      <root url=\"jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.collection/collection/1.1.0/bae67b0019fbb38498198fcc2d0282a340b71c5b/collection-1.1.0-sources.jar!/\" />\r\n    </SOURCES>\r\n  </library>\r\n</component>
+===================================================================
+--- .idea/libraries/Gradle__androidx_collection_collection_1_1_0_jar.xml	(revision b9bde0ad6f5adb4bf75bf4aa5fdfad508d3e1b53)
++++ .idea/libraries/Gradle__androidx_collection_collection_1_1_0.xml	(date 1608462125213)
+@@ -1,5 +1,5 @@
+ <component name="libraryTable">
+-  <library name="Gradle: androidx.collection:collection:1.1.0@jar">
++  <library name="Gradle: androidx.collection:collection:1.1.0">
+     <CLASSES>
+       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.collection/collection/1.1.0/1f27220b47669781457de0d600849a5de0e89909/collection-1.1.0.jar!/" />
+     </CLASSES>
+Index: .idea/libraries/Gradle__com_github_bumptech_glide_annotations_4_9_0_jar.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><component name=\"libraryTable\">\r\n  <library name=\"Gradle: com.github.bumptech.glide:annotations:4.9.0@jar\">\r\n    <CLASSES>\r\n      <root url=\"jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.bumptech.glide/annotations/4.9.0/ccdd6bc8b4f3c001fbddec29ecddd515a13203c4/annotations-4.9.0.jar!/\" />\r\n    </CLASSES>\r\n    <JAVADOC>\r\n      <root url=\"jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.bumptech.glide/annotations/4.9.0/c4186c0c015cf30cd671e927a44483fc769883e2/annotations-4.9.0-javadoc.jar!/\" />\r\n    </JAVADOC>\r\n    <SOURCES>\r\n      <root url=\"jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.bumptech.glide/annotations/4.9.0/827aa034a86dc2dbe8a2daa6b9c99a5f1cec0e69/annotations-4.9.0-sources.jar!/\" />\r\n    </SOURCES>\r\n  </library>\r\n</component>
+===================================================================
+--- .idea/libraries/Gradle__com_github_bumptech_glide_annotations_4_9_0_jar.xml	(revision b9bde0ad6f5adb4bf75bf4aa5fdfad508d3e1b53)
++++ .idea/libraries/Gradle__com_github_bumptech_glide_annotations_4_9_0.xml	(date 1608462125330)
+@@ -1,5 +1,5 @@
+ <component name="libraryTable">
+-  <library name="Gradle: com.github.bumptech.glide:annotations:4.9.0@jar">
++  <library name="Gradle: com.github.bumptech.glide:annotations:4.9.0">
+     <CLASSES>
+       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.bumptech.glide/annotations/4.9.0/ccdd6bc8b4f3c001fbddec29ecddd515a13203c4/annotations-4.9.0.jar!/" />
+     </CLASSES>
+Index: .idea/libraries/Gradle__androidx_lifecycle_lifecycle_common_2_1_0_jar.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><component name=\"libraryTable\">\r\n  <library name=\"Gradle: androidx.lifecycle:lifecycle-common:2.1.0@jar\">\r\n    <CLASSES>\r\n      <root url=\"jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.lifecycle/lifecycle-common/2.1.0/c67e7807d9cd6c329b9d0218b2ec4e505dd340b7/lifecycle-common-2.1.0.jar!/\" />\r\n    </CLASSES>\r\n    <JAVADOC />\r\n    <SOURCES>\r\n      <root url=\"jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.lifecycle/lifecycle-common/2.1.0/ff1470ebad448355d3722c637c85d5174b584f38/lifecycle-common-2.1.0-sources.jar!/\" />\r\n    </SOURCES>\r\n  </library>\r\n</component>
+===================================================================
+--- .idea/libraries/Gradle__androidx_lifecycle_lifecycle_common_2_1_0_jar.xml	(revision b9bde0ad6f5adb4bf75bf4aa5fdfad508d3e1b53)
++++ .idea/libraries/Gradle__androidx_lifecycle_lifecycle_common_2_1_0.xml	(date 1608462125257)
+@@ -1,5 +1,5 @@
+ <component name="libraryTable">
+-  <library name="Gradle: androidx.lifecycle:lifecycle-common:2.1.0@jar">
++  <library name="Gradle: androidx.lifecycle:lifecycle-common:2.1.0">
+     <CLASSES>
+       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.lifecycle/lifecycle-common/2.1.0/c67e7807d9cd6c329b9d0218b2ec4e505dd340b7/lifecycle-common-2.1.0.jar!/" />
+     </CLASSES>
+Index: .idea/libraries/Gradle__org_bouncycastle_bcmail_jdk14_1_38_jar.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><component name=\"libraryTable\">\r\n  <library name=\"Gradle: org.bouncycastle:bcmail-jdk14:1.38@jar\">\r\n    <CLASSES>\r\n      <root url=\"jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.bouncycastle/bcmail-jdk14/1.38/14ff2dfec8578f5f6838c4d6a77a86789afe5382/bcmail-jdk14-1.38.jar!/\" />\r\n    </CLASSES>\r\n    <JAVADOC>\r\n      <root url=\"jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.bouncycastle/bcmail-jdk14/1.38/58da258ef080aca9c9c45da28f5e37bd6dc01244/bcmail-jdk14-1.38-javadoc.jar!/\" />\r\n    </JAVADOC>\r\n    <SOURCES>\r\n      <root url=\"jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.bouncycastle/bcmail-jdk14/1.38/a330bbe03efd892e3515e3f407dfba73f8568612/bcmail-jdk14-1.38-sources.jar!/\" />\r\n    </SOURCES>\r\n  </library>\r\n</component>
+===================================================================
+--- .idea/libraries/Gradle__org_bouncycastle_bcmail_jdk14_1_38_jar.xml	(revision b9bde0ad6f5adb4bf75bf4aa5fdfad508d3e1b53)
++++ .idea/libraries/Gradle__org_bouncycastle_bcmail_jdk14_1_38.xml	(date 1608462125670)
+@@ -1,5 +1,5 @@
+ <component name="libraryTable">
+-  <library name="Gradle: org.bouncycastle:bcmail-jdk14:1.38@jar">
++  <library name="Gradle: org.bouncycastle:bcmail-jdk14:1.38">
+     <CLASSES>
+       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.bouncycastle/bcmail-jdk14/1.38/14ff2dfec8578f5f6838c4d6a77a86789afe5382/bcmail-jdk14-1.38.jar!/" />
+     </CLASSES>
+Index: .idea/libraries/Gradle__javax_inject_javax_inject_1_jar.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><component name=\"libraryTable\">\r\n  <library name=\"Gradle: javax.inject:javax.inject:1@jar\">\r\n    <CLASSES>\r\n      <root url=\"jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/javax.inject/javax.inject/1/6975da39a7040257bd51d21a231b76c915872d38/javax.inject-1.jar!/\" />\r\n    </CLASSES>\r\n    <JAVADOC>\r\n      <root url=\"jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/javax.inject/javax.inject/1/70ec961c25111ed9015d1af77772d96383c2d238/javax.inject-1-javadoc.jar!/\" />\r\n    </JAVADOC>\r\n    <SOURCES>\r\n      <root url=\"jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/javax.inject/javax.inject/1/a00123f261762a7c5e0ec916a2c7c8298d29c400/javax.inject-1-sources.jar!/\" />\r\n    </SOURCES>\r\n  </library>\r\n</component>
+===================================================================
+--- .idea/libraries/Gradle__javax_inject_javax_inject_1_jar.xml	(revision b9bde0ad6f5adb4bf75bf4aa5fdfad508d3e1b53)
++++ .idea/libraries/Gradle__javax_inject_javax_inject_1.xml	(date 1608462125649)
+@@ -1,5 +1,5 @@
+ <component name="libraryTable">
+-  <library name="Gradle: javax.inject:javax.inject:1@jar">
++  <library name="Gradle: javax.inject:javax.inject:1">
+     <CLASSES>
+       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/javax.inject/javax.inject/1/6975da39a7040257bd51d21a231b76c915872d38/javax.inject-1.jar!/" />
+     </CLASSES>
+Index: .idea/libraries/Gradle__org_bouncycastle_bctsp_jdk14_1_38_jar.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><component name=\"libraryTable\">\r\n  <library name=\"Gradle: org.bouncycastle:bctsp-jdk14:1.38@jar\">\r\n    <CLASSES>\r\n      <root url=\"jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.bouncycastle/bctsp-jdk14/1.38/4821122f8390d15f4b5ee652621e2a2bb1f1bf16/bctsp-jdk14-1.38.jar!/\" />\r\n    </CLASSES>\r\n    <JAVADOC>\r\n      <root url=\"jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.bouncycastle/bctsp-jdk14/1.38/ae3246509402edff804f64e465aee12e5be41e44/bctsp-jdk14-1.38-javadoc.jar!/\" />\r\n    </JAVADOC>\r\n    <SOURCES>\r\n      <root url=\"jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.bouncycastle/bctsp-jdk14/1.38/aeb07f434ed0e0a497c794cbf7b863fd2d4a5a17/bctsp-jdk14-1.38-sources.jar!/\" />\r\n    </SOURCES>\r\n  </library>\r\n</component>
+===================================================================
+--- .idea/libraries/Gradle__org_bouncycastle_bctsp_jdk14_1_38_jar.xml	(revision b9bde0ad6f5adb4bf75bf4aa5fdfad508d3e1b53)
++++ .idea/libraries/Gradle__org_bouncycastle_bctsp_jdk14_1_38.xml	(date 1608462125708)
+@@ -1,5 +1,5 @@
+ <component name="libraryTable">
+-  <library name="Gradle: org.bouncycastle:bctsp-jdk14:1.38@jar">
++  <library name="Gradle: org.bouncycastle:bctsp-jdk14:1.38">
+     <CLASSES>
+       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.bouncycastle/bctsp-jdk14/1.38/4821122f8390d15f4b5ee652621e2a2bb1f1bf16/bctsp-jdk14-1.38.jar!/" />
+     </CLASSES>
+Index: .idea/libraries/Gradle__org_bouncycastle_bcprov_jdk14_1_38_jar.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><component name=\"libraryTable\">\r\n  <library name=\"Gradle: org.bouncycastle:bcprov-jdk14:1.38@jar\">\r\n    <CLASSES>\r\n      <root url=\"jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.bouncycastle/bcprov-jdk14/1.38/de366c3243a586eb3c0e2bcde1ed9bb1bfb985ff/bcprov-jdk14-1.38.jar!/\" />\r\n    </CLASSES>\r\n    <JAVADOC>\r\n      <root url=\"jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.bouncycastle/bcprov-jdk14/1.38/c349d2271d98793a718077b0f775da9ba2631952/bcprov-jdk14-1.38-javadoc.jar!/\" />\r\n    </JAVADOC>\r\n    <SOURCES>\r\n      <root url=\"jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.bouncycastle/bcprov-jdk14/1.38/f256abfe9445a97cfab36c9c6ef1414b81a60093/bcprov-jdk14-1.38-sources.jar!/\" />\r\n    </SOURCES>\r\n  </library>\r\n</component>
+===================================================================
+--- .idea/libraries/Gradle__org_bouncycastle_bcprov_jdk14_1_38_jar.xml	(revision b9bde0ad6f5adb4bf75bf4aa5fdfad508d3e1b53)
++++ .idea/libraries/Gradle__org_bouncycastle_bcprov_jdk14_1_38.xml	(date 1608462125689)
+@@ -1,5 +1,5 @@
+ <component name="libraryTable">
+-  <library name="Gradle: org.bouncycastle:bcprov-jdk14:1.38@jar">
++  <library name="Gradle: org.bouncycastle:bcprov-jdk14:1.38">
+     <CLASSES>
+       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.bouncycastle/bcprov-jdk14/1.38/de366c3243a586eb3c0e2bcde1ed9bb1bfb985ff/bcprov-jdk14-1.38.jar!/" />
+     </CLASSES>
+Index: .idea/libraries/Gradle__com_squareup_okhttp3_okhttp_3_12_1_jar.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><component name=\"libraryTable\">\r\n  <library name=\"Gradle: com.squareup.okhttp3:okhttp:3.12.1@jar\">\r\n    <CLASSES>\r\n      <root url=\"jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp/3.12.1/dc6d02e4e68514eff5631963e28ca7742ac69efe/okhttp-3.12.1.jar!/\" />\r\n    </CLASSES>\r\n    <JAVADOC>\r\n      <root url=\"jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp/3.12.1/49e7eac3bde66b655e570851b5176f2fc2c61797/okhttp-3.12.1-javadoc.jar!/\" />\r\n    </JAVADOC>\r\n    <SOURCES>\r\n      <root url=\"jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp/3.12.1/66942a30c13605d8c415529cd889b67dc84d38ac/okhttp-3.12.1-sources.jar!/\" />\r\n    </SOURCES>\r\n  </library>\r\n</component>
+===================================================================
+--- .idea/libraries/Gradle__com_squareup_okhttp3_okhttp_3_12_1_jar.xml	(revision b9bde0ad6f5adb4bf75bf4aa5fdfad508d3e1b53)
++++ .idea/libraries/Gradle__com_squareup_okhttp3_okhttp_3_12_1.xml	(date 1608462125586)
+@@ -1,5 +1,5 @@
+ <component name="libraryTable">
+-  <library name="Gradle: com.squareup.okhttp3:okhttp:3.12.1@jar">
++  <library name="Gradle: com.squareup.okhttp3:okhttp:3.12.1">
+     <CLASSES>
+       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp/3.12.1/dc6d02e4e68514eff5631963e28ca7742ac69efe/okhttp-3.12.1.jar!/" />
+     </CLASSES>
+Index: .idea/libraries/Gradle__com_itextpdf_itextpdf_5_0_6_jar.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><component name=\"libraryTable\">\r\n  <library name=\"Gradle: com.itextpdf:itextpdf:5.0.6@jar\">\r\n    <CLASSES>\r\n      <root url=\"jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.itextpdf/itextpdf/5.0.6/d7b0091cc9f6862dd388180cce94a2b0f4cc19e7/itextpdf-5.0.6.jar!/\" />\r\n    </CLASSES>\r\n    <JAVADOC>\r\n      <root url=\"jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.itextpdf/itextpdf/5.0.6/cce734cc308fc502e56b5f91ff3c8095ffa1b697/itextpdf-5.0.6-javadoc.jar!/\" />\r\n    </JAVADOC>\r\n    <SOURCES>\r\n      <root url=\"jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.itextpdf/itextpdf/5.0.6/94a31ad3cfcd30552ceadaed522b05c8ebba8744/itextpdf-5.0.6-sources.jar!/\" />\r\n    </SOURCES>\r\n  </library>\r\n</component>
+===================================================================
+--- .idea/libraries/Gradle__com_itextpdf_itextpdf_5_0_6_jar.xml	(revision b9bde0ad6f5adb4bf75bf4aa5fdfad508d3e1b53)
++++ .idea/libraries/Gradle__com_itextpdf_itextpdf_5_0_6.xml	(date 1608462125563)
+@@ -1,5 +1,5 @@
+ <component name="libraryTable">
+-  <library name="Gradle: com.itextpdf:itextpdf:5.0.6@jar">
++  <library name="Gradle: com.itextpdf:itextpdf:5.0.6">
+     <CLASSES>
+       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.itextpdf/itextpdf/5.0.6/d7b0091cc9f6862dd388180cce94a2b0f4cc19e7/itextpdf-5.0.6.jar!/" />
+     </CLASSES>
+Index: .idea/libraries/Gradle__com_google_android_gms_play_services_auth_base_16_0_0_aar.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><component name=\"libraryTable\">\r\n  <library name=\"Gradle: com.google.android.gms:play-services-auth-base:16.0.0@aar\">\r\n    <CLASSES>\r\n      <root url=\"file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/1efce9cb65a78b3fa5030983f2ba1a5b/jetified-play-services-auth-base-16.0.0/AndroidManifest.xml\" />\r\n      <root url=\"jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/1efce9cb65a78b3fa5030983f2ba1a5b/jetified-play-services-auth-base-16.0.0/jars/classes.jar!/\" />\r\n      <root url=\"file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/1efce9cb65a78b3fa5030983f2ba1a5b/jetified-play-services-auth-base-16.0.0/res\" />\r\n    </CLASSES>\r\n    <JAVADOC />\r\n    <SOURCES />\r\n  </library>\r\n</component>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/libraries/Gradle__com_google_android_gms_play_services_auth_base_16_0_0_aar.xml	(revision b9bde0ad6f5adb4bf75bf4aa5fdfad508d3e1b53)
++++ .idea/libraries/Gradle__com_google_android_gms_play_services_auth_base_16_0_0_aar.xml	(date 1608462125403)
+@@ -4,6 +4,9 @@
+       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/1efce9cb65a78b3fa5030983f2ba1a5b/jetified-play-services-auth-base-16.0.0/AndroidManifest.xml" />
+       <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/1efce9cb65a78b3fa5030983f2ba1a5b/jetified-play-services-auth-base-16.0.0/jars/classes.jar!/" />
+       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/1efce9cb65a78b3fa5030983f2ba1a5b/jetified-play-services-auth-base-16.0.0/res" />
++      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/5d5a6edc8c04b4664bb0261c479296f1/jetified-play-services-auth-base-16.0.0/res" />
++      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/5d5a6edc8c04b4664bb0261c479296f1/jetified-play-services-auth-base-16.0.0/jars/classes.jar!/" />
++      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/5d5a6edc8c04b4664bb0261c479296f1/jetified-play-services-auth-base-16.0.0/AndroidManifest.xml" />
+     </CLASSES>
+     <JAVADOC />
+     <SOURCES />
+Index: .idea/libraries/Gradle__io_reactivex_rxjava2_rxjava_2_1_0_jar.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><component name=\"libraryTable\">\r\n  <library name=\"Gradle: io.reactivex.rxjava2:rxjava:2.1.0@jar\">\r\n    <CLASSES>\r\n      <root url=\"jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.reactivex.rxjava2/rxjava/2.1.0/2fdf84dedcaaeabb9d70cde9dbb8aad4eccb80a1/rxjava-2.1.0.jar!/\" />\r\n    </CLASSES>\r\n    <JAVADOC>\r\n      <root url=\"jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.reactivex.rxjava2/rxjava/2.1.0/d9740100a6ba90be733075233550cac8966b2631/rxjava-2.1.0-javadoc.jar!/\" />\r\n    </JAVADOC>\r\n    <SOURCES>\r\n      <root url=\"jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.reactivex.rxjava2/rxjava/2.1.0/e11f8b99796174be4f0f255d717f295d5e49a53b/rxjava-2.1.0-sources.jar!/\" />\r\n    </SOURCES>\r\n  </library>\r\n</component>
+===================================================================
+--- .idea/libraries/Gradle__io_reactivex_rxjava2_rxjava_2_1_0_jar.xml	(revision b9bde0ad6f5adb4bf75bf4aa5fdfad508d3e1b53)
++++ .idea/libraries/Gradle__io_reactivex_rxjava2_rxjava_2_1_0.xml	(date 1608462125626)
+@@ -1,5 +1,5 @@
+ <component name="libraryTable">
+-  <library name="Gradle: io.reactivex.rxjava2:rxjava:2.1.0@jar">
++  <library name="Gradle: io.reactivex.rxjava2:rxjava:2.1.0">
+     <CLASSES>
+       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.reactivex.rxjava2/rxjava/2.1.0/2fdf84dedcaaeabb9d70cde9dbb8aad4eccb80a1/rxjava-2.1.0.jar!/" />
+     </CLASSES>
+Index: .idea/libraries/Gradle__com_squareup_okio_okio_1_17_4_jar.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><component name=\"libraryTable\">\r\n  <library name=\"Gradle: com.squareup.okio:okio:1.17.4@jar\">\r\n    <CLASSES>\r\n      <root url=\"jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/1.17.4/50077892fbc179bc69c0ac488442fd3a864e897f/okio-1.17.4.jar!/\" />\r\n    </CLASSES>\r\n    <JAVADOC>\r\n      <root url=\"jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/1.17.4/2cbe219932e057d1617be61b719fef4a2f930f4e/okio-1.17.4-javadoc.jar!/\" />\r\n    </JAVADOC>\r\n    <SOURCES>\r\n      <root url=\"jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/1.17.4/2181e952345acc506d8243349a31013ab25abf9/okio-1.17.4-sources.jar!/\" />\r\n    </SOURCES>\r\n  </library>\r\n</component>
+===================================================================
+--- .idea/libraries/Gradle__com_squareup_okio_okio_1_17_4_jar.xml	(revision b9bde0ad6f5adb4bf75bf4aa5fdfad508d3e1b53)
++++ .idea/libraries/Gradle__com_squareup_okio_okio_1_17_4.xml	(date 1608462125607)
+@@ -1,5 +1,5 @@
+ <component name="libraryTable">
+-  <library name="Gradle: com.squareup.okio:okio:1.17.4@jar">
++  <library name="Gradle: com.squareup.okio:okio:1.17.4">
+     <CLASSES>
+       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/1.17.4/50077892fbc179bc69c0ac488442fd3a864e897f/okio-1.17.4.jar!/" />
+     </CLASSES>
+Index: .idea/libraries/Gradle__org_reactivestreams_reactive_streams_1_0_0_jar.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><component name=\"libraryTable\">\r\n  <library name=\"Gradle: org.reactivestreams:reactive-streams:1.0.0@jar\">\r\n    <CLASSES>\r\n      <root url=\"jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.reactivestreams/reactive-streams/1.0.0/14b8c877d98005ba3941c9257cfe09f6ed0e0d74/reactive-streams-1.0.0.jar!/\" />\r\n    </CLASSES>\r\n    <JAVADOC>\r\n      <root url=\"jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.reactivestreams/reactive-streams/1.0.0/d3ba09ae0653d54596c46e7815904ef48e072ad3/reactive-streams-1.0.0-javadoc.jar!/\" />\r\n    </JAVADOC>\r\n    <SOURCES>\r\n      <root url=\"jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.reactivestreams/reactive-streams/1.0.0/5be7bd3f38e43c8fc83699bbb5328c62adb95bbf/reactive-streams-1.0.0-sources.jar!/\" />\r\n    </SOURCES>\r\n  </library>\r\n</component>
+===================================================================
+--- .idea/libraries/Gradle__org_reactivestreams_reactive_streams_1_0_0_jar.xml	(revision b9bde0ad6f5adb4bf75bf4aa5fdfad508d3e1b53)
++++ .idea/libraries/Gradle__org_reactivestreams_reactive_streams_1_0_0.xml	(date 1608462125800)
+@@ -1,5 +1,5 @@
+ <component name="libraryTable">
+-  <library name="Gradle: org.reactivestreams:reactive-streams:1.0.0@jar">
++  <library name="Gradle: org.reactivestreams:reactive-streams:1.0.0">
+     <CLASSES>
+       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.reactivestreams/reactive-streams/1.0.0/14b8c877d98005ba3941c9257cfe09f6ed0e0d74/reactive-streams-1.0.0.jar!/" />
+     </CLASSES>
+Index: .idea/libraries/Gradle__org_jetbrains_kotlin_kotlin_stdlib_1_2_51_jar.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><component name=\"libraryTable\">\r\n  <library name=\"Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.2.51@jar\">\r\n    <CLASSES>\r\n      <root url=\"jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.2.51/fa8127e505bff50fec291d0dd619d1bda5c619e0/kotlin-stdlib-1.2.51.jar!/\" />\r\n    </CLASSES>\r\n    <JAVADOC>\r\n      <root url=\"jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.2.51/5f939fcc5f4f5979ebc5f122c6b20b6da6ecb6b7/kotlin-stdlib-1.2.51-javadoc.jar!/\" />\r\n    </JAVADOC>\r\n    <SOURCES>\r\n      <root url=\"jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.2.51/649a609725b857dd285cf69d49d4f1f77335076e/kotlin-stdlib-1.2.51-sources.jar!/\" />\r\n    </SOURCES>\r\n  </library>\r\n</component>
+===================================================================
+--- .idea/libraries/Gradle__org_jetbrains_kotlin_kotlin_stdlib_1_2_51_jar.xml	(revision b9bde0ad6f5adb4bf75bf4aa5fdfad508d3e1b53)
++++ .idea/libraries/Gradle__org_jetbrains_kotlin_kotlin_stdlib_1_2_51.xml	(date 1608462125746)
+@@ -1,5 +1,5 @@
+ <component name="libraryTable">
+-  <library name="Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.2.51@jar">
++  <library name="Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.2.51">
+     <CLASSES>
+       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.2.51/fa8127e505bff50fec291d0dd619d1bda5c619e0/kotlin-stdlib-1.2.51.jar!/" />
+     </CLASSES>
+Index: .idea/libraries/Gradle__org_jetbrains_annotations_13_0_jar.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><component name=\"libraryTable\">\r\n  <library name=\"Gradle: org.jetbrains:annotations:13.0@jar\">\r\n    <CLASSES>\r\n      <root url=\"jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains/annotations/13.0/919f0dfe192fb4e063e7dacadee7f8bb9a2672a9/annotations-13.0.jar!/\" />\r\n    </CLASSES>\r\n    <JAVADOC>\r\n      <root url=\"jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains/annotations/13.0/73368c3b0887f3adc2c2730dd1b95d7c3781aaf3/annotations-13.0-javadoc.jar!/\" />\r\n    </JAVADOC>\r\n    <SOURCES>\r\n      <root url=\"jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains/annotations/13.0/5991ca87ef1fb5544943d9abc5a9a37583fabe03/annotations-13.0-sources.jar!/\" />\r\n    </SOURCES>\r\n  </library>\r\n</component>
+===================================================================
+--- .idea/libraries/Gradle__org_jetbrains_annotations_13_0_jar.xml	(revision b9bde0ad6f5adb4bf75bf4aa5fdfad508d3e1b53)
++++ .idea/libraries/Gradle__org_jetbrains_annotations_13_0.xml	(date 1608462125727)
+@@ -1,5 +1,5 @@
+ <component name="libraryTable">
+-  <library name="Gradle: org.jetbrains:annotations:13.0@jar">
++  <library name="Gradle: org.jetbrains:annotations:13.0">
+     <CLASSES>
+       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains/annotations/13.0/919f0dfe192fb4e063e7dacadee7f8bb9a2672a9/annotations-13.0.jar!/" />
+     </CLASSES>
+Index: .idea/libraries/Gradle__org_jetbrains_kotlin_kotlin_stdlib_jdk7_1_2_51_jar.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><component name=\"libraryTable\">\r\n  <library name=\"Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.2.51@jar\">\r\n    <CLASSES>\r\n      <root url=\"jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-jdk7/1.2.51/a37c0066df119c02f034bf17159089b588ccc41a/kotlin-stdlib-jdk7-1.2.51.jar!/\" />\r\n    </CLASSES>\r\n    <JAVADOC>\r\n      <root url=\"jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-jdk7/1.2.51/ac4d566f5706d3d5fe48032be378cd0365f33908/kotlin-stdlib-jdk7-1.2.51-javadoc.jar!/\" />\r\n    </JAVADOC>\r\n    <SOURCES>\r\n      <root url=\"jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-jdk7/1.2.51/42b719793a22ad3e283fc9aa33a2ae2c2b68a89c/kotlin-stdlib-jdk7-1.2.51-sources.jar!/\" />\r\n    </SOURCES>\r\n  </library>\r\n</component>
+===================================================================
+--- .idea/libraries/Gradle__org_jetbrains_kotlin_kotlin_stdlib_jdk7_1_2_51_jar.xml	(revision b9bde0ad6f5adb4bf75bf4aa5fdfad508d3e1b53)
++++ .idea/libraries/Gradle__org_jetbrains_kotlin_kotlin_stdlib_jdk7_1_2_51.xml	(date 1608462125783)
+@@ -1,5 +1,5 @@
+ <component name="libraryTable">
+-  <library name="Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.2.51@jar">
++  <library name="Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.2.51">
+     <CLASSES>
+       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-jdk7/1.2.51/a37c0066df119c02f034bf17159089b588ccc41a/kotlin-stdlib-jdk7-1.2.51.jar!/" />
+     </CLASSES>
+Index: .idea/libraries/Gradle__com_github_arthurghazaryan_floatingactionmenu_1_0_0_aar.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><component name=\"libraryTable\">\r\n  <library name=\"Gradle: com.github.arthurghazaryan:floatingactionmenu:1.0.0@aar\">\r\n    <CLASSES>\r\n      <root url=\"file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/ec20ef7b93e52708bba95cf4b08039ff/jetified-floatingactionmenu-1.0.0/AndroidManifest.xml\" />\r\n      <root url=\"jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/ec20ef7b93e52708bba95cf4b08039ff/jetified-floatingactionmenu-1.0.0/jars/classes.jar!/\" />\r\n      <root url=\"file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/ec20ef7b93e52708bba95cf4b08039ff/jetified-floatingactionmenu-1.0.0/res\" />\r\n    </CLASSES>\r\n    <JAVADOC>\r\n      <root url=\"jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.arthurghazaryan/floatingactionmenu/1.0.0/45034619c34cecdcb77f9feab7af91438a6951bd/floatingactionmenu-1.0.0-javadoc.jar!/\" />\r\n    </JAVADOC>\r\n    <SOURCES>\r\n      <root url=\"jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.arthurghazaryan/floatingactionmenu/1.0.0/fe1663c1c971d4f0ce580b7712587778bc133ea3/floatingactionmenu-1.0.0-sources.jar!/\" />\r\n    </SOURCES>\r\n  </library>\r\n</component>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/libraries/Gradle__com_github_arthurghazaryan_floatingactionmenu_1_0_0_aar.xml	(revision b9bde0ad6f5adb4bf75bf4aa5fdfad508d3e1b53)
++++ .idea/libraries/Gradle__com_github_arthurghazaryan_floatingactionmenu_1_0_0_aar.xml	(date 1608462125286)
+@@ -4,6 +4,9 @@
+       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/ec20ef7b93e52708bba95cf4b08039ff/jetified-floatingactionmenu-1.0.0/AndroidManifest.xml" />
+       <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/ec20ef7b93e52708bba95cf4b08039ff/jetified-floatingactionmenu-1.0.0/jars/classes.jar!/" />
+       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/ec20ef7b93e52708bba95cf4b08039ff/jetified-floatingactionmenu-1.0.0/res" />
++      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/24f21e04004c67244a7a594ad131034b/jetified-floatingactionmenu-1.0.0/AndroidManifest.xml" />
++      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/24f21e04004c67244a7a594ad131034b/jetified-floatingactionmenu-1.0.0/res" />
++      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/24f21e04004c67244a7a594ad131034b/jetified-floatingactionmenu-1.0.0/jars/classes.jar!/" />
+     </CLASSES>
+     <JAVADOC>
+       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.arthurghazaryan/floatingactionmenu/1.0.0/45034619c34cecdcb77f9feab7af91438a6951bd/floatingactionmenu-1.0.0-javadoc.jar!/" />
+Index: .idea/libraries/Gradle__com_github_barteksc_android_pdf_viewer_2_8_2_aar.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><component name=\"libraryTable\">\r\n  <library name=\"Gradle: com.github.barteksc:android-pdf-viewer:2.8.2@aar\">\r\n    <CLASSES>\r\n      <root url=\"file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/61b2fb109a96c627a9f447e96e107a8d/jetified-android-pdf-viewer-2.8.2/AndroidManifest.xml\" />\r\n      <root url=\"jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/61b2fb109a96c627a9f447e96e107a8d/jetified-android-pdf-viewer-2.8.2/jars/classes.jar!/\" />\r\n      <root url=\"file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/61b2fb109a96c627a9f447e96e107a8d/jetified-android-pdf-viewer-2.8.2/res\" />\r\n    </CLASSES>\r\n    <JAVADOC>\r\n      <root url=\"jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.barteksc/android-pdf-viewer/2.8.2/23303ed2c4972d3268a9bfd5d91a30752028401/android-pdf-viewer-2.8.2-javadoc.jar!/\" />\r\n    </JAVADOC>\r\n    <SOURCES>\r\n      <root url=\"jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.barteksc/android-pdf-viewer/2.8.2/3a6875f9abac8b069fc55194cc8aa5b3a1fcaa7c/android-pdf-viewer-2.8.2-sources.jar!/\" />\r\n    </SOURCES>\r\n  </library>\r\n</component>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/libraries/Gradle__com_github_barteksc_android_pdf_viewer_2_8_2_aar.xml	(revision b9bde0ad6f5adb4bf75bf4aa5fdfad508d3e1b53)
++++ .idea/libraries/Gradle__com_github_barteksc_android_pdf_viewer_2_8_2_aar.xml	(date 1608462125298)
+@@ -4,6 +4,9 @@
+       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/61b2fb109a96c627a9f447e96e107a8d/jetified-android-pdf-viewer-2.8.2/AndroidManifest.xml" />
+       <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/61b2fb109a96c627a9f447e96e107a8d/jetified-android-pdf-viewer-2.8.2/jars/classes.jar!/" />
+       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/61b2fb109a96c627a9f447e96e107a8d/jetified-android-pdf-viewer-2.8.2/res" />
++      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/69cce85f43c19445b288afdfe313595e/jetified-android-pdf-viewer-2.8.2/AndroidManifest.xml" />
++      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/69cce85f43c19445b288afdfe313595e/jetified-android-pdf-viewer-2.8.2/jars/classes.jar!/" />
++      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/69cce85f43c19445b288afdfe313595e/jetified-android-pdf-viewer-2.8.2/res" />
+     </CLASSES>
+     <JAVADOC>
+       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.barteksc/android-pdf-viewer/2.8.2/23303ed2c4972d3268a9bfd5d91a30752028401/android-pdf-viewer-2.8.2-javadoc.jar!/" />
+Index: .idea/libraries/Gradle__org_jetbrains_kotlin_kotlin_stdlib_common_1_2_51_jar.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><component name=\"libraryTable\">\r\n  <library name=\"Gradle: org.jetbrains.kotlin:kotlin-stdlib-common:1.2.51@jar\">\r\n    <CLASSES>\r\n      <root url=\"jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-common/1.2.51/e4a9d4b13ab19ed1e6531fce6df98e8cfa7f7301/kotlin-stdlib-common-1.2.51.jar!/\" />\r\n    </CLASSES>\r\n    <JAVADOC>\r\n      <root url=\"jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-common/1.2.51/2eda46087fa82ff537655f6f7446a66dc40d70b/kotlin-stdlib-common-1.2.51-javadoc.jar!/\" />\r\n    </JAVADOC>\r\n    <SOURCES>\r\n      <root url=\"jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-common/1.2.51/e8c91083a5863d94fdc2836459e7e7a555774be9/kotlin-stdlib-common-1.2.51-sources.jar!/\" />\r\n    </SOURCES>\r\n  </library>\r\n</component>
+===================================================================
+--- .idea/libraries/Gradle__org_jetbrains_kotlin_kotlin_stdlib_common_1_2_51_jar.xml	(revision b9bde0ad6f5adb4bf75bf4aa5fdfad508d3e1b53)
++++ .idea/libraries/Gradle__org_jetbrains_kotlin_kotlin_stdlib_common_1_2_51.xml	(date 1608462125765)
+@@ -1,5 +1,5 @@
+ <component name="libraryTable">
+-  <library name="Gradle: org.jetbrains.kotlin:kotlin-stdlib-common:1.2.51@jar">
++  <library name="Gradle: org.jetbrains.kotlin:kotlin-stdlib-common:1.2.51" type="kotlin.common">
+     <CLASSES>
+       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-common/1.2.51/e4a9d4b13ab19ed1e6531fce6df98e8cfa7f7301/kotlin-stdlib-common-1.2.51.jar!/" />
+     </CLASSES>
+Index: .idea/libraries/Gradle__com_google_firebase_firebase_ml_vision_18_0_1_aar.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><component name=\"libraryTable\">\r\n  <library name=\"Gradle: com.google.firebase:firebase-ml-vision:18.0.1@aar\">\r\n    <CLASSES>\r\n      <root url=\"file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/3bccccc103a768dd8cc529b8829c96f5/jetified-firebase-ml-vision-18.0.1/AndroidManifest.xml\" />\r\n      <root url=\"jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/3bccccc103a768dd8cc529b8829c96f5/jetified-firebase-ml-vision-18.0.1/jars/classes.jar!/\" />\r\n      <root url=\"file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/3bccccc103a768dd8cc529b8829c96f5/jetified-firebase-ml-vision-18.0.1/res\" />\r\n    </CLASSES>\r\n    <JAVADOC>\r\n      <root url=\"jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.firebase/firebase-ml-vision/18.0.1/48c003603175be1babb1b1bf025d6bd19fc517a4/firebase-ml-vision-18.0.1-javadoc.jar!/\" />\r\n    </JAVADOC>\r\n    <SOURCES />\r\n  </library>\r\n</component>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/libraries/Gradle__com_google_firebase_firebase_ml_vision_18_0_1_aar.xml	(revision b9bde0ad6f5adb4bf75bf4aa5fdfad508d3e1b53)
++++ .idea/libraries/Gradle__com_google_firebase_firebase_ml_vision_18_0_1_aar.xml	(date 1608462125514)
+@@ -4,6 +4,9 @@
+       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/3bccccc103a768dd8cc529b8829c96f5/jetified-firebase-ml-vision-18.0.1/AndroidManifest.xml" />
+       <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/3bccccc103a768dd8cc529b8829c96f5/jetified-firebase-ml-vision-18.0.1/jars/classes.jar!/" />
+       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/3bccccc103a768dd8cc529b8829c96f5/jetified-firebase-ml-vision-18.0.1/res" />
++      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/534e4a7b07539509e7248141ff433d99/jetified-firebase-ml-vision-18.0.1/AndroidManifest.xml" />
++      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/534e4a7b07539509e7248141ff433d99/jetified-firebase-ml-vision-18.0.1/jars/classes.jar!/" />
++      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/534e4a7b07539509e7248141ff433d99/jetified-firebase-ml-vision-18.0.1/res" />
+     </CLASSES>
+     <JAVADOC>
+       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.firebase/firebase-ml-vision/18.0.1/48c003603175be1babb1b1bf025d6bd19fc517a4/firebase-ml-vision-18.0.1-javadoc.jar!/" />
+Index: .idea/libraries/Gradle__com_github_bumptech_glide_glide_4_9_0_aar.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><component name=\"libraryTable\">\r\n  <library name=\"Gradle: com.github.bumptech.glide:glide:4.9.0@aar\">\r\n    <CLASSES>\r\n      <root url=\"file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/b44597b0605289d4852ab2a617a332cf/jetified-glide-4.9.0/AndroidManifest.xml\" />\r\n      <root url=\"jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/b44597b0605289d4852ab2a617a332cf/jetified-glide-4.9.0/jars/classes.jar!/\" />\r\n      <root url=\"file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/b44597b0605289d4852ab2a617a332cf/jetified-glide-4.9.0/res\" />\r\n    </CLASSES>\r\n    <JAVADOC>\r\n      <root url=\"jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.bumptech.glide/glide/4.9.0/b53be1dd9e86c008d96d319510846282f95c49f/glide-4.9.0-javadoc.jar!/\" />\r\n    </JAVADOC>\r\n    <SOURCES>\r\n      <root url=\"jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.bumptech.glide/glide/4.9.0/5f95e3cc34b116a8024f2af42f66e257d2e28ccb/glide-4.9.0-sources.jar!/\" />\r\n    </SOURCES>\r\n  </library>\r\n</component>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/libraries/Gradle__com_github_bumptech_glide_glide_4_9_0_aar.xml	(revision b9bde0ad6f5adb4bf75bf4aa5fdfad508d3e1b53)
++++ .idea/libraries/Gradle__com_github_bumptech_glide_glide_4_9_0_aar.xml	(date 1608462125389)
+@@ -4,6 +4,9 @@
+       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/b44597b0605289d4852ab2a617a332cf/jetified-glide-4.9.0/AndroidManifest.xml" />
+       <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/b44597b0605289d4852ab2a617a332cf/jetified-glide-4.9.0/jars/classes.jar!/" />
+       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/b44597b0605289d4852ab2a617a332cf/jetified-glide-4.9.0/res" />
++      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/6b15184c12ee5b2fdc4b35cafb5ea70f/jetified-glide-4.9.0/jars/classes.jar!/" />
++      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/6b15184c12ee5b2fdc4b35cafb5ea70f/jetified-glide-4.9.0/res" />
++      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/6b15184c12ee5b2fdc4b35cafb5ea70f/jetified-glide-4.9.0/AndroidManifest.xml" />
+     </CLASSES>
+     <JAVADOC>
+       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.bumptech.glide/glide/4.9.0/b53be1dd9e86c008d96d319510846282f95c49f/glide-4.9.0-javadoc.jar!/" />
+Index: .idea/compiler.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/compiler.xml	(date 1608462024359)
++++ .idea/compiler.xml	(date 1608462024359)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="CompilerConfiguration">
++    <bytecodeTargetLevel target="1.8" />
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/libraries/Gradle__com_google_android_gms_play_services_clearcut_16_0_0_aar.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><component name=\"libraryTable\">\r\n  <library name=\"Gradle: com.google.android.gms:play-services-clearcut:16.0.0@aar\">\r\n    <CLASSES>\r\n      <root url=\"file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/409c04626028f15cd842a6a29614e1b7/jetified-play-services-clearcut-16.0.0/AndroidManifest.xml\" />\r\n      <root url=\"jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/409c04626028f15cd842a6a29614e1b7/jetified-play-services-clearcut-16.0.0/jars/classes.jar!/\" />\r\n      <root url=\"file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/409c04626028f15cd842a6a29614e1b7/jetified-play-services-clearcut-16.0.0/res\" />\r\n    </CLASSES>\r\n    <JAVADOC />\r\n    <SOURCES />\r\n  </library>\r\n</component>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/libraries/Gradle__com_google_android_gms_play_services_clearcut_16_0_0_aar.xml	(revision b9bde0ad6f5adb4bf75bf4aa5fdfad508d3e1b53)
++++ .idea/libraries/Gradle__com_google_android_gms_play_services_clearcut_16_0_0_aar.xml	(date 1608462125417)
+@@ -4,6 +4,9 @@
+       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/409c04626028f15cd842a6a29614e1b7/jetified-play-services-clearcut-16.0.0/AndroidManifest.xml" />
+       <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/409c04626028f15cd842a6a29614e1b7/jetified-play-services-clearcut-16.0.0/jars/classes.jar!/" />
+       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/409c04626028f15cd842a6a29614e1b7/jetified-play-services-clearcut-16.0.0/res" />
++      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/45ed59d3a18cbcaf289557829893bf55/jetified-play-services-clearcut-16.0.0/AndroidManifest.xml" />
++      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/45ed59d3a18cbcaf289557829893bf55/jetified-play-services-clearcut-16.0.0/jars/classes.jar!/" />
++      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/45ed59d3a18cbcaf289557829893bf55/jetified-play-services-clearcut-16.0.0/res" />
+     </CLASSES>
+     <JAVADOC />
+     <SOURCES />
+Index: .idea/libraries/Gradle__com_google_android_gms_play_services_vision_common_17_0_2_aar.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><component name=\"libraryTable\">\r\n  <library name=\"Gradle: com.google.android.gms:play-services-vision-common:17.0.2@aar\">\r\n    <CLASSES>\r\n      <root url=\"file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/657f6d7dc0b56745275f950b303ad18b/jetified-play-services-vision-common-17.0.2/AndroidManifest.xml\" />\r\n      <root url=\"jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/657f6d7dc0b56745275f950b303ad18b/jetified-play-services-vision-common-17.0.2/jars/classes.jar!/\" />\r\n      <root url=\"file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/657f6d7dc0b56745275f950b303ad18b/jetified-play-services-vision-common-17.0.2/res\" />\r\n    </CLASSES>\r\n    <JAVADOC>\r\n      <root url=\"jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.android.gms/play-services-vision-common/17.0.2/60ff750d6bcc69d8447735711ca788eb3cdfbf39/play-services-vision-common-17.0.2-javadoc.jar!/\" />\r\n    </JAVADOC>\r\n    <SOURCES />\r\n  </library>\r\n</component>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/libraries/Gradle__com_google_android_gms_play_services_vision_common_17_0_2_aar.xml	(revision b9bde0ad6f5adb4bf75bf4aa5fdfad508d3e1b53)
++++ .idea/libraries/Gradle__com_google_android_gms_play_services_vision_common_17_0_2_aar.xml	(date 1608462125441)
+@@ -4,6 +4,9 @@
+       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/657f6d7dc0b56745275f950b303ad18b/jetified-play-services-vision-common-17.0.2/AndroidManifest.xml" />
+       <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/657f6d7dc0b56745275f950b303ad18b/jetified-play-services-vision-common-17.0.2/jars/classes.jar!/" />
+       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/657f6d7dc0b56745275f950b303ad18b/jetified-play-services-vision-common-17.0.2/res" />
++      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/52c5e5bd3e4f6b1354ad23e673578513/jetified-play-services-vision-common-17.0.2/jars/classes.jar!/" />
++      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/52c5e5bd3e4f6b1354ad23e673578513/jetified-play-services-vision-common-17.0.2/res" />
++      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/52c5e5bd3e4f6b1354ad23e673578513/jetified-play-services-vision-common-17.0.2/AndroidManifest.xml" />
+     </CLASSES>
+     <JAVADOC>
+       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.android.gms/play-services-vision-common/17.0.2/60ff750d6bcc69d8447735711ca788eb3cdfbf39/play-services-vision-common-17.0.2-javadoc.jar!/" />
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_1_8\" project-jdk-name=\"1.8\" project-jdk-type=\"JavaSDK\">\r\n    <output url=\"file://$PROJECT_DIR$/build/classes\" />\r\n  </component>\r\n  <component name=\"ProjectType\">\r\n    <option name=\"id\" value=\"Android\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/misc.xml	(revision b9bde0ad6f5adb4bf75bf4aa5fdfad508d3e1b53)
++++ .idea/misc.xml	(date 1608462024332)
+@@ -1,6 +1,6 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="1.8" project-jdk-type="JavaSDK">
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+     <output url="file://$PROJECT_DIR$/build/classes" />
+   </component>
+   <component name="ProjectType">
+Index: .idea/gradle.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"GradleMigrationSettings\" migrationVersion=\"1\" />\r\n  <component name=\"GradleSettings\">\r\n    <option name=\"linkedExternalProjectsSettings\">\r\n      <GradleProjectSettings>\r\n        <option name=\"testRunner\" value=\"PLATFORM\" />\r\n        <option name=\"distributionType\" value=\"DEFAULT_WRAPPED\" />\r\n        <option name=\"externalProjectPath\" value=\"$PROJECT_DIR$\" />\r\n        <option name=\"gradleJvm\" value=\"1.8\" />\r\n        <option name=\"modules\">\r\n          <set>\r\n            <option value=\"$PROJECT_DIR$\" />\r\n            <option value=\"$PROJECT_DIR$/app\" />\r\n            <option value=\"$PROJECT_DIR$/smartcropperlib\" />\r\n          </set>\r\n        </option>\r\n        <option name=\"resolveModulePerSourceSet\" value=\"false\" />\r\n      </GradleProjectSettings>\r\n    </option>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/gradle.xml	(revision b9bde0ad6f5adb4bf75bf4aa5fdfad508d3e1b53)
++++ .idea/gradle.xml	(date 1608457258363)
+@@ -16,6 +16,7 @@
+           </set>
+         </option>
+         <option name="resolveModulePerSourceSet" value="false" />
++        <option name="useQualifiedModuleNames" value="true" />
+       </GradleProjectSettings>
+     </option>
+   </component>
+Index: .idea/modules.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ProjectModuleManager\">\r\n    <modules>\r\n      <module fileurl=\"file://$PROJECT_DIR$/.idea/modules/SmartCropper-master.iml\" filepath=\"$PROJECT_DIR$/.idea/modules/SmartCropper-master.iml\" group=\"SmartCropper-master\" />\r\n      <module fileurl=\"file://$PROJECT_DIR$/.idea/modules/app/app.iml\" filepath=\"$PROJECT_DIR$/.idea/modules/app/app.iml\" group=\"SmartCropper-master/app\" />\r\n      <module fileurl=\"file://$PROJECT_DIR$/.idea/modules/smartcropperlib/smartcropperlib.iml\" filepath=\"$PROJECT_DIR$/.idea/modules/smartcropperlib/smartcropperlib.iml\" group=\"SmartCropper-master/smartcropperlib\" />\r\n    </modules>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/modules.xml	(revision b9bde0ad6f5adb4bf75bf4aa5fdfad508d3e1b53)
++++ .idea/modules.xml	(date 1608462125139)
+@@ -2,9 +2,9 @@
+ <project version="4">
+   <component name="ProjectModuleManager">
+     <modules>
+-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/SmartCropper-master.iml" filepath="$PROJECT_DIR$/.idea/modules/SmartCropper-master.iml" group="SmartCropper-master" />
+-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/app.iml" group="SmartCropper-master/app" />
+-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/smartcropperlib/smartcropperlib.iml" filepath="$PROJECT_DIR$/.idea/modules/smartcropperlib/smartcropperlib.iml" group="SmartCropper-master/smartcropperlib" />
++      <module fileurl="file://$PROJECT_DIR$/.idea/modules/DocumentScanner.iml" filepath="$PROJECT_DIR$/.idea/modules/DocumentScanner.iml" />
++      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/DocumentScanner.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/DocumentScanner.app.iml" />
++      <module fileurl="file://$PROJECT_DIR$/.idea/modules/smartcropperlib/DocumentScanner.smartcropperlib.iml" filepath="$PROJECT_DIR$/.idea/modules/smartcropperlib/DocumentScanner.smartcropperlib.iml" />
+     </modules>
+   </component>
+ </project>
+\ No newline at end of file
