@@ -29,8 +29,7 @@ import me.sid.smartcropper.R;
 import me.sid.smartcropper.interfaces.PermissionCallback;
 import me.sid.smartcropper.utils.Constants;
 import me.sid.smartcropper.utils.PermissionUtils;
-import pub.devrel.easypermissions.EasyPermissions;
-
+ 
 import static me.sid.smartcropper.utils.PermissionUtils.REQUEST_CODE_ASK_MULTIPLE_PERMISSIONS;
 
 public class SplashActivity extends BaseActivity {

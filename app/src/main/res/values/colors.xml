@@ -25,11 +25,6 @@
     <color name="settings_yello">#FFCE0C</color>
 
 
-
-    <color name="black_overlay">#66000000</color>
-    <color name="ColorFirozi">#0099cc</color>
-    <color name="semi_black_transparent">#99000000</color>
-    <color name="tool_bg">#151414</color>
     <color name="brown_color_picker">#AF593E</color>
     <color name="red_color_picker">#ED0A3F</color>
     <color name="red_orange_color_picker">#FF3F34</color>
@@ -37,9 +32,6 @@
     <color name="violet_color_picker">#8359A3</color>
     <color name="yellow_color_picker">#FBE870</color>
     <color name="yellow_green_color_picker">#C5E17A</color>
-    <color name="colorOrangeLight">#FFCF1B</color>
-    <color name="colorOrangeStatusBar">#FF5722</color>
-    <color name="colorOrangePrimaryDark">#F57C00</color>
     <color name="colorOrange">#FF881B</color>
     <color name="colorGreen">#4CAF50</color>
 

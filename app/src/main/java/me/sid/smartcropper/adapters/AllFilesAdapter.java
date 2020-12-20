@@ -39,6 +39,7 @@ import me.sid.smartcropper.interfaces.GenericCallback;
 import me.sid.smartcropper.models.FileInfoModel;
 import me.sid.smartcropper.utils.Constants;
 import me.sid.smartcropper.utils.DirectoryUtils;
+import me.sid.smartcropper.utils.ExtractImages;
 import me.sid.smartcropper.utils.FileInfoUtils;
 import me.sid.smartcropper.views.activities.PDFViewerAcitivity;
 import me.sid.smartcropper.views.activities.ViewImageActivity;
@@ -131,6 +132,10 @@ public class AllFilesAdapter extends RecyclerView.Adapter<AllFilesAdapter.MyFile
                             menu.dismiss();
                             return true;
                         } else if (menuItem.getItemId() == R.id.delete) {
+/*
+                            ExtractImages extractImages= new ExtractImages(context);
+                            extractImages.extract(String.valueOf(filesArrayList.get(holder.getAdapterPosition()).getFile()));
+*/
                             showDeleteFileDialog(filesArrayList.get(holder.getAdapterPosition()).getFile(), holder.getAdapterPosition());
                             menu.dismiss();
                             return true;

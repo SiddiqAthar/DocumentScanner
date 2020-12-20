@@ -18,7 +18,6 @@
         app:titleTextColor="@color/dark_black" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/rl"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:paddingStart="16dp"

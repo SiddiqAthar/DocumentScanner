@@ -46,12 +46,6 @@ dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'com.android.support:support-v4:28.0.0'
     // For developers using AndroidX in their applications
-    implementation 'pub.devrel:easypermissions:3.0.0'
-
-    // For developers using the Android Support Library
-//    implementation 'pub.devrel:easypermissions:2.0.1'
-//    api 'com.github.sid:SmartCropper:v2.1.1'
-    implementation 'jp.co.cyberagent.android:gpuimage:2.1.0'
 
     implementation 'com.google.firebase:firebase-ml-vision:18.0.1'
 
