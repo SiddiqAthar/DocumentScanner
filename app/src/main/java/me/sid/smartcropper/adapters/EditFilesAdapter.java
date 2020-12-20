@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Matrix;
 import android.graphics.drawable.BitmapDrawable;
+import android.os.Build;
 import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -19,6 +20,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -53,6 +55,7 @@ import me.sid.smartcropper.views.activities.CropActivity;
 import me.sid.smartcropper.views.activities.GernalCameraActivity;
 import me.sid.smartcropper.views.activities.MultiScanActivity;
 import me.sid.smartcropper.views.activities.OCRActivity;
+import me.sid.smartcropper.views.activities.ViewTextActivity;
 import me.sid.smartcropper.views.photoEditingFragments.PropertiesBSFragment;
 import me.sid.smartcropper.views.photoEditingFragments.PropertiesOnlyBSFragment;
 import me.sid.smartcropper.views.photoEditingFragments.TextEditorDialogFragment;
@@ -116,18 +119,20 @@ public class EditFilesAdapter extends RecyclerView.Adapter<EditFilesAdapter.Edit
         this.callback = callback;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     public void onBindViewHolder(@NonNull EditFilesHolder holder, int position) {
+
+
+        Log.d("pos", String.valueOf(holder.getAdapterPosition()));
 
         if (!holderlist.containsKey(position)) {
             holderlist.put(position, holder);
         }
 
-        if (holder.getAdapterPosition()==getItemCount()-1)
-        {
+        if (holder.getAdapterPosition() == getItemCount() - 1) {
             holder.btn_done.setText("Done");
-        }
-        else
+        } else
             holder.btn_done.setText("Next");
 
         holder.ivCrop.getSource().setImageBitmap(mCroppedarrayList.get(holder.getAdapterPosition()));
@@ -173,24 +178,31 @@ public class EditFilesAdapter extends RecyclerView.Adapter<EditFilesAdapter.Edit
                     int posi = holder.getAdapterPosition() + 1;
                     if (posi < getItemCount()) {
                         scrollToPosition(posi);
-                     } else {
-                         for (int i = 0; i < mCroppedarrayList.size(); i++) {
+                    } else {
+                        for (int i = 0; i < mCroppedarrayList.size(); i++) {
 
                             EditFilesAdapter.EditFilesHolder filesHolder = getViewByPosition(i);
                             saveFile(filesHolder.mPhotoEditor, i);
                         }
                     }
-                }
-
-                else
-                {
-                        callback.callback(((BitmapDrawable) holder.ivCrop.getSource().getDrawable()).getBitmap());
-                        saveSingleFile(holder.mPhotoEditor, holder.getAdapterPosition());
+                } else {
+                    callback.callback(((BitmapDrawable) holder.ivCrop.getSource().getDrawable()).getBitmap());
+                    saveSingleFile(holder.mPhotoEditor, holder.getAdapterPosition());
 
                 }
             }
         });
 
+    }
+
+    @Override
+    public long getItemId(int position) {
+        return position;
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+        return position;
     }
 
     public EditFilesAdapter.EditFilesHolder getViewByPosition(int position) {
@@ -243,12 +255,12 @@ public class EditFilesAdapter extends RecyclerView.Adapter<EditFilesAdapter.Edit
     class EditFilesHolder extends RecyclerView.ViewHolder implements View.OnClickListener, OnPhotoEditorListener,
             PropertiesBSFragment.Properties,
             PropertiesOnlyBSFragment.Properties {
-        ImageButton menu_undo, menu_delete, menu_crop, menu_rotate, menu_addText, menu_write, menu_calendar, menu_ocr, btn_nextImg, btn_backImg;
+        ImageButton menu_undo, menu_delete, menu_crop, menu_rotate, menu_addText, menu_write, menu_calendar, menu_ocr;
         Button btn_retake, btn_done;
         TextView tv_filter, tv_edited_count;
         PhotoEditorView ivCrop;
         DatePickerDialog.OnDateSetListener date;
-        PhotoEditor mPhotoEditor;
+        private PhotoEditor mPhotoEditor;
         private PropertiesBSFragment mPropertiesBSFragment;
         private PropertiesOnlyBSFragment mPropertiesOnlyBSFragment;
         private boolean filterShowing = false;
@@ -258,8 +270,11 @@ public class EditFilesAdapter extends RecyclerView.Adapter<EditFilesAdapter.Edit
             super(itemView);
 
             ivCrop = itemView.findViewById(R.id.iv_crop);
+            mPhotoEditor = new PhotoEditor.Builder(mContext, ivCrop).setPinchTextScalable(true).build();
+
+            mPhotoEditor.setOnPhotoEditorListener(this);
+
             menu_delete = itemView.findViewById(R.id.menu_delete);
-            menu_delete.setOnClickListener(this);
             menu_crop = itemView.findViewById(R.id.menu_crop);
             menu_crop.setOnClickListener(this);
             menu_undo = itemView.findViewById(R.id.menu_undo);
@@ -292,11 +307,9 @@ public class EditFilesAdapter extends RecyclerView.Adapter<EditFilesAdapter.Edit
             mPropertiesBSFragment.setPropertiesChangeListener(this);
             mPropertiesOnlyBSFragment.setPropertiesChangeListener(this);
 
-            mPhotoEditor = new PhotoEditor.Builder(mContext, ivCrop)
-                    .setPinchTextScalable(true)
-                    .build();
 
-            mPhotoEditor.setOnPhotoEditorListener(this);
+
+
             initHorizontalList();
 
             date = new DatePickerDialog.OnDateSetListener() {
@@ -395,18 +408,7 @@ public class EditFilesAdapter extends RecyclerView.Adapter<EditFilesAdapter.Edit
                 new DatePickerDialog(mContext, date, myCalendar
                         .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
                         myCalendar.get(Calendar.DAY_OF_MONTH)).show();
-            }/* else if (view.getId() == R.id.menu_delete) {
-                mCroppedarrayList.remove(getAdapterPosition());
-                if (getItemCount() > 0) {
-                    notifyItemRemoved(getAdapterPosition());
-                    int pos = getAdapterPosition() + 1;
-                    tv_edited_count.setText("Page " + pos + "/" + mCroppedarrayList.size());
-                } else {
-                    Intent intent = new Intent(mContext, GernalCameraActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    mContext.startActivity(intent);
-                }
-
-            }*/ else if (view.getId() == R.id.menu_ocr) {
+            } else if (view.getId() == R.id.menu_ocr) {
 
                 Intent intent = new Intent(mContext, OCRActivity.class);
                 mContext.startActivity(intent);

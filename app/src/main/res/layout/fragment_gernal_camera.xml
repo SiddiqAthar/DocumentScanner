@@ -141,7 +141,6 @@
         app:layout_constraintBottom_toBottomOf="parent">
 
         <LinearLayout
-            android:id="@+id/camera_menu"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:paddingStart="25dp"

@@ -27,6 +27,7 @@ import me.sid.smartcropper.R;
 import me.sid.smartcropper.interfaces.GenericCallback;
 import me.sid.smartcropper.utils.Constants;
 import me.sid.smartcropper.utils.DirectoryUtils;
+import me.sid.smartcropper.utils.ExtractImages;
 import me.sid.smartcropper.utils.InterstitalAdsInner;
 import me.sid.smartcropper.utils.PDFUtils;
 import me.sid.smartcropper.utils.StringUtils;
@@ -62,7 +63,7 @@ public class PDFViewerAcitivity extends BaseActivity implements OnErrorListener,
         pdfView = findViewById(R.id.pdfView);
         dialog = new ProgressDialog(PDFViewerAcitivity.this);
         dialog.setTitle("Please wait");
-        dialog.setMessage("Creating pdf file");
+        dialog.setMessage("Opening pdf file");
 
         if (getIntent().getExtras() != null) {
             String path = getIntent().getStringExtra("path");
@@ -119,6 +120,11 @@ public class PDFViewerAcitivity extends BaseActivity implements OnErrorListener,
         }
         else if (item.getItemId() == R.id.share) {
             Constants.shareFile(PDFViewerAcitivity.this, file);
+            return true;
+        }
+        else if (item.getItemId() == R.id.pdf_to_img) {
+                            ExtractImages extractImages= new ExtractImages(this);
+                            extractImages.extract(String.valueOf(file));
             return true;
         }
 

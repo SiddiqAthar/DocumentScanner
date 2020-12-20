@@ -2,6 +2,11 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
+        android:id="@+id/pdf_to_img"
+        android:icon="@drawable/pdf_ad_ic"
+        android:title="@string/pdf_to_img"
+        app:showAsAction="always" />
+    <item
         android:id="@+id/share"
         android:icon="@drawable/ic_share_s"
         android:title="@string/share"

@@ -69,7 +69,6 @@
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/noFileCreatedLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="gone"
@@ -102,7 +101,6 @@
             app:layout_constraintTop_toBottomOf="@+id/iv_nodocument_found" />
 
         <TextView
-            android:id="@+id/tv_nodocument_found1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
@@ -120,7 +118,6 @@
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/FileLayout"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:visibility="visible"
