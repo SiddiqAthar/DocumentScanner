@@ -64,7 +64,8 @@
         android:layout_marginEnd="16dp"
         android:clipToPadding="false"
         android:paddingBottom="10dp"
-        app:layout_constraintBottom_toTopOf="@id/adlayout"
+        android:layout_marginBottom="@dimen/_8sdp"
+        app:layout_constraintBottom_toTopOf="@id/importFilesBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titleTv" />
@@ -97,29 +98,46 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/adlayout"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_150sdp"
-        android:layout_margin="@dimen/_4sdp"
+        android:layout_height="@dimen/_80sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_margin="@dimen/_8sdp"
         android:background="@drawable/ad_bg"
-        app:layout_constraintBottom_toBottomOf="parent">
+        >
 
         <com.facebook.ads.NativeAdLayout
             android:id="@+id/native_ad_container"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
             android:visibility="gone"
-            app:layout_constraintTop_toTopOf="parent" />
+            />
 
-        <FrameLayout
-            android:id="@+id/admobNativeView"
+        <RelativeLayout
+            android:id="@+id/admobBanner"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:visibility="gone"
-            app:layout_constraintTop_toTopOf="parent" />
+            />
 
         <include
             android:id="@+id/adlayout2"
             layout="@layout/ad_loading2"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <Button
+        android:id="@+id/importFilesBtn"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_35sdp"
+        android:layout_margin="@dimen/_20sdp"
+        android:background="@drawable/button_seagreen"
+        android:text="Import Files"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@id/adlayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
