@@ -93,15 +93,7 @@ public class EditFilesAdapter extends RecyclerView.Adapter<EditFilesAdapter.Edit
         mRecyclerView = recyclerView;
     }
 
-    @Override
-    public int getItemViewType(int position) {
-        return position;
-    }
 
-    @Override
-    public long getItemId(int position) {
-        return position;
-    }
 
     void scrollToPosition(int position) {
         Log.d("positionn",String.valueOf(position));

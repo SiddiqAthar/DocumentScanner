@@ -171,6 +171,15 @@ public class DocumentsActivity extends BaseActivity implements SingleSelectToggl
 
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if(singleSelectToggleGroup.isChecked(R.id.tab_yourScannedDocs)){
+            mDirectoryUtils.clearFilterArray();
+            clearText();
+            getFiles();
+        }
+    }
 
     @Override
     public void onClick(View view) {

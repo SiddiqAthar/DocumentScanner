@@ -30,6 +30,7 @@ import me.sid.smartcropper.utils.DirectoryUtils;
 import me.sid.smartcropper.utils.ExtractImages;
 import me.sid.smartcropper.utils.InterstitalAdsInner;
 import me.sid.smartcropper.utils.PDFUtils;
+import me.sid.smartcropper.utils.SharePrefData;
 import me.sid.smartcropper.utils.StringUtils;
 
 public class PDFViewerAcitivity extends BaseActivity implements OnErrorListener, GenericCallback,
@@ -114,8 +115,14 @@ public class PDFViewerAcitivity extends BaseActivity implements OnErrorListener,
     @Override
     public boolean onOptionsItemSelected(@NonNull final MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
-            InterstitalAdsInner ads=new InterstitalAdsInner();
-            ads.ShowAdMob(this);
+            InterstitalAdsInner adsInner=new InterstitalAdsInner();
+            if(SharePrefData.getInstance().getIsAdmobPdfInter().equals("true") && !SharePrefData.getInstance().getADS_PREFS()){
+                adsInner.adMobShowCloseOnly(this);
+            }else if (SharePrefData.getInstance().getIsAdmobPdfInter().equals("false") && !SharePrefData.getInstance().getADS_PREFS()) {
+                adsInner.showFbClose(this);
+            }else{
+                finish();
+            }
             return true;
         }
         else if (item.getItemId() == R.id.share) {
@@ -145,8 +152,14 @@ public class PDFViewerAcitivity extends BaseActivity implements OnErrorListener,
 
     @Override
     public void onBackPressed() {
-        InterstitalAdsInner ads=new InterstitalAdsInner();
-        ads.ShowAdMob(this);
+        InterstitalAdsInner adsInner=new InterstitalAdsInner();
+        if(SharePrefData.getInstance().getIsAdmobPdfInter().equals("true") && !SharePrefData.getInstance().getADS_PREFS()){
+            adsInner.adMobShowCloseOnly(this);
+        }else if (SharePrefData.getInstance().getIsAdmobPdfInter().equals("false") && !SharePrefData.getInstance().getADS_PREFS()) {
+            adsInner.showFbClose(this);
+        }else{
+            finish();
+        }
     }
 
     @Override

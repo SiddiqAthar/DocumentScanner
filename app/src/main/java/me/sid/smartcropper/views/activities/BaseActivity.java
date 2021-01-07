@@ -2,14 +2,18 @@ package me.sid.smartcropper.views.activities;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Environment;
+import android.view.Window;
 import android.widget.Toast;
 
 import java.io.File;
@@ -18,6 +22,7 @@ import java.util.ArrayList;
 
 import me.sid.smartcropper.R;
 import me.sid.smartcropper.dialogs.AlertDialogHelper;
+import me.sid.smartcropper.dialogs.ExitDialog;
 
 public class BaseActivity extends AppCompatActivity {
 //    AppContro appContro;
@@ -88,16 +93,15 @@ public class BaseActivity extends AppCompatActivity {
     }
 
     public void quitApp(Activity activity) {
-        if (activity instanceof SettingActivity || activity instanceof DocumentsActivity)
-            AlertDialogHelper.showAlert(activity, new AlertDialogHelper.Callback() {
-                @Override
-                public void onSucess(int t) {
-                    if (t == 0) {
-                        finishAffinity();
-                        System.exit(0);
-                    }
-                }
-            }, "Quit", "Do you want to quit this app?");
+        if (activity instanceof SettingActivity || activity instanceof DocumentsActivity) {
+            ExitDialog dialog = new ExitDialog(activity);
+            dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+            dialog.setCanceledOnTouchOutside(false);
+            dialog.show();
+            Window window = dialog.getWindow();
+            window.setLayout(ConstraintLayout.LayoutParams.MATCH_PARENT, ConstraintLayout.LayoutParams.WRAP_CONTENT);
+        }
+
 
     }
 

@@ -7,9 +7,13 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import android.Manifest;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.Spannable;
@@ -17,6 +21,7 @@ import android.text.SpannableString;
 import android.text.style.ForegroundColorSpan;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -40,6 +45,7 @@ import com.google.android.gms.ads.formats.UnifiedNativeAdView;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.crashlytics.FirebaseCrashlytics;
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.google.firebase.remoteconfig.FirebaseRemoteConfig;
 import com.google.firebase.remoteconfig.FirebaseRemoteConfigSettings;
 
@@ -51,6 +57,7 @@ import java.util.Map;
 import me.sid.smartcropper.App;
 import me.sid.smartcropper.BuildConfig;
 import me.sid.smartcropper.R;
+import me.sid.smartcropper.dialogs.PermissionDialog;
 import me.sid.smartcropper.interfaces.PermissionCallback;
 import me.sid.smartcropper.utils.Constants;
 import me.sid.smartcropper.utils.InterstitalAdsInner;
@@ -61,7 +68,7 @@ import pub.devrel.easypermissions.EasyPermissions;
 
 import static me.sid.smartcropper.utils.PermissionUtils.REQUEST_CODE_ASK_MULTIPLE_PERMISSIONS;
 
-public class SplashActivity extends BaseActivity {
+public class SplashActivity extends BaseActivity implements PermissionDialog.PermissionGranted {
     TextView tv1;
     String[] array = new String[3];
     int PHONE_STATE_CODE = 101;
@@ -112,9 +119,17 @@ public class SplashActivity extends BaseActivity {
 
                         InterstitalAdsInner ads=new InterstitalAdsInner();
                         Intent intent = new Intent(SplashActivity.this, GernalCameraActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                        ads.adMobShoeClose(SplashActivity.this, intent);
 
-                        finish();
+                        if(SharePrefData.getInstance().getIsAdmobSplashInter().equals("true")){
+                            ads.adMobShoeClose(SplashActivity.this, intent);
+
+                            finish();
+                        }else{
+                            startActivity(intent);
+                            finish();
+                        }
+
+
 
                     } else {
 
@@ -152,7 +167,37 @@ public class SplashActivity extends BaseActivity {
 
     }
 
-    public void requestRequiredPermissions() {
+    private void fcmSubscription() {
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            // Create channel to show notifications.
+            String channelId = getPackageName();
+            String channelName = getString(R.string.default_notification_channel_name);
+            NotificationManager notificationManager = getSystemService(
+                    NotificationManager.class );
+            notificationManager.createNotificationChannel(
+                    new NotificationChannel(
+                            channelId,
+                            channelName, NotificationManager.IMPORTANCE_HIGH
+                    )
+            );
+        }
+
+        FirebaseMessaging.getInstance()
+                .subscribeToTopic(getPackageName())
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (!task.isSuccessful()) {
+                            // msg = getString(R.string.msg_subscribe_failed)
+                        }
+                    }
+                });
+
+    }
+
+    @Override
+    public void granted() {
         PermissionUtils.checkAndRequestPermissions(
                 this,
                 array,
@@ -160,13 +205,28 @@ public class SplashActivity extends BaseActivity {
         );
     }
 
+    public void requestRequiredPermissions() {
+
+        PermissionDialog dialog = new PermissionDialog(this,this);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        dialog.setCanceledOnTouchOutside(false);
+        dialog.show();
+        Window window = dialog.getWindow();
+        window.setLayout(ConstraintLayout.LayoutParams.MATCH_PARENT, ConstraintLayout.LayoutParams.WRAP_CONTENT);
+
+    }
+
     private void goToCamera() {
         InterstitalAdsInner ads=new InterstitalAdsInner();
         Intent intent = new Intent(SplashActivity.this, GernalCameraActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        ads.adMobShoeClose(SplashActivity.this, intent);
+        if(SharePrefData.getInstance().getIsAdmobSplashInter().equals("true")){
+            ads.adMobShoeClose(SplashActivity.this, intent);
 
-        finish();
-
+            finish();
+        }else{
+            startActivity(intent);
+            finish();
+        }
     }
 
 
@@ -234,16 +294,21 @@ public class SplashActivity extends BaseActivity {
                     FirebaseRemoteConfig.getInstance().activate();
                     remoteConfig.activate();
 
+                    SharePrefData.getInstance().setIsAdmobSplashInter(remoteConfig.getString("isadmobsplashinter"));
                     SharePrefData.getInstance().setIsAdmobSplashDoc(remoteConfig.getString("isadmobsplashDoc"));
                     SharePrefData.getInstance().setIsAdmobMain(remoteConfig.getString("isadmobmain"));
                     SharePrefData.getInstance().setIsAdmobSetting(remoteConfig.getString("isadmobsetting"));
                     SharePrefData.getInstance().setIsAdmobFolderDoc(remoteConfig.getString("isadmobfolderdoc"));
+                    SharePrefData.getInstance().setIsAdmobPdfInter(remoteConfig.getString("isadmobpdfinter"));
 
                 } else {
+
+                    SharePrefData.getInstance().setIsAdmobSplashInter("true");
                     SharePrefData.getInstance().setIsAdmobSplashDoc("true");
                     SharePrefData.getInstance().setIsAdmobMain("true");
                     SharePrefData.getInstance().setIsAdmobSetting("true");
                     SharePrefData.getInstance().setIsAdmobFolderDoc("true");
+                    SharePrefData.getInstance().setIsAdmobPdfInter("true");
 
                 }
 
@@ -449,6 +514,7 @@ public class SplashActivity extends BaseActivity {
         adView.setNativeAd(nativeAd);
 
     }
+
 
 
 }

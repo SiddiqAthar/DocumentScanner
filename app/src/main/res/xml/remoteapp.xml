@@ -2,51 +2,22 @@
 <defaultsMap>
     <entry>
 
-        <key>isadmobsplash</key>
+        <key>isadmobsplashinter</key>
         <value>true</value>
 
-        <key>isadmobhome</key>
+        <key>isadmobsplashDoc</key>
         <value>true</value>
 
-        <key>isadmobfile</key>
+        <key>isadmobmain</key>
         <value>true</value>
 
-        <key>isadmobfolder</key>
+        <key>isadmobsetting</key>
         <value>true</value>
 
-        <key>isadmobtools</key>
+        <key>isadmobfolderdoc</key>
         <value>true</value>
 
-        <key>isadmobshare</key>
-        <value>true</value>
-
-        <key>isadmobsecure</key>
-        <value>true</value>
-
-        <key>isadmobmerge</key>
-        <value>true</value>
-
-
-        <key>isadmobword</key>
-        <value>true</value>
-
-
-        <key>isadmobreduce</key>
-        <value>true</value>
-
-        <key>isadmobcreateinter</key>
-        <value>true</value>
-
-        <key>isadmobwordinter</key>
-        <value>true</value>
-
-        <key>isadmobimgpdfinter</key>
-        <value>true</value>
-
-        <key>isadmobmergeinter</key>
-        <value>true</value>
-
-        <key>isadmobscanpdfinter</key>
+        <key>isadmobpdfinter</key>
         <value>true</value>
 
 

@@ -213,6 +213,7 @@ public class AllFilesAdapter extends RecyclerView.Adapter<AllFilesAdapter.MyFile
         arrayList.add(filesArrayList.size(), model);
         setData(arrayList);
         recyclerView.smoothScrollToPosition(filesArrayList.size());
+
     }
 
     private void shareFile(File file) {

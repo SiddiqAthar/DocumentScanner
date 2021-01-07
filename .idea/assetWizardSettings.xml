@@ -327,9 +327,10 @@
                         </option>
                         <option name="values">
                           <map>
+                            <entry key="assetSourceType" value="FILE" />
                             <entry key="color" value="fcfcfc" />
-                            <entry key="outputName" value="next" />
-                            <entry key="sourceFile" value="C:\Users\siddiq.athar\Desktop\camera_whiteboard_c.svg" />
+                            <entry key="outputName" value="ic_edit_file" />
+                            <entry key="sourceFile" value="C:\Users\muhammad.zohaib\Downloads\edit_file.svg" />
                           </map>
                         </option>
                       </PersistentState>

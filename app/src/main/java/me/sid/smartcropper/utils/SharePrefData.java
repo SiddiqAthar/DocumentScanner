@@ -10,7 +10,7 @@ public class SharePrefData {
     private static final String INTRO_DONE = "intro_done";
     private static final String ADS_PREFS = "adprefs", IS_ADMOB_SPLASH_DOC="splashdoc"
            ,IS_ADMOB_FOLDER_DOC="folderdoc"
-            , IS_ADMOB_MAIN="main", IS_ADMOB_SETTING="settig";
+            , IS_ADMOB_MAIN="main", IS_ADMOB_SETTING="settig", IS_ADMOB_PDF_INTER="pdfinter", IS_ADMOB_SPLASH_INTER="splashinter";
 
     private SharedPreferences sp;
     private SharedPreferences.Editor spEditor;
@@ -68,8 +68,25 @@ public class SharePrefData {
         return true;
     }
 
+    public void setIsAdmobSplashInter(String isadmob) {
+        spEditor = sp.edit();
+        spEditor.putString(IS_ADMOB_SPLASH_INTER, isadmob);
+        spEditor.apply();
+        spEditor.commit();
+    }
+    public String getIsAdmobSplashInter() {
+        return sp.getString(IS_ADMOB_SPLASH_INTER, "true");
+    }
 
-
+    public void setIsAdmobPdfInter(String isadmob) {
+        spEditor = sp.edit();
+        spEditor.putString(IS_ADMOB_PDF_INTER, isadmob);
+        spEditor.apply();
+        spEditor.commit();
+    }
+    public String getIsAdmobPdfInter() {
+        return sp.getString(IS_ADMOB_PDF_INTER, "true");
+    }
 
     public void setIsAdmobSplashDoc(String isadmob) {
         spEditor = sp.edit();

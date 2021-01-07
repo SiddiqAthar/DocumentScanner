@@ -7,11 +7,11 @@ apply plugin: 'kotlin-android-extensions'
 android {
     compileSdkVersion 30
     defaultConfig {
-        applicationId "me.sid.smartcropper"
-        minSdkVersion 21
+        applicationId "com.document.scanner.fast.scan.pdf.create.pdf.editor"
+        minSdkVersion 23
         targetSdkVersion 30
-        versionCode 2
-        versionName "1.1"
+        versionCode 1
+        versionName "1.0"
         ndk {
 //            abiFilters 'armeabi-v7a', "arm64-v8a", 'x86', 'x86_64'
             abiFilters 'armeabi-v7a', "arm64-v8a"
@@ -26,28 +26,8 @@ android {
             shrinkResources false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
 
-            resValue "string", "billing_id", ""
-            resValue "string", "product_key", "docscannerapp"
-
-            resValue "string", "admob_app_id", "ca-app-pub-3940256099942544~3347511713"
-            resValue "string", "admob_banner", "ca-app-pub-3940256099942544/6300978111"
-            resValue "string", "admob_interstitial", "ca-app-pub-3940256099942544/1033173712"
-            resValue "string", "admob_native", "ca-app-pub-3940256099942544/2247696110"
-
-            resValue "string", "fb_banner", "YOUR_PLACEMENT_ID"
-            resValue "string", "fb_rectangle", "YOUR_PLACEMENT_ID"
-            resValue "string", "fb_interstitial", "YOUR_PLACEMENT_ID"
-            resValue "string", "fb_native", "YOUR_PLACEMENT_ID"
-            resValue "string", "fb_native_banner", "YOUR_PLACEMENT_ID"
-        }
-
-        release {
-            minifyEnabled false
-            shrinkResources false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-
-            resValue "string", "billing_id", ""
-            resValue "string", "product_key", "docscannerapp"
+            resValue "string", "billing_id", "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAzfqgMrMiiQ0H73eWizAvt5/dgw7N0KkuUooQ4Bq4Osjafs5LxHPcWf9GBBPIUY2KxJQ8OKCvqXF/gQ/F8whuzu2/b+4hjHkDizTRfiVGkbaYXVCB5oA0nIcQqAsjwuYqk9/5VxKC5SplPewiYWlrlYQW19Oj0w29bsiTcWHq2rlDULCr4NuapDMF4A1kFWw6AEMJeQ06yXpBpfS3e6ZamSawq2rnSrXd4B93E5pEKNjX6pBa43NIQbAucaJK6SdiloNYJuenJVqC+zQNtu/Gcst1qwqN1NnHDHM7W9SDN4/cZb7qTzk83OCvFe54oA7pxj0LSYTtJ4WtPyaXGlKO5wIDAQAB"
+            resValue "string", "product_key", "android.test.purchased"
 
             resValue "string", "admob_app_id", "ca-app-pub-3940256099942544~3347511713"
             resValue "string", "admob_banner", "ca-app-pub-3940256099942544/6300978111"
@@ -56,9 +36,29 @@ android {
 
             resValue "string", "fb_banner", ""
             resValue "string", "fb_rectangle", ""
-            resValue "string", "fb_interstitial", ""
-            resValue "string", "fb_native", ""
-            resValue "string", "fb_native_banner", ""
+            resValue "string", "fb_interstitial", "IMG_16_9_APP_INSTALL#311708456735427_311708866735386"
+            resValue "string", "fb_native", "IMG_16_9_APP_INSTALL#311708456735427_311709136735359"
+            resValue "string", "fb_native_banner", "IMG_16_9_APP_INSTALL#311708456735427_311709323402007"
+        }
+
+        release {
+            minifyEnabled false
+            shrinkResources false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+            resValue "string", "billing_id", "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAzfqgMrMiiQ0H73eWizAvt5/dgw7N0KkuUooQ4Bq4Osjafs5LxHPcWf9GBBPIUY2KxJQ8OKCvqXF/gQ/F8whuzu2/b+4hjHkDizTRfiVGkbaYXVCB5oA0nIcQqAsjwuYqk9/5VxKC5SplPewiYWlrlYQW19Oj0w29bsiTcWHq2rlDULCr4NuapDMF4A1kFWw6AEMJeQ06yXpBpfS3e6ZamSawq2rnSrXd4B93E5pEKNjX6pBa43NIQbAucaJK6SdiloNYJuenJVqC+zQNtu/Gcst1qwqN1NnHDHM7W9SDN4/cZb7qTzk83OCvFe54oA7pxj0LSYTtJ4WtPyaXGlKO5wIDAQAB"
+            resValue "string", "product_key", "com.document.scanner.fast.scan.pdf.create.pdf.editor"
+
+            resValue "string", "admob_app_id", "ca-app-pub-7461973117883281~9284215071"
+            resValue "string", "admob_banner", "ca-app-pub-7461973117883281/7608171327"
+            resValue "string", "admob_interstitial", "ca-app-pub-7461973117883281/5344970066"
+            resValue "string", "admob_native", "ca-app-pub-7461973117883281/2355844644"
+
+            resValue "string", "fb_banner", ""
+            resValue "string", "fb_rectangle", ""
+            resValue "string", "fb_interstitial", "311708456735427_311708866735386"
+            resValue "string", "fb_native", "311708456735427_311709136735359"
+            resValue "string", "fb_native_banner", "311708456735427_311709323402007"
         }
     }
     lintOptions {
@@ -142,5 +142,6 @@ dependencies {
     implementation 'com.google.firebase:firebase-config:20.0.2'
 
     implementation 'com.intuit.sdp:sdp-android:1.0.6'
+    implementation 'com.google.firebase:firebase-messaging:21.0.0'
 
 }

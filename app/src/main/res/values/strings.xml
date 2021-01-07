@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Doc Scanner</string>
+    <string name="app_name">Doc Scanner Free</string>
 
     <string name="ocr_waiting_text">Extracting text</string>
     <string name="confirm">Confirm</string>
@@ -57,6 +57,8 @@
     <string name="save_file">Save File</string>
     <string name="enter_file_name">Enter File Name</string>
     <string name="pdf_to_img">PDF to Image</string>
-
+    <string name="default_notification_channel_id">com.document.scanner.fast.scan.pdf.create.pdf.editor</string>
+    <string name="ad" translatable="false">Ad</string>
+    <string name="default_notification_channel_name">documentscanner</string>
 
 </resources>

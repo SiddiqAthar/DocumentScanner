@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent"
+    android:orientation="vertical">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/toplayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/_12sdp"
+        android:layout_marginRight="@dimen/_12sdp"
+        android:background="@drawable/permission_bg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/permissionlogo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:src="@drawable/ic_permission_img_d"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/text1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:text="App Permissions"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_20sdp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/permissionlogo" />
+
+        <TextView
+            android:id="@+id/text2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="App Permissions"
+            android:textColor="#818181"
+            android:textSize="@dimen/_12sdp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text1" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cameraCv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:layout_marginEnd="@dimen/_12sdp"
+            android:layout_marginTop="@dimen/_12sdp"
+            app:cardCornerRadius="5dp"
+            app:cardBackgroundColor="@color/white"
+            android:layout_marginBottom="@dimen/_12sdp"
+            app:layout_constraintTop_toBottomOf="@id/text2">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="@dimen/_8sdp"
+                android:paddingStart="@dimen/_16sdp"
+                >
+                <ImageView
+                    android:id="@+id/cameraImg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:src="@drawable/ic_camera_per"
+                    />
+                <TextView
+                    android:id="@+id/cameraTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Enable Camera"
+                    android:textSize="@dimen/_12sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:textStyle="bold"
+                    android:textColor="#4E4E4E"
+                    app:layout_constraintStart_toEndOf="@id/cameraImg"
+                    app:layout_constraintTop_toTopOf="parent"
+                    />
+
+                <TextView
+                    android:id="@+id/cameraTxt2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Required for Document Scanner"
+                    android:textSize="@dimen/_12sdp"
+
+                    android:textColor="#818181"
+                    app:layout_constraintStart_toStartOf="@id/cameraImg"
+                    app:layout_constraintTop_toBottomOf="@id/cameraImg"
+                    />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/storageCv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:layout_marginEnd="@dimen/_12sdp"
+            android:layout_marginTop="@dimen/_12sdp"
+            app:cardCornerRadius="5dp"
+            app:cardBackgroundColor="@color/white"
+            android:layout_marginBottom="@dimen/_12sdp"
+            app:layout_constraintBottom_toTopOf="@id/allowBtn"
+            app:layout_constraintTop_toBottomOf="@id/cameraCv">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="@dimen/_8sdp"
+                android:paddingStart="@dimen/_16sdp"
+                >
+                <ImageView
+                    android:id="@+id/storageImg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:src="@drawable/ic_storage_per"
+                    />
+                <TextView
+                    android:id="@+id/storageTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Device Storage"
+                    android:textSize="@dimen/_12sdp"
+                    android:textStyle="bold"
+                    android:textColor="#4E4E4E"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    app:layout_constraintStart_toEndOf="@id/storageImg"
+                    app:layout_constraintTop_toTopOf="parent"
+                    />
+
+                <TextView
+                    android:id="@+id/storageTxt2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Required to Store Scanned Documents"
+                    android:textSize="@dimen/_12sdp"
+                    android:textColor="#818181"
+                    app:layout_constraintStart_toStartOf="@id/storageImg"
+                    app:layout_constraintTop_toBottomOf="@id/storageImg"
+                    />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+
+        <Button
+            android:id="@+id/allowBtn"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_32sdp"
+            android:layout_margin="@dimen/_12sdp"
+            android:background="@drawable/button_seagreen"
+            android:paddingLeft="@dimen/_16sdp"
+            android:paddingRight="@dimen/_16sdp"
+            android:text="Allow"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/toplayout"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

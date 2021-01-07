@@ -87,7 +87,7 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
         settingsData.add(new SettingsData(R.drawable.ic_contact_s, getString(R.string.contact_us), R.drawable.ic_arrow_s));
         settingsData.add(new SettingsData(R.drawable.ic_trash, getString(R.string.trash), R.drawable.ic_arrow_s));
         settingsData.add(new SettingsData(R.drawable.ic_privacy_s, getString(R.string.policy), R.drawable.ic_arrow_s));
-        settingsData.add(new SettingsData(R.drawable.ic_help_s, getString(R.string.how_to_use), R.drawable.ic_arrow_s));
+//        settingsData.add(new SettingsData(R.drawable.ic_help_s, getString(R.string.how_to_use), R.drawable.ic_arrow_s));
         settingsData.add(new SettingsData(R.drawable.ic_rate_ic, getString(R.string.rate), R.drawable.ic_arrow_s));
         settingsData.add(new SettingsData(R.drawable.ic_share_s, getString(R.string.share_app), R.drawable.ic_arrow_s));
 
@@ -152,6 +152,11 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
             billingHandler.purchase(this, getString(R.string.product_key));
         } else if(whereTo.equals(getString(R.string.policy))){
             startActivity(new Intent(this,PrivacyActivity.class));
+        }else if(whereTo.equals(getString(R.string.contact_us))){
+            Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts(
+                    "mailto", "inteliwere@gmail.com", null));
+            emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Feedback");
+            startActivity(Intent.createChooser(emailIntent, null));
         }
     }
 

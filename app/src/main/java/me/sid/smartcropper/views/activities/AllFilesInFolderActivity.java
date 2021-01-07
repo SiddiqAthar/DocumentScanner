@@ -49,6 +49,7 @@ import java.util.Objects;
 import me.sid.smartcropper.R;
 import me.sid.smartcropper.adapters.AllFilesAdapter;
 import me.sid.smartcropper.models.FileInfoModel;
+import me.sid.smartcropper.utils.BannerAds;
 import me.sid.smartcropper.utils.DirectoryUtils;
 import me.sid.smartcropper.utils.FileUtils;
 import me.sid.smartcropper.utils.RealPathUtil;
@@ -102,18 +103,34 @@ public class AllFilesInFolderActivity extends BaseActivity implements View.OnCli
         allFilesRecycler.setLayoutManager(new LinearLayoutManager(AllFilesInFolderActivity.this));
         adapter = new AllFilesAdapter(AllFilesInFolderActivity.this, fileInfoModelArrayList);
         getFiles();
+        importFilesBtn = findViewById(R.id.importFilesBtn);
+        importFilesBtn.setOnClickListener(this);
 
         adlayout2=findViewById(R.id.adlayout2);
         admobNativeView = findViewById(R.id.admobNativeView);
         nativeAdContainer = findViewById(R.id.native_ad_container);
         adlayout=findViewById(R.id.adlayout);
 
+//        if(SharePrefData.getInstance().getIsAdmobFolderDoc().equals("true") && !SharePrefData.getInstance().getADS_PREFS()){
+//            loadAdmobNativeAd();
+//        }else if(SharePrefData.getInstance().getIsAdmobFolderDoc().equals("false") && !SharePrefData.getInstance().getADS_PREFS()){
+//            loadNativeAd();
+//        }else{
+//            admobNativeView.setVisibility(View.GONE);
+//            nativeAdContainer.setVisibility(View.GONE);
+//            adlayout.setVisibility(View.GONE);
+//            adlayout2.setVisibility(View.GONE);
+//        }
+        RelativeLayout admobbanner=  (RelativeLayout)findViewById(R.id.admobBanner);
         if(SharePrefData.getInstance().getIsAdmobFolderDoc().equals("true") && !SharePrefData.getInstance().getADS_PREFS()){
-            loadAdmobNativeAd();
-        }else if(SharePrefData.getInstance().getIsAdmobFolderDoc().equals("false") && !SharePrefData.getInstance().getADS_PREFS()){
+            admobbanner.setVisibility(View.VISIBLE);
+            BannerAds.Companion.loadAdmob(this,"large",admobbanner);
+            adlayout2.setVisibility(View.GONE);
+            adlayout.setBackground(null);
+        }else if (SharePrefData.getInstance().getIsAdmobFolderDoc().equals("false") && !SharePrefData.getInstance().getADS_PREFS()) {
+            admobbanner.setVisibility(View.GONE);
             loadNativeAd();
-        }else{
-            admobNativeView.setVisibility(View.GONE);
+        } else {
             nativeAdContainer.setVisibility(View.GONE);
             adlayout.setVisibility(View.GONE);
             adlayout2.setVisibility(View.GONE);
@@ -128,10 +145,10 @@ public class AllFilesInFolderActivity extends BaseActivity implements View.OnCli
 
     @Override
     public void onClick(View view) {
-        /*if (view.getId() == R.id.importFilesBtn) {
+        if (view.getId() == R.id.importFilesBtn) {
             Intent intent = fileUtils.getMultipleFileChooser();
             startActivityForResult(intent, mFileSelectCode);
-        } else*/ if (view.getId() == R.id.filterTv) {
+        } else if (view.getId() == R.id.filterTv) {
             showSortMenu();
         }
     }
@@ -206,8 +223,12 @@ public class AllFilesInFolderActivity extends BaseActivity implements View.OnCli
                     allFilesRecycler.setAdapter(adapter);
                     noFileLayout.setVisibility(View.GONE);
 
-                } else
-                    adapter.refreshArray(moveFile);
+
+                } else {
+//                    adapter.refreshArray(moveFile);
+                    getFiles();
+                }
+
                 StringUtils.getInstance().showSnackbar(AllFilesInFolderActivity.this, "File imported");
             } else {
                 StringUtils.getInstance().showSnackbar(AllFilesInFolderActivity.this, "File not imported");
@@ -237,6 +258,8 @@ public class AllFilesInFolderActivity extends BaseActivity implements View.OnCli
     }
 
     private void getFiles() {
+        fileInfoModelArrayList.clear();
+        mDirectoryUtils.clearFilterArray();
         ArrayList<File> arrayList = mDirectoryUtils.searchDir(folderFile);
         Log.d("count", arrayList.size() + "");
         if (arrayList.size() > 0) {

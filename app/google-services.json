@@ -1,42 +1,33 @@
 {
   "project_info": {
-    "project_number": "971530188455",
-    "firebase_url": "https://social-app-6f312.firebaseio.com",
-    "project_id": "social-app-6f312",
-    "storage_bucket": "social-app-6f312.appspot.com"
+    "project_number": "831842088167",
+    "project_id": "doc-scanner-3e6d9",
+    "storage_bucket": "doc-scanner-3e6d9.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:971530188455:android:b5eee55ad486c07e060d82",
+        "mobilesdk_app_id": "1:831842088167:android:56462bfba82794e785de42",
         "android_client_info": {
-          "package_name": "me.sid.smartcropper"
+          "package_name": "com.document.scanner.fast.scan.pdf.create.pdf.editor"
         }
       },
       "oauth_client": [
         {
-          "client_id": "971530188455-3hpl031dck4dfqcih0khjf9sgb4i7ks2.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "me.sid.smartcropper",
-            "certificate_hash": "2709626b974c1359291fd653fbc59230748acbc7"
-          }
-        },
-        {
-          "client_id": "971530188455-aefdlflmu9kk3a4hpnq17qbiamgriven.apps.googleusercontent.com",
+          "client_id": "831842088167-omftotp3sc9j3m0qla6019h99t8bn87p.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyD3Hifcd6AI5gYrXQIPbSKlR-xgp9iUhLo"
+          "current_key": "AIzaSyC2uNf0DSC6M4rg8TrkIID1ZJKW8ZSq3_o"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "971530188455-aefdlflmu9kk3a4hpnq17qbiamgriven.apps.googleusercontent.com",
+              "client_id": "831842088167-omftotp3sc9j3m0qla6019h99t8bn87p.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
